@@ -45,7 +45,7 @@
             <p class="title">Odjavi se </p>
         </div>
 
-        <div class="column-container" style="overflow-y: scroll;">
+        <div class="column-container" *ngIf="selectedMenu == 'Childeren'" style="overflow-y: scroll;">
            <app-children>
             
            </app-children>
