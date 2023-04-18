@@ -12,14 +12,16 @@ import { GroupsService } from './groups/groups.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ChildrenComponent
+    ChildrenComponent,
+    GroupsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [
-    ChildrenService
+    ChildrenService,
+    GroupsService
   ],
   bootstrap: [AppComponent]
 })
