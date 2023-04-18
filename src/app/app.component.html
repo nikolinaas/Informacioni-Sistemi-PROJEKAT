@@ -50,7 +50,11 @@
             
            </app-children>
         </div>
-    
+        <div class="column-container" *ngIf="selectedMenu == 'Home'" style="overflow-y: scroll;">
+           <app-groups>
+
+           </app-group>
+         </div>
     </div>
 
 </div>
