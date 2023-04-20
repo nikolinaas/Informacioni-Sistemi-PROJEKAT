@@ -1,0 +1,26 @@
+.exit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-top: 7px;
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+.comment-input {
+    width: 100%;
+}
+
+.color-white {
+    background-color: white;
+}

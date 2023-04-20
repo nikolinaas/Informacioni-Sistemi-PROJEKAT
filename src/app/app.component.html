@@ -1,32 +1,39 @@
-<div>
 <div class="row-container">
     <div class="main-box" style="max-width: 210px;">
         <div class="side-menu-list">
             <img class="image" src="../assets/images/hand6.png" alt="logo">
             <ul class="menu-items">
-                <li class="top" (click)="goTo('Home')" [ngClass]="{'onActive': selectedMenu == 'Home'}"><i class="fa fa-home"> &nbsp; Vrtić</i></li>
-                <li (click)="goTo('Evidence')" [ngClass]="{'onActive': selectedMenu == 'Evidence'}"><i class="fa fa-check"> &nbsp; Evidentiranje prisustva</i></li>
-                <li (click)="goTo('Childeren')" [ngClass]="{'onActive': selectedMenu == 'Childeren'}"><i class="fa fa-search"> &nbsp; Pregled djece</i></li>
-                <li (click)="goTo('Educators')" [ngClass]="{'onActive': selectedMenu == 'Educators'}"><i class="fa fa-users"> &nbsp; Vaspitači</i></li>
-                <li (click)="goTo('Finance')" [ngClass]="{'onActive': selectedMenu == 'Finance'}"><i class="fa fa-dollar"> &nbsp; Finansije</i></li>
+                <li class="top" (click)="goTo('Home')" [ngClass]="{'onActive': selectedMenu == 'Home'}"><i
+                        class="fa fa-home"> &nbsp; Vrtić</i></li>
+                <li (click)="goTo('Evidence')" [ngClass]="{'onActive': selectedMenu == 'Evidence'}"><i
+                        class="fa fa-check"> &nbsp; Evidentiranje prisustva</i></li>
+                <li (click)="goTo('Childeren')" [ngClass]="{'onActive': selectedMenu == 'Childeren'}"><i
+                        class="fa fa-search"> &nbsp; Pregled djece</i></li>
+                <li (click)="goTo('Educators')" [ngClass]="{'onActive': selectedMenu == 'Educators'}"><i
+                        class="fa fa-users"> &nbsp; Vaspitači</i></li>
+                <li (click)="goTo('Finance')" [ngClass]="{'onActive': selectedMenu == 'Finance'}"><i
+                        class="fa fa-dollar"> &nbsp; Finansije</i></li>
 
-                <li style=" height: 100px; margin-top: 10px; position: absolute; bottom: 70px; left: 0; min-width: 260px; max-width: 210px;" class="bottom" (click)="goTo('User')" [ngClass]="{'onActive': selectedMenu == 'Profile'}"><i style="font-size: 70px; word-wrap: normal; text-align: center; margin-left: 20px;" class="fa fa-user"><br> <p style="font-size: 20px;">Ime korisnika</p></i></li>
-                <li style="position: absolute; bottom: 0; left: 0; min-width: 260px; max-width: 210px;" class="bottom" (click)="goTo('Logout')" [ngClass]="{'onActive': selectedMenu == 'Logout'}"><i style="text-align: center;" class="fa fa-dollar"> &nbsp; Odjavi se</i></li>
-
+                <li style=" height: 100px; margin-top: 10px; position: absolute; bottom: 70px; left: 0; min-width: 260px; max-width: 210px;"
+                    class="bottom" (click)="goTo('User')" [ngClass]="{'onActive': selectedMenu == 'Profile'}"><i
+                        style="font-size: 70px; word-wrap: normal; text-align: center; margin-left: 20px;"
+                        class="fa fa-user"><br>
+                        <p style="font-size: 20px;">Ime korisnika</p>
+                    </i></li>
+                <li style="position: absolute; bottom: 0; left: 0; min-width: 260px; max-width: 210px;" class="bottom"
+                    (click)="goTo('Logout')" [ngClass]="{'onActive': selectedMenu == 'Logout'}"><i
+                        style="text-align: center;" class="fa fa-dollar"> &nbsp; Odjavi se</i></li>
             </ul>
-            
         </div>
     </div>
-    
     <div class="column-container">
-    
         
-        <div class="tabs" *ngIf="selectedMenu == 'Home'">
-            <p class="title">Vrtić</p>
+        <div *ngIf="selectedMenu == 'Home'">
+            <app-home></app-home>
         </div>
 
         <div class="tabs" *ngIf="selectedMenu == 'Evidence'">
-           <p class="title">Evidentiranje prisustva</p>
+            <p class="title">Evidentiranje prisustva</p>
         </div>
 
         <div class="tabs" *ngIf="selectedMenu == 'Childeren'">
@@ -45,13 +52,12 @@
             <p class="title">Odjavi se </p>
         </div>
 
-        <div class="column-container" style="overflow-y: scroll;">
-           <app-children>
-            
-           </app-children>
-        </div>
-    
+        <!-- <div class="column-container" style="overflow-y: scroll;">
+            <app-children>
+
+            </app-children>
+        </div> -->
+
     </div>
 
 </div>
-
