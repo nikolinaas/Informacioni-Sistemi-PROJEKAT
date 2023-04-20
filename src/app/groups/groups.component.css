@@ -1,0 +1,19 @@
+.list-view{
+    list-style: none;
+    font-size: 18px;
+    padding: 10px;
+    
+}
+
+.list-view li{
+    padding: 10px;
+    margin: 5px;
+    text-align: left;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+}
+
+.list-view li:hover{
+    background-color: rgb(222, 199, 244);
+    border-radius: 5px;
+}

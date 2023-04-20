@@ -36,7 +36,7 @@ import { CommonModule } from '@angular/common';
     FormsModule,
   ],
   providers: [
-    ChildrenService
+    ChildrenService,
   ],
   bootstrap: [AppComponent]
 })
