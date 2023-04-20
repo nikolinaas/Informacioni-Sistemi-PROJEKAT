@@ -21,7 +21,7 @@
                         <p style="font-size: 20px;">Ime korisnika</p>
                     </i></li>
                 <li style="position: absolute; bottom: 0; left: 0; min-width: 260px; max-width: 210px;" class="bottom"
-                    (click)="goTo('Logout')" [ngClass]="{'onActive': selectedMenu == 'Logout'}"><i
+                    (click)="logOff()" [ngClass]="{'onActive': selectedMenu == 'Logout'}"><i
                         style="text-align: center;" class="fa fa-dollar"> &nbsp; Odjavi se</i></li>
             </ul>
         </div>
@@ -46,10 +46,6 @@
 
         <div class="tabs" *ngIf="selectedMenu == 'Finance'">
             <p class="title">Finansije </p>
-        </div>
-
-        <div class="tabs" *ngIf="selectedMenu == 'Logout'">
-            <p class="title">Odjavi se </p>
         </div>
 
         <!-- <div class="column-container" style="overflow-y: scroll;">

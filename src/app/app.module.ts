@@ -15,13 +15,15 @@ import { CreateGroupDialogComponent } from './home/create-group-dialog/create-gr
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { LogOffDialogComponent } from './log-off-dialog/log-off-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChildrenComponent,
     HomeComponent,
-    CreateGroupDialogComponent, 
+    CreateGroupDialogComponent,
+    LogOffDialogComponent, 
   ],
   imports: [
     BrowserModule,

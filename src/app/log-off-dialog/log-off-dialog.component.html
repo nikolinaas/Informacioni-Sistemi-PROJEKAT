@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Odjava</h1>
+<button mat-icon-button class="exit-button" (click)="closeDialog()">
+    <fa-icon [icon]="faRemove"></fa-icon>
+</button>
+<div mat-dialog-content>
+    Da li želite da se odjavite sa aplikacije?
+</div>
+<div mat-dialog-actions>
+    <button mat-button color="primary" (click)="redirectToLogin()" class="width-100">Da</button>
+    <button mat-button color="primary" (click)="closeDialog()" class="width-100">Ne</button>
+</div>

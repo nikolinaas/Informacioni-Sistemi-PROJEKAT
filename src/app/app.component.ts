@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CreateGroupDialogComponent } from './home/create-group-dialog/create-group-dialog.component';
+import { LogOffDialogComponent } from './log-off-dialog/log-off-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -14,5 +16,12 @@ export class AppComponent {
 
   goTo(paramText: string) {
     this.selectedMenu = paramText;
+  }
+
+  logOff() {
+    this.dialog
+      .open(LogOffDialogComponent, {
+        width: '400px',
+      })
   }
 }
