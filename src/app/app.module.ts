@@ -13,9 +13,29 @@ import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CreateGroupDialogComponent } from './home/create-group-dialog/create-group-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule, DatePipe } from '@angular/common';
 import { LogOffDialogComponent } from './log-off-dialog/log-off-dialog.component';
+import { EvidenceComponent } from './evidence/evidence.component';
+import { ArrivalDepartureTimeComponent } from './evidence/arrival-departure-time/arrival-departure-time.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { DeleteGroupDialogComponent } from './home/delete-group-dialog/delete-group-dialog.component';
+import { ShowKindergartenInfoComponent } from './show-kindergarten-info/show-kindergarten-info.component';
+
+const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD MMMM YYYY',
+  },
+  display: {
+    dateInput: 'DD MMMM YYYY',
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -23,7 +43,11 @@ import { LogOffDialogComponent } from './log-off-dialog/log-off-dialog.component
     ChildrenComponent,
     HomeComponent,
     CreateGroupDialogComponent,
-    LogOffDialogComponent, 
+    LogOffDialogComponent,
+    EvidenceComponent,
+    ArrivalDepartureTimeComponent,
+    DeleteGroupDialogComponent,
+    ShowKindergartenInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,10 +60,16 @@ import { LogOffDialogComponent } from './log-off-dialog/log-off-dialog.component
     FontAwesomeModule,
     MatDialogModule,
     FormsModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [
     ChildrenService,
+    DatePipe,
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,17 @@
+.exit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-top: 7px;
+}
+
+.height-65 {
+    height: 65px;
+}
+
+.mat-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

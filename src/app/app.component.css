@@ -76,10 +76,10 @@
 
 
 
-img{
+/* img{
     width: 150px;
     margin: 20px;
-}
+} */
 
 .tabs{
     display: flex;
@@ -97,4 +97,20 @@ img{
 }
 .title{
     margin-left: 20px;
+}
+
+.logo-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-button {
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
 }

@@ -1,0 +1,41 @@
+.header-info {
+    background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    padding-bottom: 20px
+}
+
+.exit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-top: 7px;
+    color: white;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 100px auto;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.save-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mat-button-rounded {
+    border-radius: 25px;
+    font-size: 15px;
+    width: 100%;
+    max-width: 200px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+
+  

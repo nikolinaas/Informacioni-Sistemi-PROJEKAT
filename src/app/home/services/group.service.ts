@@ -8,17 +8,19 @@ export class GroupService {
 
   constructor(private http: HttpClient) { }
 
+  private groupURL = 'http://localhost:8080/Server/api/groups';
+
   getGroups() {
     return this.http.get(
-      `http://localhost:8080/Server/api/groups`
+      `${this.groupURL}`
     );
   }
 
-  createGroup(groupName: string) {
-    return this.http.post(`http://localhost:8080/Server/api/groups/${groupName}`, null, {observe: 'response'});
+  createGroup(group: any) {
+    return this.http.post(`${this.groupURL}`, group, {observe: 'response'});
   }
 
   deleteGroup(id?: number) {
-    return this.http.put(`http://localhost:8080/Server/api/groups/${id}/delete`, {observe: 'response'});
+    return this.http.delete(`${this.groupURL}/${id}`, {observe: 'response'});
   }
 }

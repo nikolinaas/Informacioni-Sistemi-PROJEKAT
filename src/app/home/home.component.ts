@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { GroupService } from './services/group.service';
 import { Group } from '../model/group.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { faRemove } from '@fortawesome/free-solid-svg-icons';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CreateGroupDialogComponent } from './create-group-dialog/create-group-dialog.component';
-import { faAdd } from '@fortawesome/free-solid-svg-icons';
+import { DeleteGroupDialogComponent } from './delete-group-dialog/delete-group-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +13,6 @@ import { faAdd } from '@fortawesome/free-solid-svg-icons';
 })
 export class HomeComponent {
   private _groups?: Group[];
-
-  faRemove = faRemove;
-  faAdd = faAdd;
 
   constructor(
     private groupService: GroupService,
@@ -56,21 +52,21 @@ export class HomeComponent {
         }
       );
     } else {
-      this.groupService.deleteGroup(groupId).subscribe((response: any) => {
-        if(response.status == 200){
-          this.snackBar.open('Uspjesno ste obrisali grupu grupu', undefined, {
-            duration: 2000,
-          });
+      this.dialog
+        .open(DeleteGroupDialogComponent, {
+          width: '400px',
+          data: { id: groupId, name: group.name },
+        })
+        .afterClosed()
+        .subscribe(() => {
           this.getGroups();
-        }
-      });
+        });
     }
   }
 
   showGroupDetails(id?: number) {
     //TODO KADA SE PRITISNE NA ODGOVARAJUCU GRUPU TREBA DA SE PRIKAZU PODACI O TOJ GRUPI
     // DAKLE VRSI SE REDIREKCIJA NA TU STRANICU
-    console.log('PRIKAZUJEM PODATKE O GRUPI, CIJI JE id: ' + id);
   }
 
   get groups() {

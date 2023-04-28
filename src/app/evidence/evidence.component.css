@@ -1,0 +1,87 @@
+.column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: #f7f7f7;
+}
+
+.tabs {
+    display: flex;
+    margin-top: 30px;
+    height: 100px;
+    background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
+    text-align: left;
+    font-size: 26px;
+    align-items: center;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.title {
+    margin-left: 20px;
+}
+
+.mat-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 230px);
+}
+
+.group-scroll {
+    overflow-y: auto;
+    height: calc(100vh - 230px);
+}
+
+.group-section {
+    background-color: #f7f7f7;
+}
+
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.comment-card {
+    margin-bottom: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    height: 90px;
+    cursor: pointer;
+}
+
+.comment-card:hover {
+    background-color: #ddd;
+}
+
+.font-size-20 {
+    font-size: 20px;
+}
+
+.checkbox-container {
+    position: absolute;
+    right: 0;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+
+.before-search {
+    height: 20px;
+    background-color: whitesmoke;
+}
+
+.search-bar {
+    padding-left: 16px;
+    padding-right: 30px;
+    background-color: whitesmoke;
+}
+
+::ng-deep .search-bar div:first-child {
+    background-color: white;
+}
+
+  

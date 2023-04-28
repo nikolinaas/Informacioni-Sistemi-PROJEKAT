@@ -1,0 +1,46 @@
+<h1 mat-dialog-title class="header-info">Prikaz informacija o vrtiću</h1>
+<button mat-icon-button class="exit-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-content>
+    <form [formGroup]="form">
+
+        <div class="form-row">
+            Grad:
+            <mat-form-field appearance="fill">
+                <input matInput type="text" formControlName="city" required autocomplete="off" />
+                <mat-error>{{ getErrorMessage('city') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Ulica:
+            <mat-form-field appearance="fill">
+                <input matInput type="text" formControlName="street" required autocomplete="off" />
+                <mat-error>{{ getErrorMessage('street') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Broj:
+            <mat-form-field appearance="fill">
+                <input matInput type="number" formControlName="number" required autocomplete="off" />
+                <mat-error>{{ getErrorMessage('number') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Broj telefona:
+            <mat-form-field appearance="fill">
+                <input matInput type="text" formControlName="phoneNumber" required autocomplete="off" />
+                <mat-error>{{ getErrorMessage('phoneNumber') }}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="save-button">
+            <button mat-raised-button color="primary" [disabled]="form.invalid" class="mat-button-rounded"
+                (click)="changeData()">
+                Sacuvaj
+            </button>
+        </div>
+    </form>
+</div>

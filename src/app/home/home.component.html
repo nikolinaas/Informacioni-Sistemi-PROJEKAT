@@ -2,7 +2,7 @@
     <div class="tabs">
         <p class="title">Vrtić</p>
         <button mat-raised-button class="create-button" (click)="createGroup()">
-            <fa-icon [icon]="faAdd"></fa-icon>
+            <mat-icon>add</mat-icon>
             Dodaj grupu
         </button>
     </div>
@@ -22,8 +22,8 @@
                         </mat-card-header>
                         <button mat-raised-button class="remove-button"
                             (click)="$event.stopPropagation(); deleteGroup(group.id)">
-                                <fa-icon [icon]="faRemove"></fa-icon>
-                                Ukloni
+                            <mat-icon>close</mat-icon>
+                            Ukloni
                         </button>
                     </mat-card>
                 </ng-container>
