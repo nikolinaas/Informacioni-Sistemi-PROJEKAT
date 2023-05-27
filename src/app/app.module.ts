@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChildrenComponent } from './children/children.component';
@@ -24,6 +23,7 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { DeleteGroupDialogComponent } from './home/delete-group-dialog/delete-group-dialog.component';
 import { ShowKindergartenInfoComponent } from './show-kindergarten-info/show-kindergarten-info.component';
+import { GroupComponent } from './group/group.component';
 
 const MY_FORMATS = {
   parse: {
@@ -48,6 +48,7 @@ const MY_FORMATS = {
     ArrivalDepartureTimeComponent,
     DeleteGroupDialogComponent,
     ShowKindergartenInfoComponent,
+    GroupComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 <div class="row-container">
+
     <div class="main-box" style="max-width: 210px;">
         <div class="side-menu-list">
             <div class="logo-image">
@@ -32,7 +33,10 @@
     <div class="column-container">
         
         <div *ngIf="selectedMenu == 'Home'">
-            <app-home></app-home>
+            <div class="container">
+                <router-outlet></router-outlet>
+              </div>
+           <!--  <app-home></app-home> -->
         </div>
 
         <div *ngIf="selectedMenu == 'Evidence'">

@@ -1,0 +1,118 @@
+.column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.tabs{
+    display: flex;
+    margin-top: 30px;
+    height: 100px;
+    background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
+    text-align: left;
+    font-size: 26px;
+    align-items: center;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.title{
+    margin-left: 20px;
+}
+
+.edit-button {
+    position: absolute;
+    right: 0;
+    font-size: 18px;
+    background-color: #9f9f53 !important;
+    margin-right: 20px;
+    height: 40px;
+    color: white !important;
+}
+
+.before-group {
+    height: 10px;
+    background-color: whitesmoke;
+}
+
+.mat-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 140px);
+}
+
+.group-scroll {
+    overflow-y: auto;
+    height: calc(100vh - 140px);
+}
+
+.group-section {
+    background-color: #f7f7f7;
+}
+
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+}
+
+.comment-card {
+    margin-bottom: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    height: 90px;
+    cursor: pointer;
+}
+
+.comment-card:hover {
+    background-color: #ddd;
+}
+
+.font-size-25 {
+    font-size: 22px;
+}
+
+.number-of-members {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 25px;
+}
+
+.remove-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 23px;
+    width: 150px;
+    margin-right: 20px;
+    height: 40px;
+    background-color: #9f9f53 !important;
+    color: white !important;
+}
+
+.button-delete-container {
+    height: 40px;
+    font-size: 18px;
+    width: 120px;
+}
+
+.remove-icon {
+    position: absolute;
+    left: 0;
+    margin-top: 6px;
+}
+
+.delete-title {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
