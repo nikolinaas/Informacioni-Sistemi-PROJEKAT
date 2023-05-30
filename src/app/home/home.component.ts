@@ -3,8 +3,10 @@ import { GroupService } from './services/group.service';
 import { Group } from '../model/group.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { CreateGroupDialogComponent } from './create-group-dialog/create-group-dialog.component';
 import { DeleteGroupDialogComponent } from './delete-group-dialog/delete-group-dialog.component';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +17,8 @@ export class HomeComponent {
   private _groups?: Group[];
 
   constructor(
+    private router: Router ,
+    
     private groupService: GroupService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
@@ -64,9 +68,10 @@ export class HomeComponent {
     }
   }
 
-  showGroupDetails(id?: number) {
+  showGroupDetails(id?:number) {
     //TODO KADA SE PRITISNE NA ODGOVARAJUCU GRUPU TREBA DA SE PRIKAZU PODACI O TOJ GRUPI
     // DAKLE VRSI SE REDIREKCIJA NA TU STRANICU
+  this.router.navigate(['group']);
   }
 
   get groups() {
