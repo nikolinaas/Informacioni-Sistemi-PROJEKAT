@@ -19,7 +19,7 @@
                     <mat-card class="comment-card" (click)="showChildEvidence(child.id)">
                         <mat-card-header class="comment-header">
                             <mat-card-title class="font-size-20">{{ child.name }} {{ child.surname }}</mat-card-title>
-                            <mat-card-subtitle class="number-of-members">Ime oca: {{
+                            <mat-card-subtitle class="number-of-members">Ime roditelja:{{
                                 child.fatherName}}</mat-card-subtitle>
                         </mat-card-header>
                         <mat-checkbox [(ngModel)]="child.isHere" class="checkbox-container"

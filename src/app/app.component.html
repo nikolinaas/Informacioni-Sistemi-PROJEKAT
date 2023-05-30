@@ -6,19 +6,19 @@
                 <mat-icon class="info-button" (click)="showInfo()">info</mat-icon>
             </div>
             <ul class="menu-items">
-                <li class="top" (click)="goTo('Home')" [ngClass]="{'onActive': selectedMenu == 'Home'}"><i
+                <li class="top" (click)="goTo('home')" [ngClass]="{'onActive': selectedMenu == 'home'}"><i
                         class="fa fa-home"> &nbsp; Vrtić</i></li>
-                <li (click)="goTo('Evidence')" [ngClass]="{'onActive': selectedMenu == 'Evidence'}"><i
+                <li (click)="goTo('evidence')" [ngClass]="{'onActive': selectedMenu == 'evidence'}"><i
                         class="fa fa-check"> &nbsp; Evidentiranje prisustva</i></li>
-                <li (click)="goTo('Childeren')" [ngClass]="{'onActive': selectedMenu == 'Childeren'}"><i
+                <li (click)="goTo('children')" [ngClass]="{'onActive': selectedMenu == 'children'}"><i
                         class="fa fa-search"> &nbsp; Pregled djece</i></li>
-                <li (click)="goTo('Educators')" [ngClass]="{'onActive': selectedMenu == 'Educators'}"><i
+                <li (click)="goTo('educators')" [ngClass]="{'onActive': selectedMenu == 'educators'}"><i
                         class="fa fa-users"> &nbsp; Vaspitači</i></li>
-                <li (click)="goTo('Finance')" [ngClass]="{'onActive': selectedMenu == 'Finance'}"><i
+                <li (click)="goTo('finance')" [ngClass]="{'onActive': selectedMenu == 'finance'}"><i
                         class="fa fa-dollar"> &nbsp; Finansije</i></li>
 
                 <li style=" height: 100px; margin-top: 10px; position: absolute; bottom: 70px; left: 0; min-width: 260px; max-width: 210px;"
-                    class="bottom" (click)="goTo('User')" [ngClass]="{'onActive': selectedMenu == 'Profile'}"><i
+                    class="bottom" (click)="goTo('user')" [ngClass]="{'onActive': selectedMenu == 'Profile'}"><i
                         style="font-size: 70px; word-wrap: normal; text-align: center; margin-left: 20px;"
                         class="fa fa-user"><br>
                         <p style="font-size: 20px;">Ime korisnika</p>
@@ -29,33 +29,8 @@
             </ul>
         </div>
     </div>
-    <div class="column-container">
-        
-        <div *ngIf="selectedMenu == 'Home'">
-            <app-home></app-home>
-        </div>
-
-        <div *ngIf="selectedMenu == 'Evidence'">
-            <app-evidence></app-evidence>
-        </div>
-
-        <div class="tabs" *ngIf="selectedMenu == 'Childeren'">
-            <p class="title">Pregled djece</p>
-        </div>
-
-        <div class="tabs" *ngIf="selectedMenu == 'Educators'">
-            <p class="title">Vaspitači </p>
-        </div>
-
-        <div class="tabs" *ngIf="selectedMenu == 'Finance'">
-            <p class="title">Finansije </p>
-        </div>
-
-        <!-- <div class="column-container" style="overflow-y: scroll;">
-            <app-children>
-
-            </app-children>
-        </div> -->
+    <div class="column-container">  
+        <router-outlet></router-outlet>
     </div>
 
 </div>

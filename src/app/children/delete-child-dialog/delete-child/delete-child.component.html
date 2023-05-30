@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Brisanje evidencije o djejtetu</h1>
+<button mat-icon-button class="exit-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-content>
+    Da li želite da obrišete podatke o djetetu '{{ data.name+ " " +data.surname }}'?
+</div>
+<div mat-dialog-actions>
+    <button mat-button color="primary" (click)="deleteChild()" class="width-100">Da</button>
+    <button mat-button color="primary" (click)="closeDialog()" class="width-100">Ne</button>
+</div>

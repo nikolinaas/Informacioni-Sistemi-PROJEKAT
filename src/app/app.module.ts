@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChildrenComponent } from './children/children.component';
-import { ChildrenService } from './children/children.service';
 import { HomeComponent } from './home/home.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +23,9 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { DeleteGroupDialogComponent } from './home/delete-group-dialog/delete-group-dialog.component';
 import { ShowKindergartenInfoComponent } from './show-kindergarten-info/show-kindergarten-info.component';
+import { DeleteChildComponent } from './children/delete-child-dialog/delete-child/delete-child.component';
+import { CreateChildComponent } from './children/create-child-dialog/create-child/create-child.component';
+import { EditChildComponent } from './children/edit-child/edit-child/edit-child.component';
 
 const MY_FORMATS = {
   parse: {
@@ -48,6 +50,9 @@ const MY_FORMATS = {
     ArrivalDepartureTimeComponent,
     DeleteGroupDialogComponent,
     ShowKindergartenInfoComponent,
+    DeleteChildComponent,
+    CreateChildComponent,
+    EditChildComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +71,6 @@ const MY_FORMATS = {
     ReactiveFormsModule
   ],
   providers: [
-    ChildrenService,
     DatePipe,
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],

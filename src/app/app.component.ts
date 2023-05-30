@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LogOffDialogComponent } from './log-off-dialog/log-off-dialog.component';
 import { ShowKindergartenInfoComponent } from './show-kindergarten-info/show-kindergarten-info.component';
 import { KindergartenService } from './show-kindergarten-info/services/kindergarten.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,11 @@ import { KindergartenService } from './show-kindergarten-info/services/kindergar
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'vjezba1';
+  title = 'e-Vrtic';
   selectedMenu: any = 'Home';
 
   constructor(
+    private router: Router,
     private dialog: MatDialog,
     private kindergartenService: KindergartenService
   ) {
@@ -21,7 +23,7 @@ export class AppComponent {
   }
 
   goTo(paramText: string) {
-    this.selectedMenu = paramText;
+    this.router.navigate([paramText]);
   }
 
   logOff() {
@@ -35,4 +37,6 @@ export class AppComponent {
       width: '400px',
     });
   }
+
+
 }
