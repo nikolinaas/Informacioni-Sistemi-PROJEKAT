@@ -25,7 +25,8 @@ export class ChildrenComponent {
 
   name = 'john';
   
-  constructor(private childrenService: ChildrenService,
+  constructor(
+    private childrenService: ChildrenService,
     private router: Router ,
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
@@ -45,7 +46,7 @@ export class ChildrenComponent {
   }
 
   showChildDetails(id?: number) {
-    this.router.navigate(['edit']);
+    this.router.navigate(['edit', id]);
   }
   
 
@@ -56,7 +57,7 @@ export class ChildrenComponent {
     this.dialog
       .open(DeleteChildComponent, {
         width: '400px',
-        data: { id: id, name: ch?.name },
+        data: { id: id, name: ch?.name, surname:ch?.surname },
       })
       .afterClosed()
       .subscribe(() => {

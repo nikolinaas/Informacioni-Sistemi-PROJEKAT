@@ -18,30 +18,28 @@ const moment = _moment;
 export class CreateChildComponent {
 
   date = moment();
-
   public form: FormGroup = new FormGroup({});
   private _dateToShow?: string;
   private _dateToFind?: string;
-
   child: any = {
-    name: undefined, 
-    surname: undefined, 
-    uid: undefined, 
-    dateOfBirth: undefined, 
-    motherName: undefined, 
-    fatherName: undefined, 
-    motherPhoneNumber: undefined, 
-    fatherPhoneNumber: undefined, 
-    height: undefined, 
-    weight: undefined,
-    note: undefined,
-    city: undefined,
-    street: undefined,
-    number: undefined,
-    id: undefined,
-    isHere: undefined,
-    arrivalAndDepartureTime: undefined,
-    medicalClearance: undefined
+    name: '', 
+    surname: '', 
+    uid: '', 
+    dateOfBirth: '', 
+    motherName: '', 
+    fatherName: '', 
+    motherPhoneNumber: '', 
+    fatherPhoneNumber: '', 
+    height: '', 
+    weight: '',
+    note: '',
+    city: '',
+    street: '',
+    number: '',
+    id: '',
+    isHere: '',
+    arrivalAndDepartureTime: '',
+    medicalClearance: ''
   };
 
   constructor(
@@ -67,12 +65,6 @@ export class CreateChildComponent {
   createChild() {
     if (this.child.name !='' || this.child.surname !='') {
       const date: string='';
-      var array = new Uint8Array(5);
-      array[0]=1;
-      array[1]=1;
-      array[2]=1;
-      array[3]=1;
-      array[4]=1;
       const data = {
         name: this.child.name,
         surname: this.child.surname,
@@ -86,14 +78,14 @@ export class CreateChildComponent {
         weight: this.child.weight+'',
         note: { description: this.child.note},
         address: {city: this.child.city, street: this.child.street, number: (this.child.number+'')},
-        medicalClearance: [array[0], array[1], array[2], array[3]]
+        medicalClearance: this.byteArray
         
       };
-      console.log(this.child.dateOfBirth);
+      console.log(data.medicalClearance);
       this.childrenService.createChild(data).subscribe(
         (response: any) => {
           if (response.status == 201) {
-            this.snackBar.open('Uspjesno ste kreirali dijete ', undefined, {
+            this.snackBar.open('Uspjesno ste kreirali dijete ', '', {
               duration: 2000,
             });
             this.dialogRef.close(true);
@@ -102,7 +94,7 @@ export class CreateChildComponent {
         () => {
           this.snackBar.open(
             'Nije moguće kreirati dijete!'+date,
-            undefined,
+            '',
             {
               duration: 2000,
             }
@@ -112,7 +104,29 @@ export class CreateChildComponent {
     }
   }
 
-  
+  selectedFile: File | undefined;
+  byteArray: any | undefined;
 
-  
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    this.selectedFile=file;
+    if (file) {
+      console.log(file);
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const arrayBuffer = reader.result as ArrayBuffer;
+        const uint8Array = new Uint8Array(arrayBuffer);
+        this.byteArray = Array.from(uint8Array);
+      };
+      reader.readAsArrayBuffer(file);
+      console.log(this.byteArray);
+    }
+  }
+
+  openFileChooser() {
+    const fileInput: HTMLElement = document.querySelector('input[type="file"]') as HTMLElement;
+    fileInput.click();
+  }
+
 }

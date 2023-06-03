@@ -1,9 +1,9 @@
 <div class="column-container">
     <div class="tabs">
-        <p class="title">Podaci o djetetu</p>
-        <button mat-raised-button class="create-button" (click)="enableEdit()">
+        <p class="title">Podaci o prijavljenom korisniku</p>
+        <button mat-raised-button class="create-button" (click)="changeCredentials()">
             <mat-icon>edit</mat-icon>
-            Izmjeni
+            Izmjena kredencijala
         </button>
     </div>
     <div class="before-search"></div>
@@ -43,38 +43,6 @@
                 </div>
 
                 <div class="form-row">
-                    Ime majke:
-                    <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="motherName" required autocomplete="off" readonly/>
-                        <mat-error>{{ getErrorMessage('surname') }}</mat-error>
-                    </mat-form-field>
-                </div>
-
-                <div class="form-row">
-                    Ime oca:
-                    <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="fatherName" required autocomplete="off" readonly/>
-                        <mat-error>{{ getErrorMessage('surname') }}</mat-error>
-                    </mat-form-field>
-                </div>
-
-                <div class="form-row">
-                    Broj telefona majke:
-                    <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="motherPhoneNumber" required autocomplete="off" readonly/>
-                        <mat-error>{{ getErrorMessage('surname') }}</mat-error>
-                    </mat-form-field>
-                </div>
-
-                <div class="form-row">
-                    Broj telefona oca:
-                    <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="fatherPhoneNumber" required autocomplete="off" readonly/>
-                        <mat-error>{{ getErrorMessage('surname') }}</mat-error>
-                    </mat-form-field>
-                </div>
-
-                <div class="form-row">
                     Grad:
                     <mat-form-field appearance="fill">
                         <input matInput type="text" formControlName="city" required autocomplete="off" readonly/>
@@ -97,33 +65,9 @@
                         <mat-error>{{ getErrorMessage('number') }}</mat-error>
                     </mat-form-field>
                 </div>
-
-                <div class="form-row">
-                    Visina:
-                    <mat-form-field appearance="fill">
-                        <input matInput type="number" formControlName="height" required autocomplete="off" readonly />
-                        <mat-error>{{ getErrorMessage('number') }}</mat-error>
-                    </mat-form-field>
-                </div>
-
-                <div class="form-row">
-                    Masa:
-                    <mat-form-field appearance="fill">
-                        <input matInput type="number" formControlName="weight" required autocomplete="off" readonly />
-                    </mat-form-field>
-                </div>
-
-                <div class="form-row">
-                    Napomena:
-                    <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="description" required autocomplete="off" readonly/>
-                        <mat-error>{{ getErrorMessage('number') }}</mat-error>
-                    </mat-form-field>
-                </div>
               
             </form>
 
-            <button mat-raised-button style="background-color: #2db0b0; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFile()">Pogledaj ljekarsko uvjerenje</button>
         </div>
     <div class="before-search"></div>
 </div>
