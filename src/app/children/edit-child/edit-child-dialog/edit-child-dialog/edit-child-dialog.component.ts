@@ -70,7 +70,6 @@ export class EditChildDialogComponent {
   }
 
   ngOnInit() { 
-    console.log(this.id);
     this.fillData();
   }
 
@@ -97,5 +96,40 @@ export class EditChildDialogComponent {
       this.form.patchValue(this.data.address);
       this.form.patchValue(this.data.note);                  
     });
+  }
+
+  selectedFile: File | undefined;
+  byteArray: any | undefined;
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    this.selectedFile=file;
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const arrayBuffer = reader.result as ArrayBuffer;
+        const uint8Array = new Uint8Array(arrayBuffer);
+        const byteArray = Array.from(uint8Array);
+        const fileJSON = {medicalClearance: byteArray};
+        console.log(fileJSON.medicalClearance);//
+        this.childrenService
+        .updateFile(fileJSON, this.id)
+        .subscribe((response: any) => {
+          this.snackBar.open(
+            'Uspješno ste ažurirali ljekarsko uvjerenje',
+            undefined,
+            {
+              duration: 2000,
+            }
+          );
+        });
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  }
+
+  openFileChooser() {
+    const fileInput: HTMLElement = document.querySelector('input[type="file"]') as HTMLElement;
+    fileInput.click();
   }
 }

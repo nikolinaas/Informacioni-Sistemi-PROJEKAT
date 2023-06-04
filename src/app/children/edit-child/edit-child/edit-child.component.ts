@@ -74,7 +74,7 @@ export class EditChildComponent {
   enableEdit(){
     this.dialog
       .open(EditChildDialogComponent, {
-        width: '400px',
+        width: '500px',
         data: this.id
       })
       .afterClosed()
@@ -82,10 +82,21 @@ export class EditChildComponent {
         this.fillData();
       });
   }
-
+  
   openFile(){
-    const data=this.childrenService.getFile(this.id);
-        console.log(data); //TODO potrebno rekonstruisati fajl
+    this.childrenService.getFile(this.id).subscribe((response: ArrayBuffer) => {
+      this.regenerateFile(response);
+    });
+  }
+
+  regenerateFile(byteArray: ArrayBuffer): void {
+    const blob = new Blob([byteArray], { type: 'application/octet-stream' });
+    const fileUrl = URL.createObjectURL(blob);
+  
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = this.data.name+'_ljekarsko.pdf';
+    link.click();
   }
 
 }

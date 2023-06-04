@@ -37,5 +37,16 @@
     margin-top: 10px;
 }
 
+.file-chooser{
+    height: 55px;
+    background-color: whitesmoke; 
+    border-bottom: solid 1px gray;
+}
+
+.file-chooser:hover{
+    background-color: rgb(227, 227, 227); 
+    border-bottom: solid 1px black;
+}
+
 
   

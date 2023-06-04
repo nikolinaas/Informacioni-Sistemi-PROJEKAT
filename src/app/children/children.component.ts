@@ -69,7 +69,7 @@ export class ChildrenComponent {
   createChild(){
     this.dialog
       .open(CreateChildComponent, {
-        width: '400px',
+        width: '500px',
       })
       .afterClosed()
       .subscribe(() => {

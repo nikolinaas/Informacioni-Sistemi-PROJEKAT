@@ -33,6 +33,10 @@ export class ChildrenService {
   }
 
   getFile(id?: number) {
-    return this.http.get(`${this.childrenURL}/${id}/medicalClearance`);
+    return this.http.get(`${this.childrenURL}/${id}/medicalClearance`, {responseType: 'arraybuffer'});
+  }
+
+  updateFile(medicalClearance:any, id?: number){
+    return this.http.put(`${this.childrenURL}/${id}/medicalClearance`, medicalClearance);
   }
 }

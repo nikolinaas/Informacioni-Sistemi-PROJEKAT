@@ -81,7 +81,7 @@ export class CreateChildComponent {
         medicalClearance: this.byteArray
         
       };
-      console.log(data.medicalClearance);
+      
       this.childrenService.createChild(data).subscribe(
         (response: any) => {
           if (response.status == 201) {
