@@ -28,6 +28,7 @@ import { EditChildComponent } from './children/edit-child/edit-child/edit-child.
 import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
 import { UserComponent } from './user/user/user.component';
 import { ChangeCredentialsComponent } from './user/change-credentials/change-credentials/change-credentials.component';
+import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
 
 const MY_FORMATS = {
   parse: {
@@ -58,6 +59,7 @@ const MY_FORMATS = {
     EditChildDialogComponent,
     UserComponent,
     ChangeCredentialsComponent,
+    SideNavBarComponent,
   ],
   imports: [
     BrowserModule,

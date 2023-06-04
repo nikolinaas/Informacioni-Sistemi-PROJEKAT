@@ -12,31 +12,5 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'e-Vrtic';
-  selectedMenu: any = 'Home';
-
-  constructor(
-    private router: Router,
-    private dialog: MatDialog,
-    private kindergartenService: KindergartenService
-  ) {
-    this.kindergartenService.getInfo();
-  }
-
-  goTo(paramText: string) {
-    this.router.navigate([paramText]);
-  }
-
-  logOff() {
-    this.dialog.open(LogOffDialogComponent, {
-      width: '400px',
-    });
-  }
-
-  showInfo() {
-    this.dialog.open(ShowKindergartenInfoComponent, {
-      width: '400px',
-    });
-  }
-
-
+ 
 }
