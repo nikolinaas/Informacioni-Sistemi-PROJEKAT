@@ -32,6 +32,12 @@ import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
 import { GroupComponent } from './home/group/group/group.component';
 import { ActivitiesComponent } from './home/group/group/activities/activities.component';
 import { ChangeGroupNameDialogComponent } from './home/group/group/change-group-name-dialog/change-group-name-dialog.component';
+import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
+import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
+import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
+import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
+import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
+
 
 const MY_FORMATS = {
   parse: {
@@ -65,7 +71,12 @@ const MY_FORMATS = {
     SideNavBarComponent,
     GroupComponent,
     ActivitiesComponent,
-    ChangeGroupNameDialogComponent
+    ChangeGroupNameDialogComponent,
+    FinanceComponentComponent,
+    MjesecniTroskoviComponent,
+    DugovanjaComponent,
+    CreateDialogComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,

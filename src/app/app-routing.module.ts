@@ -8,6 +8,11 @@ import { UserComponent } from './user/user/user.component';
 import { GroupComponent } from './home/group/group/group.component';
 import { Group } from './model/Group';
 import { ActivitiesComponent } from './home/group/group/activities/activities.component';
+import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
+import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
+import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
+import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
+import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
 
 const routes: Routes = [
   {path: 'home', component:HomeComponent },
@@ -16,7 +21,12 @@ const routes: Routes = [
   {path: 'edit/:id', component:EditChildComponent },
   {path: 'user', component:UserComponent }, //TODO treba dodati /:id gdje se id prosljedjuje prilikom logovanja, za sada je hardkodovan u komponenti 
   {path: 'group/:id', component: GroupComponent, data: {group : Group}},
-  {path: 'activity', component: ActivitiesComponent}
+  {path: 'activity', component: ActivitiesComponent},
+  {path: 'finance', component:FinanceComponentComponent},
+  {path: 'troskovi', component:MjesecniTroskoviComponent},
+  {path: 'dugovanja', component:DugovanjaComponent},
+  {path: 'dialog',component:CreateDialogComponent},
+  {path: 'deleteDialog', component:DeleteDialogComponent}
   ];
 
 @NgModule({
