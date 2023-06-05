@@ -71,7 +71,7 @@ export class HomeComponent {
   showGroupDetails(id?:number) {
     //TODO KADA SE PRITISNE NA ODGOVARAJUCU GRUPU TREBA DA SE PRIKAZU PODACI O TOJ GRUPI
     // DAKLE VRSI SE REDIREKCIJA NA TU STRANICU
-  this.router.navigate(['group']);
+    this.router.navigate(['group',id]);
   }
 
   get groups() {

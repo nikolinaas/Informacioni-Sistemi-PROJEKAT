@@ -1,0 +1,20 @@
+<h1 mat-dialog-title class="header-info">{{data.name}}</h1>
+<button mat-icon-button class="exit-button" (click)="closeDialog()" >
+    <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-content>
+    Unesite novi naziv grupe:
+</div>
+<div mat-dialog-content>
+        <form  class="column-container margin-bottom">
+            <mat-form-field class="color-white">
+                 <input matInput name="title" [(ngModel)]="group.title"  autocomplete="off"> 
+            </mat-form-field>
+            <div style="text-align: center;">
+                <button class="buttonSave" mat-raised-button color="primary" type="submit" (click)="saveButton()">
+                    <mat-icon>save</mat-icon>
+                    Sačuvaj
+                </button>
+            </div>
+        </form>
+</div> 

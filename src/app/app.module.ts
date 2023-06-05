@@ -29,6 +29,9 @@ import { EditChildDialogComponent } from './children/edit-child/edit-child-dialo
 import { UserComponent } from './user/user/user.component';
 import { ChangeCredentialsComponent } from './user/change-credentials/change-credentials/change-credentials.component';
 import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
+import { GroupComponent } from './home/group/group/group.component';
+import { ActivitiesComponent } from './home/group/group/activities/activities.component';
+import { ChangeGroupNameDialogComponent } from './home/group/group/change-group-name-dialog/change-group-name-dialog.component';
 
 const MY_FORMATS = {
   parse: {
@@ -60,6 +63,9 @@ const MY_FORMATS = {
     UserComponent,
     ChangeCredentialsComponent,
     SideNavBarComponent,
+    GroupComponent,
+    ActivitiesComponent,
+    ChangeGroupNameDialogComponent
   ],
   imports: [
     BrowserModule,
