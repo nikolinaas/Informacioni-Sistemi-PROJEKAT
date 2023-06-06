@@ -59,7 +59,7 @@ export class EducatorsComponent {
     createEducator(){
       this.dialog
       .open(CreateEducatorDialogComponent, {
-        width: '400px',
+        width: '500px',
       })
       .afterClosed()
       .subscribe(() => {
