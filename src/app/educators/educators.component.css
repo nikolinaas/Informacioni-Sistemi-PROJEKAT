@@ -44,7 +44,7 @@
 
 .group-scroll {
     overflow-y: auto;
-    height: calc(100vh - 140px);
+    height: calc(100vh - 230px);
 }
 
 .group-section {
