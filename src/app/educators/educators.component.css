@@ -2,11 +2,8 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    background-color: #f7f7f7;
 }
-.float-container1{
-    padding: 10px;
-}
+
 .tabs{
     display: flex;
     margin-top: 30px;
@@ -18,100 +15,42 @@
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.between-buttons{
-    height: 10px;
-}
-.group-of-buttons-form {
-    right: 0;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    position: absolute;
-    margin-right: 20px;
-    padding: 20px;
- }
-form button {
-    width: 200px;
-    padding: 10px;
-    margin: auto;
-    font-size: 18px;
-    background-color:  #2db0b0 !important;
-    color: white !important;
-  }
-.float-container {
-    overflow-y: auto;
-    height: calc(100vh - 230px);
-}
 
-.float-child {
-    width: 50%;
-    float: left;
-}  
 .title{
     margin-left: 20px;
 }
 
-.edit-button {
+.create-button {
     position: absolute;
     right: 0;
     font-size: 18px;
-    background-color: #9f9f53 !important;
+    background-color: #77238e !important;
     margin-right: 20px;
-    height: 40px;
+    height: 35px;
     color: white !important;
-    padding: 20px;
 }
-.add-button{
-    position: flex;
-    right: 0;
-    height: 40px;
-    font-size: 18px;
-    background-color:  #2db0b0 !important;
-    border-color: transparent;
-    border-style: dashed;
-    color: white !important;  
-    margin-right: 10px;
-}
-.title1{
-    text-align: left;
-}
-.before-search {
+
+.before-group {
     height: 10px;
     background-color: whitesmoke;
 }
-.before-padding1{
-    height: 10px;
-    background-color: whitesmoke;
-}
-.before-padding2{
-    height: 40px;
-    background-color: whitesmoke;
-}
- .mat-spinner {
+
+.mat-spinner {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(70vh - 140px);
-} 
+    height: calc(100vh - 140px);
+}
+
+.group-scroll {
+    overflow-y: auto;
+    height: calc(100vh - 140px);
+}
 
 .group-section {
     background-color: #f7f7f7;
 }
-.add-button{
-    align-content: right;
-}
-.activities-button{
-    position: absolute;
-    right: 0;
-    font-size: 18px;
-    background-color: #2db0b0 !important;
-    margin-right: 20px;
-    height: 40px;
-    color: white !important;
-    padding: 20px;
-}
+
 .comment-section {
     display: flex;
     flex-direction: column;
@@ -124,7 +63,7 @@ form button {
     width: 100%;
     background-color: white;
     border-radius: 8px;
-    height: 90px;
+    height: 60px;
     cursor: pointer;
 }
 
@@ -152,11 +91,12 @@ form button {
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 23px;
+    margin-top: 15px;
     width: 150px;
     margin-right: 20px;
-    height: 40px;
-    background-color:  #2db0b0 !important;
+    height: 30px;
+    background-color: #77238e !important;
+    border-radius: 10px;
     color: white !important;
 }
 
@@ -187,6 +127,4 @@ form button {
     padding-right: 30px;
     background-color: whitesmoke;
 }
-::ng-deep .search-bar div:first-child {
-    background-color: white;
-}
+

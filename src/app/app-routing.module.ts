@@ -13,6 +13,9 @@ import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.com
 import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
 import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
 import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
+import { EducatorsComponent } from './educators/educators.component';
+import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
+
 
 const routes: Routes = [
   {path: 'home', component:HomeComponent },
@@ -26,7 +29,9 @@ const routes: Routes = [
   {path: 'troskovi', component:MjesecniTroskoviComponent},
   {path: 'dugovanja', component:DugovanjaComponent},
   {path: 'dialog',component:CreateDialogComponent},
-  {path: 'deleteDialog', component:DeleteDialogComponent}
+  {path: 'deleteDialog', component:DeleteDialogComponent},
+  {path: 'educators' , component:EducatorsComponent},
+  {path: 'view/:id', component:ViewEducatorComponent }
   ];
 
 @NgModule({

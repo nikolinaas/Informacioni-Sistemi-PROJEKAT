@@ -39,7 +39,11 @@ import { CreateDialogComponent } from './finance/create-dialog/create-dialog.com
 import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
 import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
 import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
-
+import { EducatorsComponent } from './educators/educators.component';
+import { CreateEducatorDialogComponent } from './educators/create-educator-dialog/create-educator-dialog.component';
+import { DeleteEducatorDialogComponent } from './educators/delete-educator-dialog/delete-educator-dialog.component';
+import { EditEducatorComponent } from './educators/view-edit-educator/edit-educator/edit-educator.component';
+import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
 
 const MY_FORMATS = {
   parse: {
@@ -80,7 +84,12 @@ const MY_FORMATS = {
     CreateDialogComponent,
     DeleteDialogComponent,
     AddChildDialogComponent,
-    AddEducatorDialogComponent
+    AddEducatorDialogComponent,
+    EducatorsComponent,
+    CreateEducatorDialogComponent,
+    DeleteEducatorDialogComponent,
+    EditEducatorComponent,
+    ViewEducatorComponent
   ],
   imports: [
     BrowserModule,
