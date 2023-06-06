@@ -45,6 +45,9 @@ export class GroupComponent {
     });
   }
 
+  addChildClick(){
+    
+  }
   removeEducator(item: any) {
 
     this.groupService.deleteEducatorFromGroup(this.group.id, item.id).subscribe(
