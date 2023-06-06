@@ -37,6 +37,8 @@ import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-
 import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
 import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
 import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
+import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
+import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
 
 
 const MY_FORMATS = {
@@ -77,6 +79,8 @@ const MY_FORMATS = {
     DugovanjaComponent,
     CreateDialogComponent,
     DeleteDialogComponent,
+    AddChildDialogComponent,
+    AddEducatorDialogComponent
   ],
   imports: [
     BrowserModule,

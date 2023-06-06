@@ -40,8 +40,11 @@ form button {
   }
 .float-container {
     padding: 20px;
+    
 }
-
+.mainContainer{
+    height: calc(100vh - 140px);
+}
 .float-child {
     width: 50%;
     float: left;
@@ -94,8 +97,7 @@ form button {
 } 
 
 .group-scroll {
-    overflow-y: auto;
-    height: calc((120vh - 140px)/2);
+    overflow-y: auto;   
 }
 
 .group-section {
