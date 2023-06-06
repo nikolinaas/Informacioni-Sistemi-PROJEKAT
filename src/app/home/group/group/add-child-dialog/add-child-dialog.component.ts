@@ -20,6 +20,7 @@ export class AddChildDialogComponent {
     private dialogRef: MatDialogRef<ChangeGroupNameDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private childService:ChildService,
+    private groupService:GroupService,
     private snackBar:MatSnackBar){}
 
     closeWindow(){
@@ -35,6 +36,22 @@ ngOnInit(){
         this._children=children;
   
       });
+    }
+
+    setChildAdded(child:any){
+      this.groupService.addChildInGroup(this.data.id,child).subscribe((response:any) => {
+
+        if(response.status  == 404){
+          this.snackBar.open(
+            'Nije moguće dodati dijete,  jer vec pripada nekoj grupi',
+            undefined,
+            {
+              duration: 2000,
+            }
+          );
+        }
+        }
+      );
     }
 
     get children(){

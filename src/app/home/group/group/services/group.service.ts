@@ -32,4 +32,7 @@ export class GroupService {
     return this.http.delete(`${this.groupURL+groupId+'/educator/'+educatorId}`);
   }
   
+  addChildInGroup(groupId:any, child:any){
+    return this.http.post(`${this.groupURL+groupId+'/child/'+child.id}`,child);
+  }
 }

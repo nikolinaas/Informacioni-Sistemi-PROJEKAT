@@ -20,7 +20,9 @@
                         <mat-card-header class="comment-header">
                             <mat-card-title class="font-size-18">{{child.name}} {{child.surname}}</mat-card-title>
                         </mat-card-header>
-                        <mat-checkbox  class="checkbox-container"></mat-checkbox>
+                        <mat-checkbox  class="checkbox-container"  (click)="$event.stopPropagation(); setChildAdded(child)">
+                           
+                        </mat-checkbox>
                     </mat-card>
                 </ng-container>
             </div>

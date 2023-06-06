@@ -16,4 +16,8 @@ export class ChildService {
       `${this.groupURL}`
     );
   }
+
+  addChildInGroup(){
+    
+  }
 }
