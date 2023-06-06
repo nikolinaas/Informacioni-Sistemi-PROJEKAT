@@ -24,4 +24,10 @@ export class GroupService {
     return this.http.put(`${this.groupURL+id}`,group);
   }
   
+  deleteChildFromGroup(groupId:any, childId:any){
+    return this.http.delete(`${this.groupURL+groupId+'/child/'+childId}`);
+  }
+  deleteEducatorFromGroup(groupId:any, educatorId:any){
+    return this.http.delete(`${this.groupURL+groupId+'/educator/'+educatorId}`);
+  }
 }

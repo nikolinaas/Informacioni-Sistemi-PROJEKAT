@@ -4,8 +4,11 @@ import { GroupService } from './services/group.service';
 import { Group } from 'src/app/model/group.model';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ChangeGroupNameDialogComponent } from './change-group-name-dialog/change-group-name-dialog.component';
+import { DialogRef } from '@angular/cdk/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddChildDialogComponent } from './add-child-dialog/add-child-dialog.component';
 
 @Component({
   selector: 'app-group',
@@ -17,7 +20,6 @@ export class GroupComponent {
 
   id?: string;
   group?: any;
- private _educatorsInGroup?: any[];
   private groupService: GroupService;
   searchText: String = '';
   groupName: String = '';
@@ -31,7 +33,7 @@ export class GroupComponent {
     }
   }
   constructor(gs: GroupService, private route: ActivatedRoute, private dialog: MatDialog,
-    private router: Router) {
+    private router: Router, private snackBar: MatSnackBar) {
     this.groupService = gs;
   }
 
@@ -43,6 +45,56 @@ export class GroupComponent {
     });
   }
 
+  removeEducator(item: any) {
+
+    this.groupService.deleteEducatorFromGroup(this.group.id, item.id).subscribe(
+      (response: any) => {
+
+        if (response.status == 200) {    //ne radi nesto response status
+
+          this.snackBar.open('Uspjesno ste vaspitača dijete iz grupe', undefined, {
+            duration: 2000,
+          });
+
+        }
+      }
+    )
+  }
+  removeChild(item: any) {
+    this.groupService.deleteChildFromGroup(this.group.id, item.id).subscribe(
+      (response: any) => {
+
+        if (response.status == 200) {    //ne radi nesto response status
+
+          this.snackBar.open('Uspjesno ste obrisali dijete iz grupe', undefined, {
+            duration: 2000,
+          });
+
+        }
+      }
+    )
+  }
+
+  addChildInGroup(){
+
+    this.dialog
+      .open(AddChildDialogComponent, {
+        width: '400px',
+        data: { id: this.group?.id, name: this.group?.name },
+      }).afterClosed()
+      .subscribe(() => {
+        this.childrenInGroup;
+        this.educatorsInGroup;
+        this.ngOnInit();
+      });
+
+  }
+
+  addEducatorInGroup(){
+
+
+
+  }
 
   searchPerson() {
     //napraviti za trazenje
@@ -55,7 +107,7 @@ export class GroupComponent {
 
   }
 
-  addChildClick() {
+  changName() {
     this.dialog
       .open(ChangeGroupNameDialogComponent, {
         width: '400px',
@@ -63,9 +115,10 @@ export class GroupComponent {
       }).afterClosed()
       .subscribe(() => {
         this.childrenInGroup;
+        this.educatorsInGroup;
         this.ngOnInit();
       });
-     
+
   }
 
   get childrenInGroup() {
@@ -75,8 +128,10 @@ export class GroupComponent {
     else return null;
   }
 
-get educatorsInGroup(){
-  return this._educatorsInGroup;
-}
+  get educatorsInGroup() {
+    if (this.group?.educators) {
+      return this.group.educators;
+    }
+  }
 
 }
