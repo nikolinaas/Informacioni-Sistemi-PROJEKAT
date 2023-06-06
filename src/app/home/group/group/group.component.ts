@@ -45,14 +45,12 @@ export class GroupComponent {
     });
   }
 
-  addChildClick(){
-    
-  }
+
   removeEducator(item: any) {
 
     this.groupService.deleteEducatorFromGroup(this.group.id, item.id).subscribe(
       (response: any) => {
-
+        this.ngOnInit();
         if (response.status == 200) {    //ne radi nesto response status
 
           this.snackBar.open('Uspjesno ste vaspitača dijete iz grupe', undefined, {
@@ -62,11 +60,12 @@ export class GroupComponent {
         }
       }
     )
+    
   }
   removeChild(item: any) {
     this.groupService.deleteChildFromGroup(this.group.id, item.id).subscribe(
       (response: any) => {
-
+        this.ngOnInit();
         if (response.status == 200) {    //ne radi nesto response status
 
           this.snackBar.open('Uspjesno ste obrisali dijete iz grupe', undefined, {
@@ -76,6 +75,7 @@ export class GroupComponent {
         }
       }
     )
+  
   }
 
   addChildInGroup(){

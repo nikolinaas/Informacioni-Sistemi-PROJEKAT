@@ -1,17 +1,17 @@
 <div class="column-container">
-<div class="form">
+  <div class="form">
     <label>Mjesecni troskovi</label>
     <button mat-raised-button class="create-button" (click)="addClick()">
-        <mat-icon>add</mat-icon>
-        Dodaj račun
+      <mat-icon>add</mat-icon>
+      Dodaj račun
     </button>
     <button mat-raised-button class="delete-button" (click)="deleteClick()">
-        <mat-icon>delete</mat-icon>
-        Obriši račun
+      <mat-icon>delete</mat-icon>
+      Obriši račun
     </button>
-</div>
+  </div>
 
-<div class="table">
+  <div class="table">
     <input type="text" placeholder="Name" [(ngModel)]="name" required id="name" class="textbox1">
     <input type="text" placeholder="Vrsta racuna" [(ngModel)]="vrsta" required id="vrsta" class="textbox2">
     <input type="text" placeholder="Iznos" [(ngModel)]="iznos" required id="Iznos" class="textbox3">
@@ -22,7 +22,7 @@
       <option value="Da">Da</option>
       <option value="Ne">Ne</option>
     </select>
-   <!-- <table>
+    <!-- <table>
       <tr>
         <th>Broj racuna</th>
         <th>Vrsta racuna</th>
@@ -40,6 +40,7 @@
     </table> -->
     <table id="finance">
       <tr>
+        
         <th *ngFor="let col of columns">
           {{col}}
         </th>

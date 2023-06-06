@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    background-color: #f7f7f7;
+    background-color: white;
 }
 
 .mat-spinner {
@@ -14,11 +14,12 @@
 
 .group-scroll {
     overflow-y: auto;
-    height: calc(100vh - 230px);
+    height: 300px;
+  /*  height: calc(100vh - 230px);*/
 }
 
 .group-section {
-    background-color: #f7f7f7;
+    background-color: white;
 }
 
 .comment-section {
@@ -34,7 +35,7 @@
     width: 100%;
     background-color: white;
     border-radius: 8px;
-    height: 90px;
+    height: 50px;
     cursor: pointer;
 }
 
@@ -42,26 +43,21 @@
     background-color: #ddd;
 }
 
-.font-size-20 {
-    font-size: 20px;
+.font-size-18 {
+    font-size: 18px;
 }
 
 .checkbox-container {
     position: absolute;
     right: 0;
-    margin-top: 25px;
+    
     margin-right: 20px;
-}
-
-.before-search {
-    height: 20px;
-    background-color: whitesmoke;
 }
 
 .search-bar {
     padding-left: 16px;
     padding-right: 30px;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 ::ng-deep .search-bar div:first-child {

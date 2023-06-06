@@ -27,7 +27,9 @@ export class GroupService {
   deleteChildFromGroup(groupId:any, childId:any){
     return this.http.delete(`${this.groupURL+groupId+'/child/'+childId}`);
   }
+
   deleteEducatorFromGroup(groupId:any, educatorId:any){
     return this.http.delete(`${this.groupURL+groupId+'/educator/'+educatorId}`);
   }
+  
 }
