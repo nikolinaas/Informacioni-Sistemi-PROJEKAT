@@ -4,7 +4,9 @@
     flex-wrap: nowrap;
     background-color: #f7f7f7;
 }
-
+.float-container1{
+    padding: 10px;
+}
 .tabs{
     display: flex;
     margin-top: 30px;
@@ -39,12 +41,10 @@ form button {
     color: white !important;
   }
 .float-container {
-    padding: 20px;
-    
+    overflow-y: auto;
+    height: calc(100vh - 230px);
 }
-.mainContainer{
-    height: calc(100vh - 140px);
-}
+
 .float-child {
     width: 50%;
     float: left;
@@ -95,10 +95,6 @@ form button {
     justify-content: center;
     height: calc(70vh - 140px);
 } 
-
-.group-scroll {
-    overflow-y: auto;   
-}
 
 .group-section {
     background-color: #f7f7f7;

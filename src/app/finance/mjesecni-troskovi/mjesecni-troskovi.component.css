@@ -1,9 +1,19 @@
 .form{
-    position: absolute;
-    top: 30px;
+    display: flex;
+    margin-top: 30px;
+    height: 100px;
     background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
-    width: 32.3cm;
-    height: 3cm;
+    text-align: left;
+    font-size: 26px;
+    align-items: center;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: #f7f7f7;
 }
 label {
     position: absolute;
@@ -14,8 +24,8 @@ label {
   }
 
   .table{
-    position: absolute;
-    top: 280px;
+    display: flex;
+    margin-top: 400px;
     border-collapse: collapse;
     width: 32.3cm;
    }
