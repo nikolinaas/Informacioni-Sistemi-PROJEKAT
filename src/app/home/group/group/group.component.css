@@ -5,11 +5,7 @@
     background-color: #f7f7f7;
 }
 .float-container1{
-<<<<<<< HEAD
-    padding: 10px;;
-=======
     padding: 10px;
->>>>>>> e2679b74a18c0c555dc3bfef0614973ec6cf8470
 }
 .tabs{
     display: flex;
@@ -45,21 +41,8 @@ form button {
     color: white !important;
   }
 .float-container {
-<<<<<<< HEAD
-<<<<<<< HEAD
     overflow-y: auto;
     height: calc(100vh - 230px);
-=======
-    padding: 20px;
-    
-}
-.mainContainer{
-    height: calc(100vh - 140px);
->>>>>>> d89b9bcfae8ece4527cebbce745a233d78952695
-=======
-    overflow-y: auto;
-    height: calc(100vh - 230px);
->>>>>>> e2679b74a18c0c555dc3bfef0614973ec6cf8470
 }
 
 .float-child {
@@ -113,16 +96,6 @@ form button {
     height: calc(70vh - 140px);
 } 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-.group-scroll {
-    overflow-y: auto;   
-}
-
->>>>>>> d89b9bcfae8ece4527cebbce745a233d78952695
-=======
->>>>>>> e2679b74a18c0c555dc3bfef0614973ec6cf8470
 .group-section {
     background-color: #f7f7f7;
 }
