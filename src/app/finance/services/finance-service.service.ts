@@ -10,7 +10,7 @@ export class FinanceServiceService {
 
   }
 
-  private billURL = 'http://10.1.1.195:8080/Server/api/bill';
+  private billURL = 'http://localhost:8080/Server/api/bill';
 
   getBill() {
     return this.http.get(
