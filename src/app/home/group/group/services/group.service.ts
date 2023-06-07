@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Group } from 'src/app/model/group.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +18,6 @@ export class GroupService {
   }
 
   editGroup(group:any, id:any){
-
     console.log(id);
     return this.http.put(`${this.groupURL+id}`,group);
   }

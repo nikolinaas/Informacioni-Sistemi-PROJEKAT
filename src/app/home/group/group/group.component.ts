@@ -10,14 +10,12 @@ import { ChangeGroupNameDialogComponent } from './change-group-name-dialog/chang
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
-  styleUrls: ['./group.component.css']
+  styleUrls: ['./group.component.css'],
 })
 export class GroupComponent {
-
-
   id?: string;
   group?: any;
- private _educatorsInGroup?: any[];
+  private _educatorsInGroup?: any[];
   private groupService: GroupService;
   searchText: String = '';
   groupName: String = '';
@@ -30,19 +28,20 @@ export class GroupComponent {
       this.groupName = 'nije dobro';
     }
   }
-  constructor(gs: GroupService, private route: ActivatedRoute, private dialog: MatDialog,
-    private router: Router) {
+  constructor(
+    gs: GroupService,
+    private route: ActivatedRoute,
+    private dialog: MatDialog,
+    private router: Router
+  ) {
     this.groupService = gs;
   }
 
   getGroup(id: any) {
     this.groupService.getGroup(parseInt(id)).subscribe((gro: any) => {
       this.group = gro;
-
-
     });
   }
-
 
   searchPerson() {
     //napraviti za trazenje
@@ -50,33 +49,31 @@ export class GroupComponent {
 
   openActivityWindow() {
     this.router.navigate(['activity']); //popraviti sa id da ima
+    // TODO OVO TREBA STAVITI this.router.navigate([`/groups/${this.id}/activities}`]);
+    // NAKON TOGA JE POTREBNO U ROUTING DODATI DA SE VRSI REDIREKCIJA NA TU PUTANJU UMJESTO TRENUTNE
   }
-  clearSearch() {
-
-  }
+  clearSearch() {}
 
   addChildClick() {
     this.dialog
       .open(ChangeGroupNameDialogComponent, {
         width: '400px',
         data: { id: this.group?.id, name: this.group?.name },
-      }).afterClosed()
+      })
+      .afterClosed()
       .subscribe(() => {
         this.childrenInGroup;
         this.ngOnInit();
       });
-     
   }
 
   get childrenInGroup() {
     if (this.group?.children) {
       return this.group.children;
-    }
-    else return null;
+    } else return null;
   }
 
-get educatorsInGroup(){
-  return this._educatorsInGroup;
-}
-
+  get educatorsInGroup() {
+    return this._educatorsInGroup;
+  }
 }

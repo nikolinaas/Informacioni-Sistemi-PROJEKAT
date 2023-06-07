@@ -26,7 +26,7 @@ export class ArrivalDepartureTimeComponent implements OnInit{
   ) {}
   
   ngOnInit(): void {
-    const dateToFind = this.date.format('MM') + "-" + this.date.format('DD') + "-" + this.date.format('YYYY');
+    const dateToFind = this.date.format('DD') + "-" + this.date.format('MM') + "-" + this.date.format('YYYY');
     this._dateToShow = this.date.format('DD') + "-" + this.date.format('MM') + "-" + this.date.format('YYYY');
     this.sendRequest(dateToFind);
   }

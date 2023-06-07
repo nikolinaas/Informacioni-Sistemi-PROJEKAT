@@ -46,7 +46,7 @@ export class ChildrenComponent {
   }
 
   showChildDetails(id?: number) {
-    this.router.navigate(['edit', id]);
+    this.router.navigate([`children/${id}`]);
   }
   
 

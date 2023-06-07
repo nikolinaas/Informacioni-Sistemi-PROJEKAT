@@ -32,6 +32,7 @@ import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
 import { GroupComponent } from './home/group/group/group.component';
 import { ActivitiesComponent } from './home/group/group/activities/activities.component';
 import { ChangeGroupNameDialogComponent } from './home/group/group/change-group-name-dialog/change-group-name-dialog.component';
+import { LoginComponent } from './auth/login/login/login.component';
 
 const MY_FORMATS = {
   parse: {
@@ -65,7 +66,8 @@ const MY_FORMATS = {
     SideNavBarComponent,
     GroupComponent,
     ActivitiesComponent,
-    ChangeGroupNameDialogComponent
+    ChangeGroupNameDialogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
