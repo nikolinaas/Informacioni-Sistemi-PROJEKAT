@@ -1,0 +1,46 @@
+<h1 mat-dialog-title class="header-info">Dodaj dugovanje</h1>
+<button mat-icon-button class="exit-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+</button>
+
+<div class="form">
+<label>Dijete</label>
+<select id="combo1" [(ngModel)]="combo1" name="combo" class="combo1">
+  </select>
+</div>
+
+<div class="form-row">
+    Tip usluge:
+    <mat-form-field class="color-white">
+        <input matInput name="title" [(ngModel)]="usluga" required id="usluga" autocomplete="off">
+    </mat-form-field>
+</div>
+
+<div class="form">
+    <label>Mjesec</label>
+    <select id="combo2" [(ngModel)]="combo2"name="combo" class="combo2">
+      </select>
+    </div>
+
+<div class="form">
+    <label>Placeno</label>
+    <select id="combo3" [(ngModel)]="combo3" name="combo" class="combo3">
+     </select>
+</div>
+<div class="form-row">
+    Iznos:
+    <mat-form-field class="color-white">
+        <input matInput name="title" [(ngModel)]="iznos" required id="iznos" autocomplete="off">
+    </mat-form-field>
+</div>
+
+<div class="form-row">
+    Datum placanja:
+    <mat-form-field class="color-white">
+        <input matInput [matDatepicker]="mydate"  [(ngModel)]="datetime" readonly
+           >
+        <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
+        <mat-datepicker #mydate>
+        </mat-datepicker>
+    </mat-form-field>
+</div> 

@@ -1,0 +1,101 @@
+.column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: white;
+}
+
+.mat-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 230px);
+}
+
+.group-scroll {
+    overflow-y: auto;
+    height: 300px;
+  /*  height: calc(100vh - 230px);*/
+}
+
+.group-section {
+    background-color: white;
+}
+
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.comment-card {
+    margin-bottom: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.comment-card:hover {
+    background-color: #ddd;
+}
+
+.font-size-18 {
+    font-size: 18px;
+}
+
+.checkbox-container {
+    position: absolute;
+    right: 0;
+    
+    margin-right: 20px;
+}
+
+.search-bar {
+    padding-left: 16px;
+    padding-right: 30px;
+    background-color: white;
+}
+
+::ng-deep .search-bar div:first-child {
+    background-color: white;
+}
+.exit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-top: 7px;
+}
+.header-info {
+    background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    padding-bottom: 20px
+}
+.buttonSave{
+    background-color:#2db0b0;
+}
+.column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+.comment-input {
+    width: 100%;
+}
+
+.color-white {
+    background-color: white;
+}
+  

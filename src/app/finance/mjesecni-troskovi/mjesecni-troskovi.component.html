@@ -1,0 +1,55 @@
+<div class="column-container">
+  <div class="form">
+    <label>Mjesecni troskovi</label>
+    <button mat-raised-button class="create-button" (click)="addClick()">
+      <mat-icon>add</mat-icon>
+      Dodaj račun
+    </button>
+    <button mat-raised-button class="delete-button" (click)="deleteClick()">
+      <mat-icon>delete</mat-icon>
+      Obriši račun
+    </button>
+  </div>
+
+  <div class="table">
+    <input type="text" placeholder="Name" [(ngModel)]="name" required id="name" class="textbox1">
+    <input type="text" placeholder="Vrsta racuna" [(ngModel)]="vrsta" required id="vrsta" class="textbox2">
+    <input type="text" placeholder="Iznos" [(ngModel)]="iznos" required id="Iznos" class="textbox3">
+    <label for="datetime">Select Date and Time:</label>
+    <input type="datetime-local" id="datetime" [(ngModel)]="datetime" name="datetime" class="datetime1">
+    <label for="combo">Select an option:</label>
+    <select id="combo" name="combo" [(ngModel)]="combo" class="combo1">
+      <option value="Da">Da</option>
+      <option value="Ne">Ne</option>
+    </select>
+    <!-- <table>
+      <tr>
+        <th>Broj racuna</th>
+        <th>Vrsta racuna</th>
+        <th>Iznos</th>
+        <th>Datum</th>
+        <th>Placeno</th>
+      </tr>
+      <tr>
+        <td>123</td>
+        <td>Smece</td>
+        <td>50</td>
+        <td>08.10.2000</td>
+        <td><input type="checkbox" [(ngModel)]="isChecked"/>    &nbsp;   </td>
+      </tr>
+    </table> -->
+    <table id="finance">
+      <tr>
+        
+        <th *ngFor="let col of columns">
+          {{col}}
+        </th>
+      </tr>
+      <tr *ngFor="let financ of finance">
+        <td *ngFor="let col of index">
+          {{financ[col]}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -9,6 +9,13 @@ import { GroupComponent } from './home/group/group/group.component';
 import { Group } from './model/Group';
 import { ActivitiesComponent } from './home/group/group/activities/activities.component';
 import { LoginComponent } from './auth/login/login/login.component';
+// import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
+// import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
+// import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
+// import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
+// import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
+// import { EducatorsComponent } from './educators/educators.component';
+// import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
 
 const routes: Routes = [
 
@@ -29,8 +36,15 @@ const routes: Routes = [
   // { path: '**', redirectTo: '/groups', pathMatch: 'full' }
 
   //{path: 'activity', component: ActivitiesComponent}
-  //{path: 'edit/:id', component:EditChildComponent },
-  ];
+
+//   {path: 'finance', component:FinanceComponentComponent},
+//   {path: 'troskovi', component:MjesecniTroskoviComponent},
+//   {path: 'dugovanja', component:DugovanjaComponent},
+//   {path: 'dialog',component:CreateDialogComponent},
+//   {path: 'deleteDialog', component:DeleteDialogComponent},
+//   {path: 'educators' , component:EducatorsComponent},
+//   {path: 'view/:id', component:ViewEducatorComponent }
+   ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

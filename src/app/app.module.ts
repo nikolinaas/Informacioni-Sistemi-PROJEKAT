@@ -32,7 +32,18 @@ import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
 import { GroupComponent } from './home/group/group/group.component';
 import { ActivitiesComponent } from './home/group/group/activities/activities.component';
 import { ChangeGroupNameDialogComponent } from './home/group/group/change-group-name-dialog/change-group-name-dialog.component';
-import { LoginComponent } from './auth/login/login/login.component';
+import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
+import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
+import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
+import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
+import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
+import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
+import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
+import { EducatorsComponent } from './educators/educators.component';
+import { CreateEducatorDialogComponent } from './educators/create-educator-dialog/create-educator-dialog.component';
+import { DeleteEducatorDialogComponent } from './educators/delete-educator-dialog/delete-educator-dialog.component';
+import { EditEducatorComponent } from './educators/view-edit-educator/edit-educator/edit-educator.component';
+import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
 
 const MY_FORMATS = {
   parse: {
@@ -67,7 +78,18 @@ const MY_FORMATS = {
     GroupComponent,
     ActivitiesComponent,
     ChangeGroupNameDialogComponent,
-    LoginComponent
+    FinanceComponentComponent,
+    MjesecniTroskoviComponent,
+    DugovanjaComponent,
+    CreateDialogComponent,
+    DeleteDialogComponent,
+    AddChildDialogComponent,
+    AddEducatorDialogComponent,
+    EducatorsComponent,
+    CreateEducatorDialogComponent,
+    DeleteEducatorDialogComponent,
+    EditEducatorComponent,
+    ViewEducatorComponent
   ],
   imports: [
     BrowserModule,

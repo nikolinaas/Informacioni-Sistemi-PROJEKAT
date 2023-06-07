@@ -1,0 +1,32 @@
+
+<div class="form">
+    <label>Pregled dugovanja</label>
+</div>
+
+<div class="table">
+    <input type="text" placeholder="Pretraži djecu" [(ngModel)]="pretraziDjecu" required id="pretraziDjecu" class="textbox1">
+    <button mat-raised-button class="create-button" (click)="addClick()">
+        <mat-icon>add</mat-icon>
+        Dodaj članarinu
+    </button>
+    <table>
+      <tr>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Paket</th>
+        <th>Datum1</th>
+        <th>Placeno</th>
+        <th>Iznos</th>
+        <th>Datum2</th>
+      </tr>
+      <tr>
+        <td>Ime1</td>
+        <td>Prezime1</td>
+        <td>Paket1</td>
+        <td>08.10.2000</td>
+        <td><input type="checkbox" [(ngModel)]="isChecked"/>    &nbsp;   </td>
+        <td>200</td>
+        <td>08.11.2000</td>
+      </tr>
+    </table>
+</div>

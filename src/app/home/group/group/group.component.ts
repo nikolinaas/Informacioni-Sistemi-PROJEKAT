@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { Child } from 'src/app/model/child.model';
 import { GroupService } from './services/group.service';
-import { Group } from 'src/app/model/group.model';
-import { Subscription } from 'rxjs';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ChangeGroupNameDialogComponent } from './change-group-name-dialog/change-group-name-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddChildDialogComponent } from './add-child-dialog/add-child-dialog.component';
 
 @Component({
   selector: 'app-group',
@@ -15,7 +14,6 @@ import { ChangeGroupNameDialogComponent } from './change-group-name-dialog/chang
 export class GroupComponent {
   id?: string;
   group?: any;
-  private _educatorsInGroup?: any[];
   private groupService: GroupService;
   searchText: String = '';
   groupName: String = '';
@@ -32,7 +30,8 @@ export class GroupComponent {
     gs: GroupService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.groupService = gs;
   }
@@ -42,6 +41,59 @@ export class GroupComponent {
       this.group = gro;
     });
   }
+
+  removeEducator(item: any) {
+    this.groupService
+      .deleteEducatorFromGroup(this.group.id, item.id)
+      .subscribe((response: any) => {
+        this.ngOnInit();
+        if (response.status == 200) {
+          //ne radi nesto response status
+
+          this.snackBar.open(
+            'Uspjesno ste vaspitača dijete iz grupe',
+            undefined,
+            {
+              duration: 2000,
+            }
+          );
+        }
+      });
+  }
+  removeChild(item: any) {
+    this.groupService
+      .deleteChildFromGroup(this.group.id, item.id)
+      .subscribe((response: any) => {
+        this.ngOnInit();
+        if (response.status == 200) {
+          //ne radi nesto response status
+
+          this.snackBar.open(
+            'Uspjesno ste obrisali dijete iz grupe',
+            undefined,
+            {
+              duration: 2000,
+            }
+          );
+        }
+      });
+  }
+
+  addChildInGroup() {
+    this.dialog
+      .open(AddChildDialogComponent, {
+        width: '400px',
+        data: { id: this.group?.id, name: this.group?.name },
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.childrenInGroup;
+        this.educatorsInGroup;
+        this.ngOnInit();
+      });
+  }
+
+  addEducatorInGroup() {}
 
   searchPerson() {
     //napraviti za trazenje
@@ -54,7 +106,7 @@ export class GroupComponent {
   }
   clearSearch() {}
 
-  addChildClick() {
+  changName() {
     this.dialog
       .open(ChangeGroupNameDialogComponent, {
         width: '400px',
@@ -63,6 +115,7 @@ export class GroupComponent {
       .afterClosed()
       .subscribe(() => {
         this.childrenInGroup;
+        this.educatorsInGroup;
         this.ngOnInit();
       });
   }
@@ -74,6 +127,8 @@ export class GroupComponent {
   }
 
   get educatorsInGroup() {
-    return this._educatorsInGroup;
+    if (this.group?.educators) {
+      return this.group.educators;
+    }
   }
 }

@@ -1,0 +1,16 @@
+ <h1 mat-dialog-title class="header-info">Obrisi racun</h1>
+<button mat-icon-button class="exit-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+</button>
+
+<div class="form-row">
+    ID Raucuna:
+    <mat-form-field class="color-white">
+        <input matInput name="title" [(ngModel)]="idRacuna" required id="usluga" autocomplete="off">
+    </mat-form-field>
+</div>
+
+<div style="text-align: center; ">
+    <button mat-raised-button style="border-radius: 10px; background-color: #2db0b0;" type="submit" 
+    (click)="deleteBill">Obrisi</button>
+</div> 
