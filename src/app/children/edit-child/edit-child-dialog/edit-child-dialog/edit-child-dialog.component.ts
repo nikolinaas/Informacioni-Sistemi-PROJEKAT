@@ -26,8 +26,12 @@ export class EditChildDialogComponent {
     ) {
 
   }
-  getErrorMessage(text?:string){
-    // TODO OBRISATI OVU METODU AKO NE TREBA
+  getErrorMessage(errorMsg:string){
+    const control = this.form.get(errorMsg);
+    if (control?.hasError('required')) {
+      return 'Obavezno polje';
+    }
+    return '';
   }
 
   closeDialog() {
@@ -54,6 +58,7 @@ export class EditChildDialogComponent {
       medicalClearance:  formData.formDatamedicalClearance
     };
   
+    this.updateFile();
     this.childrenService
       .updateChild(data, this.id)
       .subscribe((response: any) => {
@@ -64,7 +69,6 @@ export class EditChildDialogComponent {
             duration: 2000,
           }
         );
-        //this.childrenService.kindergarten = response; // TODO OBRISATI OVO AKO NE TREBA
         this.dialogRef.close();
       });
   }
@@ -102,10 +106,6 @@ export class EditChildDialogComponent {
   byteArray: any | undefined;
 
   onFileSelected(event: any) {
-    // TODO OVDE JE PROBLEM STO CE SE PORUKA ZA USPJESNO AZURIRANJE LJEKARKSOG UVJERENJA PRIKAZATI
-    // PRIJE NEGO STO KORISNIK PRITISNE NA DUGME 'SACUVAJ'
-    // A TREBA DA SE DESI OBRNUTO, DAKLE AKO AZURIRA LJEKARSKO UVJERENJE ON TREBA DA GA IZABERE
-    // I DA ONDA PRITISNE NA DUGME SACUVAJ, NAKON CEGA CE MU SE PRIKAZATI PORUKA DA JE USPJESNO AZURIRANO
     const file: File = event.target.files[0];
     this.selectedFile=file;
     if (file) {
@@ -113,22 +113,27 @@ export class EditChildDialogComponent {
       reader.onload = () => {
         const arrayBuffer = reader.result as ArrayBuffer;
         const uint8Array = new Uint8Array(arrayBuffer);
-        const byteArray = Array.from(uint8Array);
-        const fileJSON = {medicalClearance: byteArray};
-        console.log(fileJSON.medicalClearance);//
-        this.childrenService
-        .updateFile(fileJSON, this.id)
-        .subscribe((response: any) => {
-          this.snackBar.open(
-            'Uspješno ste ažurirali ljekarsko uvjerenje',
-            undefined,
-            {
-              duration: 2000,
-            }
-          );
-        });
+        this.byteArray = Array.from(uint8Array);
+        
       };
       reader.readAsArrayBuffer(file);
+    }
+  }
+
+  updateFile() {
+    if(this.selectedFile != undefined) {
+      const fileJSON = {medicalClearance: this?.byteArray};
+          this.childrenService
+          .updateFile(fileJSON, this.id)
+          .subscribe((response: any) => {
+            this.snackBar.open(
+              'Uspješno ste ažurirali ljekarsko uvjerenje',
+              undefined,
+              {
+                duration: 2000,
+              }
+            );
+          });
     }
   }
 

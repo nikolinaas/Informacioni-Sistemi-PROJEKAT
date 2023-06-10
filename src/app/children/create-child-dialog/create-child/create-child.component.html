@@ -20,28 +20,31 @@
         <div class="form-row">
             Ime:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.name" autocomplete="off">
+                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.name" required autocomplete="off">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
             </mat-form-field>
         </div>
 
         <div class="form-row">
             Prezime:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.surname" autocomplete="on">
+                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.surname" required autocomplete="on">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
             </mat-form-field>
         </div>
 
         <div class="form-row">
             JMBG:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.uid" autocomplete="on">
+                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.uid" required autocomplete="on">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
             </mat-form-field>
         </div>
 
         <div class="form-row">
             Datum rođenja:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [matDatepicker]="mydate" [(ngModel)]="date"
+                <input matInput [ngModelOptions]="{standalone: true}" required [matDatepicker]="mydate" [(ngModel)]="date"
                     (dateInput)="addEvent('input', $event)" readonly (dateChange)="addEvent('change', $event)">
                 <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
                 <mat-datepicker #mydate>
@@ -52,14 +55,16 @@
         <div class="form-row">
             Ime majke:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.motherName" autocomplete="on">
+                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.motherName" required autocomplete="on">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
             </mat-form-field>
         </div>
 
         <div class="form-row">
             Ime oca:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.fatherName" autocomplete="on">
+                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.fatherName" required autocomplete="on">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
             </mat-form-field>
         </div>
 
@@ -82,14 +87,16 @@
         <div class="form-row">
             Grad:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.city" autocomplete="on">
+                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.city" required autocomplete="on">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
             </mat-form-field>
         </div>
 
         <div class="form-row">
             Ulica:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.street" autocomplete="on">
+                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.street" required autocomplete="on">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
             </mat-form-field>
         </div>
 
@@ -97,7 +104,8 @@
             Broj:
             <mat-form-field class="color-white">
                 <input type="number" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.number"
-                    autocomplete="on">
+                required autocomplete="on">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
             </mat-form-field>
         </div>
 
@@ -105,7 +113,8 @@
             Visina(cm):
             <mat-form-field class="color-white">
                 <input type="number" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.height"
-                    autocomplete="on">
+                required  autocomplete="on">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
             </mat-form-field>
         </div>
 
@@ -113,7 +122,8 @@
             Masa(kg):
             <mat-form-field class="color-white">
                 <input type="number" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.weight"
-                    autocomplete="on">
+                required  autocomplete="on">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
             </mat-form-field>
         </div>
 

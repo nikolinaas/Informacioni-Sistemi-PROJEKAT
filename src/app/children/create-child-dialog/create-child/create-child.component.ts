@@ -47,6 +47,14 @@ export class CreateChildComponent {
     this.dialogRef.close();
   }
 
+  getErrorMessage(errorMsg:string) {
+    const control = this.form.get(errorMsg);
+    if (control?.hasError('required')) {
+      return 'Obavezno polje';
+    }
+    return '';
+  }
+
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     if (type === 'change') {
       this.date = moment(event.value);

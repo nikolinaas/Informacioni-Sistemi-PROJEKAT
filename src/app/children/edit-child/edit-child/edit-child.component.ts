@@ -60,11 +60,11 @@ export class EditChildComponent {
   }
 
   getErrorMessage(errosMsg: any) {
-    // TODO AKO NE TREBA METODA OBRISATI JE
-  }
-
-  changeData() {
-    // TODO AKO NE TrEBA METODA OBRISATI JE 
+    const control = this.form.get(errosMsg);
+    if (control?.hasError('required')) {
+      return 'Obavezno';
+    }
+    return '';
   }
 
   enableEdit() {

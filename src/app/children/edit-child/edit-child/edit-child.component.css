@@ -50,6 +50,7 @@
     overflow-y: auto;
     height: calc(100vh - 190px);
     background-color: whitesmoke;
+    text-align: center;
 }
 
 .form-row {
