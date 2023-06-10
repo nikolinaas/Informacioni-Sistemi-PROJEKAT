@@ -1,0 +1,28 @@
+<div *ngIf="!isLog" class="row-container">  
+  <mat-card>
+        <img src="../assets/images/hand6.png" alt="logo" style="width: 180px; margin-left: auto; margin-right: auto;">
+        <mat-card-title>Prijavi se</mat-card-title>
+        <mat-card-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Korisničko ime</mat-label>
+            <input matInput [(ngModel)]="email" type="email" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Lozinka</mat-label>
+            <input matInput [(ngModel)]="password" type="password" required>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div *ngIf="isLog" class="row-container"> 
+    <app-side-nav-bar></app-side-nav-bar>
+    <div class="column-container">  
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+
+  

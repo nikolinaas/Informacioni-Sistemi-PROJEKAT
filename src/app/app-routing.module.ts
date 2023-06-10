@@ -15,6 +15,7 @@ import { FinanceComponentComponent } from './finance/finance-component/finance-c
 import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
 import { EducatorsComponent } from './educators/educators.component';
 import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
+import { LogInComponent } from './log-in/log-in/log-in.component';
 
 
 const routes: Routes = [

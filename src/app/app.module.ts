@@ -44,6 +44,8 @@ import { CreateEducatorDialogComponent } from './educators/create-educator-dialo
 import { DeleteEducatorDialogComponent } from './educators/delete-educator-dialog/delete-educator-dialog.component';
 import { EditEducatorComponent } from './educators/view-edit-educator/edit-educator/edit-educator.component';
 import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
+import { LogInComponent } from './log-in/log-in/log-in.component';
+import { MainComponentComponent } from './main-component/main-component.component';
 
 const MY_FORMATS = {
   parse: {
@@ -89,7 +91,9 @@ const MY_FORMATS = {
     CreateEducatorDialogComponent,
     DeleteEducatorDialogComponent,
     EditEducatorComponent,
-    ViewEducatorComponent
+    ViewEducatorComponent,
+    LogInComponent,
+    MainComponentComponent
   ],
   imports: [
     BrowserModule,
