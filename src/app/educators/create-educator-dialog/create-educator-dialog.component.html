@@ -3,27 +3,33 @@
     <mat-icon>close</mat-icon>
 </button>
 <div mat-dialog-content>
-    
+
     <div class="form-row1" style="margin-bottom: 20px;">
         Higijenski test:
         <div class="file-chooser1">
-            <button mat-raised-button style="background-color: #77238e; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser2()">Dodaj dokument</button>
-            <span class="file-name1" style="margin-left: 5px;">{{ selectedFileHygieneTest?.name }} </span>
-            <input #fileInputHygieneTest type="file" id="fileInputHygieneTest" (change)="onHygieneFileSelected($event)" hidden>
+            <button mat-raised-button
+                style="background-color: #77238e; border-radius: 10px; vertical-align: center; margin: 7px;"
+                color="primary" (click)="openFileChooser2()">Dodaj dokument</button>
+            <span style="margin-left: 5px;">{{ selectedFileHygieneTest?.name }} </span>
+            <input #fileInputHygieneTest type="file" id="fileInputHygieneTest" (change)="onHygieneFileSelected($event)"
+                hidden>
         </div>
     </div>
-    
+
     <div class="form-row" style="margin-bottom: 20px;">
         Ljekarsko uvjerenje:
         <div class="file-chooser">
-            <button mat-raised-button style="background-color: #77238e; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser1()">Dodaj dokument</button>
-            <span class="file-name" style="margin-left: 5px;">{{ selectedFileMedicalClearance?.name }} </span>
-            <input #fileInputMedicalClearance type="file" id="fileInputMedicalClearance" (change)="onMedicalFileSelected($event)" hidden>
+            <button mat-raised-button
+                style="background-color: #77238e; border-radius: 10px; vertical-align: center; margin: 7px;"
+                color="primary" (click)="openFileChooser1()">Dodaj dokument</button>
+            <span style="margin-left: 5px;">{{ selectedFileMedicalClearance?.name }} </span>
+            <input #fileInputMedicalClearance type="file" id="fileInputMedicalClearance"
+                (change)="onMedicalFileSelected($event)" hidden>
         </div>
     </div>
-    
+
     <form (ngSubmit)="createEducator()" class="column-container margin-bottom">
-        
+
         <div class="form-row">
             Ime:
             <mat-form-field class="color-white">
@@ -48,8 +54,8 @@
         <div class="form-row">
             Datum rođenja:
             <mat-form-field class="color-white">
-                <input matInput [matDatepicker]="mydate" [(ngModel)]="date" (dateInput)="addEvent('input', $event)" readonly
-                    (dateChange)="addEvent('change', $event)">
+                <input matInput [matDatepicker]="mydate" [(ngModel)]="date" (dateInput)="addEvent('input', $event)"
+                    readonly (dateChange)="addEvent('change', $event)">
                 <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
                 <mat-datepicker #mydate>
                 </mat-datepicker>
@@ -92,10 +98,8 @@
         </div>
 
         <div style="text-align: center;">
-            <button mat-raised-button style="border-radius: 10px; color: #ffffff; background-color: #77238e;" type="submit">Kreiraj</button>
+            <button mat-raised-button style="border-radius: 10px; color: #ffffff; background-color: #77238e;"
+                type="submit">Kreiraj</button>
         </div>
     </form>
 </div>
-
-
-

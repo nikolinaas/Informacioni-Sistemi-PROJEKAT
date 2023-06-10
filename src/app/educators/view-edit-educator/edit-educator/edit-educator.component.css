@@ -22,6 +22,17 @@
     padding-bottom: 10px;
 }
 
+.file-chooser{
+    height: 55px;
+    background-color: whitesmoke; 
+    border-bottom: solid 1px gray;
+}
+
+.file-chooser:hover{
+    background-color: rgb(227, 227, 227); 
+    border-bottom: solid 1px black;
+}
+
 .save-button{
     border-radius: 10px;
     background-color: #77238e;
@@ -35,17 +46,6 @@
     max-width: 200px;
     height: 40px;
     margin-top: 10px;
-}
-
-.file-chooser{
-    height: 55px;
-    background-color: whitesmoke; 
-    border-bottom: solid 1px gray;
-}
-
-.file-chooser:hover{
-    background-color: rgb(227, 227, 227); 
-    border-bottom: solid 1px black;
 }
 
 

@@ -1,11 +1,11 @@
 <h1 mat-dialog-title class="header-info">Lista djece</h1>
-<button mat-icon-button class="exit-button" (click)="closeWindow()" >
+<button mat-icon-button class="exit-button" (click)="closeWindow()">
     <mat-icon>close</mat-icon>
 </button>
 <div mat-dialog-content>
     <mat-form-field class="search-bar">
-        <input matInput placeholder="Pronadji dijete" >
-        <button mat-icon-button matSuffix  >
+        <input matInput placeholder="Pronadji dijete">
+        <button mat-icon-button matSuffix>
             <mat-icon>close</mat-icon>
         </button>
     </mat-form-field>
@@ -16,16 +16,16 @@
         <div>
             <div class="comment-section">
                 <ng-container *ngFor="let child of children">
-                    <mat-card class="comment-card" >
-                        <mat-card-header class="comment-header">
+                    <mat-card class="comment-card">
+                        <mat-card-header>
                             <mat-card-title class="font-size-18">{{child.name}} {{child.surname}}</mat-card-title>
                         </mat-card-header>
-                        <mat-checkbox  class="checkbox-container"  (click)="$event.stopPropagation(); setChildAdded(child)">
-                           
+                        <mat-checkbox class="checkbox-container"
+                            (click)="$event.stopPropagation(); addChildInGroup(child)">
                         </mat-checkbox>
                     </mat-card>
                 </ng-container>
             </div>
         </div>
     </div>
-</div> 
+</div>

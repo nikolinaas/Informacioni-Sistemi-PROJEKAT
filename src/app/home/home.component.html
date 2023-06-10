@@ -15,7 +15,7 @@
             <div class="comment-section">
                 <ng-container *ngFor="let group of groups">
                     <mat-card class="comment-card"  (click)="showGroupDetails(group?.id)">
-                        <mat-card-header class="comment-header">
+                        <mat-card-header>
                             <mat-card-title class="font-size-25">{{ group.name }}</mat-card-title>
                             <mat-card-subtitle class="number-of-members">Broj clanova: {{
                                 group.numberOfMembers}}</mat-card-subtitle>

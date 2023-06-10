@@ -4,10 +4,8 @@
     flex-wrap: nowrap;
     background-color: #f7f7f7;
 }
-.float-container1{
-    padding: 10px;
-}
-.tabs{
+
+.tabs {
     display: flex;
     margin-top: 30px;
     height: 100px;
@@ -18,9 +16,11 @@
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.between-buttons{
-    height: 10px;
+
+.title {
+    margin-left: 20px;
 }
+
 .group-of-buttons-form {
     right: 0;
     display: flex;
@@ -31,7 +31,12 @@
     position: absolute;
     margin-right: 20px;
     padding: 20px;
- }
+}
+
+.between-buttons {
+    height: 10px;
+}
+
 form button {
     width: 200px;
     padding: 10px;
@@ -39,7 +44,19 @@ form button {
     font-size: 18px;
     background-color:  #2db0b0 !important;
     color: white !important;
-  }
+}
+
+.before-search {
+    height: 20px;
+    background-color: whitesmoke;
+}
+
+.search-bar {
+    padding-left: 16px;
+    padding-right: 30px;
+    background-color: whitesmoke;
+}
+
 .float-container {
     overflow-y: auto;
     height: calc(100vh - 230px);
@@ -48,22 +65,22 @@ form button {
 .float-child {
     width: 50%;
     float: left;
-}  
-.title{
-    margin-left: 20px;
+} 
+
+.float-container1 {
+    padding: 10px;
 }
 
-.edit-button {
-    position: absolute;
-    right: 0;
-    font-size: 18px;
-    background-color: #9f9f53 !important;
-    margin-right: 20px;
-    height: 40px;
-    color: white !important;
-    padding: 20px;
+.title1 {
+    text-align: left;
 }
-.add-button{
+
+.before-padding1 {
+    height: 10px;
+    background-color: whitesmoke;
+}
+
+.add-button {
     position: flex;
     right: 0;
     height: 40px;
@@ -73,23 +90,15 @@ form button {
     border-style: dashed;
     color: white !important;  
     margin-right: 10px;
+    align-content: right;
 }
-.title1{
-    text-align: left;
-}
-.before-search {
-    height: 10px;
-    background-color: whitesmoke;
-}
-.before-padding1{
-    height: 10px;
-    background-color: whitesmoke;
-}
-.before-padding2{
+
+.before-padding2 {
     height: 40px;
     background-color: whitesmoke;
 }
- .mat-spinner {
+
+.mat-spinner {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,19 +108,7 @@ form button {
 .group-section {
     background-color: #f7f7f7;
 }
-.add-button{
-    align-content: right;
-}
-.activities-button{
-    position: absolute;
-    right: 0;
-    font-size: 18px;
-    background-color: #2db0b0 !important;
-    margin-right: 20px;
-    height: 40px;
-    color: white !important;
-    padding: 20px;
-}
+
 .comment-section {
     display: flex;
     flex-direction: column;
@@ -125,7 +122,7 @@ form button {
     background-color: white;
     border-radius: 8px;
     height: 90px;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .comment-card:hover {
@@ -141,13 +138,6 @@ form button {
     margin-top: 5px;
 }
 
-.button-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 25px;
-}
-
 .remove-button {
     position: absolute;
     top: 0;
@@ -160,33 +150,6 @@ form button {
     color: white !important;
 }
 
-.button-delete-container {
-    height: 40px;
-    font-size: 18px;
-    width: 120px;
-}
-
-.remove-icon {
-    position: absolute;
-    left: 0;
-    margin-top: 6px;
-}
-
-.delete-title {
-    padding-top: 5px;
-    padding-left: 10px;
-}
-
-.before-search {
-    height: 20px;
-    background-color: whitesmoke;
-}
-
-.search-bar {
-    padding-left: 16px;
-    padding-right: 30px;
-    background-color: whitesmoke;
-}
 ::ng-deep .search-bar div:first-child {
     background-color: white;
 }

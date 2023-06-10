@@ -3,17 +3,16 @@
         <p class="title" *ngIf="group">{{group.name}}</p>
 
         <form class="group-of-buttons-form">
-             <button mat-raised-button (click)="changName()">
+            <button mat-raised-button (click)="changeName()">
                 <mat-icon>edit</mat-icon>
                 Promijeni naziv
             </button>
             <div class="between-buttons"></div>
-            <button mat-raised-button  (click)="openActivityWindow()">
+            <button mat-raised-button (click)="openActivityWindow()">
                 <mat-icon>event</mat-icon>
                 Aktivnosti
             </button>
         </form>
-
 
     </div>
     <div class="before-search"></div>
@@ -29,7 +28,7 @@
             <div class="float-container1">
                 <div class="float-child">
                     <div class="title1">
-                        <p class="child">Lista djece:</p>
+                        <p>Lista djece:</p>
                         <div class="before-padding1"></div>
                     </div>
                 </div>
@@ -44,12 +43,12 @@
             <div *ngIf="!childrenInGroup" class="mat-spinner" id="childSpinner">
                 <mat-spinner></mat-spinner>
             </div>
-            <div *ngIf="childrenInGroup" class="group-scroll">
+            <div *ngIf="childrenInGroup">
                 <div class="group-section">
                     <div class="comment-section">
                         <ng-container *ngFor="let child of childrenInGroup">
                             <mat-card class="comment-card">
-                                <mat-card-header class="comment-header">
+                                <mat-card-header>
                                     <mat-card-title class="font-size-25">{{ child.name +" "
                                         +child.surname}}</mat-card-title>
                                     <mat-card-subtitle class="number-of-members">Ime oca:
@@ -70,7 +69,7 @@
             <div class="float-container1">
                 <div class="float-child">
                     <div class="title1">
-                        <p class="child">Lista vaspitača:</p>
+                        <p>Lista vaspitača:</p>
                         <div class="before-padding1"></div>
                     </div>
                 </div>
@@ -87,12 +86,12 @@
             <div *ngIf="!educatorsInGroup" class="mat-spinner" id="educatorSpinner">
                 <mat-spinner></mat-spinner>
             </div>
-            <div *ngIf="educatorsInGroup" class="group-scroll">
+            <div *ngIf="educatorsInGroup">
                 <div class="group-section">
                     <div class="comment-section">
                         <ng-container *ngFor="let educator of educatorsInGroup">
                             <mat-card class="comment-card">
-                                <mat-card-header class="comment-header">
+                                <mat-card-header>
                                     <mat-card-title class="font-size-25">{{ educator.name +" "
                                         +educator.surname}}</mat-card-title>
                                 </mat-card-header>

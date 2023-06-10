@@ -1,9 +1,55 @@
+.header-info {
+    background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    padding-bottom: 20px
+}
+
 .exit-button {
     position: absolute;
     top: 0;
     right: 0;
     margin-right: 5px;
     margin-top: 7px;
+    color: white;
+}
+
+.form-row1 {
+    display: grid;
+    grid-template-columns: 100px auto;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.file-chooser1 {
+    height: 55px;
+    background-color: whitesmoke; 
+    border-bottom: solid 1px gray;
+}
+
+.file-chooser1:hover {
+    background-color: rgb(227, 227, 227); 
+    border-bottom: solid 1px black;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 100px auto;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+
+.file-chooser {
+    height: 55px;
+    background-color: whitesmoke; 
+    border-bottom: solid 1px gray;
+}
+
+.file-chooser:hover {
+    background-color: rgb(227, 227, 227); 
+    border-bottom: solid 1px black;
 }
 
 .column-container {
@@ -23,57 +69,4 @@
 
 .color-white {
     background-color:#ffffff;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 100px auto;
-    align-items: center;
-    padding-bottom: 10px;
-}
-
-.header-info {
-    background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
-    text-align: center;
-    font-size: 22px;
-    color: white;
-    padding-bottom: 20px
-}
-
-.exit-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 5px;
-    margin-top: 7px;
-    color: white;
-}
-
-.file-chooser{
-    height: 55px;
-    background-color: whitesmoke; 
-    border-bottom: solid 1px gray;
-}
-
-.file-chooser:hover{
-    background-color: rgb(227, 227, 227); 
-    border-bottom: solid 1px black;
-}
-
-
-.file-chooser1{
-    height: 55px;
-    background-color: whitesmoke; 
-    border-bottom: solid 1px gray;
-}
-
-.file-chooser1:hover{
-    background-color: rgb(227, 227, 227); 
-    border-bottom: solid 1px black;
-}
-.form-row1{
-    display: grid;
-    grid-template-columns: 100px auto;
-    align-items: center;
-    padding-bottom: 10px;
 }

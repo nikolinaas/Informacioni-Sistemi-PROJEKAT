@@ -6,15 +6,17 @@
 
     <div class="form-row" style="margin-bottom: 20px;">
         Ljekarsko uvjerenje:
-        <div class="form-row" class="file-chooser" >
-            <button mat-raised-button style="background-color: #2db0b0; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser()">Choose File</button>
-                <span class="file-name" style="margin-left: 5px;">{{ selectedFile?.name }} </span>
+        <div class="form-row" class="file-chooser">
+            <button mat-raised-button
+                style="background-color: #2db0b0; border-radius: 10px; vertical-align: center; margin: 7px;"
+                color="primary" (click)="openFileChooser()">Choose File</button>
+            <span style="margin-left: 5px;">{{ selectedFile?.name }} </span>
             <input #fileInput type="file" (change)="onFileSelected($event)" hidden>
         </div>
     </div>
 
     <form (ngSubmit)="createChild()" class="column-container margin-bottom">
-        
+
         <div class="form-row">
             Ime:
             <mat-form-field class="color-white">
@@ -39,8 +41,8 @@
         <div class="form-row">
             Datum rođenja:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [matDatepicker]="mydate" [(ngModel)]="date" (dateInput)="addEvent('input', $event)" readonly
-                    (dateChange)="addEvent('change', $event)">
+                <input matInput [ngModelOptions]="{standalone: true}" [matDatepicker]="mydate" [(ngModel)]="date"
+                    (dateInput)="addEvent('input', $event)" readonly (dateChange)="addEvent('change', $event)">
                 <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
                 <mat-datepicker #mydate>
                 </mat-datepicker>
@@ -64,14 +66,16 @@
         <div class="form-row">
             Broj telefona majke:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.motherPhoneNumber" autocomplete="on">
+                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.motherPhoneNumber"
+                    autocomplete="on">
             </mat-form-field>
         </div>
 
         <div class="form-row">
             Broj telefona oca:
             <mat-form-field class="color-white">
-                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.fatherPhoneNumber" autocomplete="on">
+                <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.fatherPhoneNumber"
+                    autocomplete="on">
             </mat-form-field>
         </div>
 
@@ -92,28 +96,32 @@
         <div class="form-row">
             Broj:
             <mat-form-field class="color-white">
-                <input type="number" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.number" autocomplete="on">
+                <input type="number" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.number"
+                    autocomplete="on">
             </mat-form-field>
         </div>
 
         <div class="form-row">
             Visina(cm):
             <mat-form-field class="color-white">
-                <input type="number" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.height" autocomplete="on">
+                <input type="number" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.height"
+                    autocomplete="on">
             </mat-form-field>
         </div>
 
         <div class="form-row">
             Masa(kg):
             <mat-form-field class="color-white">
-                <input type="number" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.weight" autocomplete="on">
+                <input type="number" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.weight"
+                    autocomplete="on">
             </mat-form-field>
         </div>
 
         <div class="form-row">
             Napomena:
             <mat-form-field class="color-white">
-                <input type="text" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.note" autocomplete="on">
+                <input type="text" matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="child.note"
+                    autocomplete="on">
             </mat-form-field>
         </div>
 

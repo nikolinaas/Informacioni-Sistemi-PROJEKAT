@@ -80,13 +80,6 @@
     margin-top: 5px;
 }
 
-.button-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 25px;
-}
-
 .remove-button {
     position: absolute;
     top: 0;
@@ -98,21 +91,3 @@
     background-color: #9f9f53 !important;
     color: white !important;
 }
-
-.button-delete-container {
-    height: 40px;
-    font-size: 18px;
-    width: 120px;
-}
-
-.remove-icon {
-    position: absolute;
-    left: 0;
-    margin-top: 6px;
-}
-
-.delete-title {
-    padding-top: 5px;
-    padding-left: 10px;
-}
-

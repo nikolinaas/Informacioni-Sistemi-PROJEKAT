@@ -1,36 +1,3 @@
-.exit-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 5px;
-    margin-top: 7px;
-}
-
-.column-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-grow: 1;
-}
-
-.margin-bottom {
-    margin-bottom: 10px;
-}
-
-.comment-input {
-    width: 100%;
-}
-
-.color-white {
-    background-color: white;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 100px auto;
-    align-items: center;
-    padding-bottom: 10px;
-}
 
 .header-info {
     background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
@@ -49,11 +16,11 @@
     color: white;
 }
 
-.save-button {
-    border-radius: 10px; 
-    background-color: #2db0b0;
-    width: 150px;
-    color: white;
+.form-row {
+    display: grid;
+    grid-template-columns: 100px auto;
+    align-items: center;
+    padding-bottom: 10px;
 }
 
 .file-chooser{
@@ -67,9 +34,28 @@
     border-bottom: solid 1px black;
 }
 
+.column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
 
-  
- 
-  
- 
-  
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+.color-white {
+    background-color: white;
+}
+
+.comment-input {
+    width: 100%;
+}
+
+.save-button {
+    border-radius: 10px; 
+    background-color: #2db0b0;
+    width: 150px;
+    color: white;
+}

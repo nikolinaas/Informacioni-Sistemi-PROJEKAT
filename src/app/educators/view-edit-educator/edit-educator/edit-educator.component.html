@@ -8,7 +8,7 @@
         Ljekarsko uvjerenje:
         <div class="file-chooser">
             <button mat-raised-button style="background-color: #77238e; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser1()">Dodaj dokument</button>
-            <span class="file-name" style="margin-left: 5px;">{{ selectedFileMedicalClearance?.name }} </span>
+            <span style="margin-left: 5px;">{{ selectedFileMedicalClearance?.name }} </span>
             <input #fileInputMedicalClearance type="file" id="fileInputMedicalClearance" (change)="onMedicalFileSelected($event)" hidden>
         </div>
     </div>
@@ -17,7 +17,7 @@
         Higijenski test:
         <div class="file-chooser">
             <button mat-raised-button style="background-color: #77238e; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser2()">Dodaj dokument</button>
-            <span class="file-name1" style="margin-left: 5px;">{{ selectedFileHygieneTest?.name }} </span>
+            <span style="margin-left: 5px;">{{ selectedFileHygieneTest?.name }} </span>
             <input #fileInputHygieneTest type="file" id="fileInputHygieneTest" (change)="onHygieneFileSelected($event)" hidden>
         </div>
     </div>
@@ -51,6 +51,7 @@
         <div class="form-row">
             Datum rođenja:
             <mat-form-field appearance="fill">
+                <!-- TODO OVDE TREBA DA BUDE DATETIME PICKER, A NE TEXT INPUT FIELD -->
                 <input matInput type="text" formControlName="dateOfBirth" required autocomplete="off"  />
                 <mat-error>{{ getErrorMessage('dateOfBirth') }}</mat-error>
             </mat-form-field>

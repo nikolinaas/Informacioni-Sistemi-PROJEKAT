@@ -35,6 +35,12 @@
     background-color: whitesmoke;
 }
 
+.search-bar {
+    padding-left: 16px;
+    padding-right: 30px;
+    background-color: whitesmoke;
+}
+
 .mat-spinner {
     display: flex;
     align-items: center;
@@ -75,18 +81,6 @@
     font-size: 22px;
 }
 
-.number-of-members {
-    margin-left: 20px;
-    margin-top: 5px;
-}
-
-.button-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 25px;
-}
-
 .remove-button {
     position: absolute;
     top: 0;
@@ -99,32 +93,3 @@
     border-radius: 10px;
     color: white !important;
 }
-
-.button-delete-container {
-    height: 40px;
-    font-size: 18px;
-    width: 120px;
-}
-
-.remove-icon {
-    position: absolute;
-    left: 0;
-    margin-top: 6px;
-}
-
-.delete-title {
-    padding-top: 5px;
-    padding-left: 10px;
-}
-
-.before-search {
-    height: 20px;
-    background-color: whitesmoke;
-}
-
-.search-bar {
-    padding-left: 16px;
-    padding-right: 30px;
-    background-color: whitesmoke;
-}
-

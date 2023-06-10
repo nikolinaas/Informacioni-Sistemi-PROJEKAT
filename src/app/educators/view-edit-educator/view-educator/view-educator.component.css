@@ -32,10 +32,26 @@
     border-radius: 10px;
 }
 
-.before-group {
-    height: 10px;
+.before-search {
+    height: 30px;
     background-color: whitesmoke;
 }
+
+.group-scroll {
+    overflow-y: auto;
+    height: calc(100vh - 190px);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 100px auto;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+
 
 .mat-spinner {
     display: flex;
@@ -108,14 +124,6 @@
     color: white;
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 100px auto;
-    align-items: center;
-    padding-bottom: 5px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
 
 .save-button{
     display: flex;
@@ -132,12 +140,5 @@
     margin-top: 10px;
 }
 
-.group-scroll {
-    overflow-y: auto;
-    height: calc(100vh - 190px);
-}
 
-.before-search {
-    height: 30px;
-    background-color: whitesmoke;
-}
+

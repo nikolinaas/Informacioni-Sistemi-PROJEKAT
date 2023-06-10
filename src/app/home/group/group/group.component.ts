@@ -14,27 +14,24 @@ import { AddChildDialogComponent } from './add-child-dialog/add-child-dialog.com
 export class GroupComponent {
   id?: string;
   group?: any;
-  private groupService: GroupService;
   searchText: String = '';
   groupName: String = '';
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id != null) {
-      this.getGroup(id);
-    } else {
-      this.groupName = 'nije dobro';
+      this.id = id;
+      this.getGroup(this.id);
     }
   }
+
   constructor(
-    gs: GroupService,
+    private groupService: GroupService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
     private router: Router,
     private snackBar: MatSnackBar
-  ) {
-    this.groupService = gs;
-  }
+  ) {}
 
   getGroup(id: any) {
     this.groupService.getGroup(parseInt(id)).subscribe((gro: any) => {
@@ -60,21 +57,21 @@ export class GroupComponent {
         }
       });
   }
-  removeChild(item: any) {
+
+  removeChild(child: any) {
     this.groupService
-      .deleteChildFromGroup(this.group.id, item.id)
+      .deleteChildFromGroup(this.group.id, child.id)
       .subscribe((response: any) => {
         this.ngOnInit();
         if (response.status == 200) {
-          //ne radi nesto response status
-
           this.snackBar.open(
-            'Uspjesno ste obrisali dijete iz grupe',
+            'Uspješno ste obrisali dijete iz grupe',
             undefined,
             {
               duration: 2000,
             }
           );
+          this.getGroup(this.id);
         }
       });
   }
@@ -93,20 +90,23 @@ export class GroupComponent {
       });
   }
 
-  addEducatorInGroup() {}
+  addEducatorInGroup() {
+    // TODO OVO IMPLEMENTIRATI
+  }
 
   searchPerson() {
-    //napraviti za trazenje
+    // TODO OVO IMPLEMENTIRATI
   }
 
   openActivityWindow() {
-    this.router.navigate(['activity']); //popraviti sa id da ima
-    // TODO OVO TREBA STAVITI this.router.navigate([`/groups/${this.id}/activities}`]);
-    // NAKON TOGA JE POTREBNO U ROUTING DODATI DA SE VRSI REDIREKCIJA NA TU PUTANJU UMJESTO TRENUTNE
+    this.router.navigate([`groups/${this.id}/activities`]);
   }
-  clearSearch() {}
 
-  changName() {
+  clearSearch() {
+    // TODO OVO IMPLEMENTIRATI
+  }
+
+  changeName() {
     this.dialog
       .open(ChangeGroupNameDialogComponent, {
         width: '400px',

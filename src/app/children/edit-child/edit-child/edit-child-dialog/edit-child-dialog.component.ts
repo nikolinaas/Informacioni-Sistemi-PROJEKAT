@@ -22,12 +22,12 @@ export class EditChildDialogComponent {
     private formBuilder: FormBuilder,
     private childrenService: ChildrenService,
     private snackBar: MatSnackBar,
-    private dialog: MatDialog,
     private dialogRef: MatDialogRef<EditChildDialogComponent>
     ) {
 
   }
   getErrorMessage(text?:string){
+    // TODO OBRISATI OVU METODU AKO NE TREBA
   }
 
   closeDialog() {
@@ -64,7 +64,7 @@ export class EditChildDialogComponent {
             duration: 2000,
           }
         );
-        //this.childrenService.kindergarten = response;
+        //this.childrenService.kindergarten = response; // TODO OBRISATI OVO AKO NE TREBA
         this.dialogRef.close();
       });
   }
@@ -102,6 +102,10 @@ export class EditChildDialogComponent {
   byteArray: any | undefined;
 
   onFileSelected(event: any) {
+    // TODO OVDE JE PROBLEM STO CE SE PORUKA ZA USPJESNO AZURIRANJE LJEKARKSOG UVJERENJA PRIKAZATI
+    // PRIJE NEGO STO KORISNIK PRITISNE NA DUGME 'SACUVAJ'
+    // A TREBA DA SE DESI OBRNUTO, DAKLE AKO AZURIRA LJEKARSKO UVJERENJE ON TREBA DA GA IZABERE
+    // I DA ONDA PRITISNE NA DUGME SACUVAJ, NAKON CEGA CE MU SE PRIKAZATI PORUKA DA JE USPJESNO AZURIRANO
     const file: File = event.target.files[0];
     this.selectedFile=file;
     if (file) {

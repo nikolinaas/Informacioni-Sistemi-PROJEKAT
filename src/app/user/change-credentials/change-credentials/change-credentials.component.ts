@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { EditChildDialogComponent } from 'src/app/children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
+import { EditChildDialogComponent } from 'src/app/children/edit-child/edit-child/edit-child-dialog/edit-child-dialog.component';
 import { ChildrenService } from 'src/app/children/services/children.service';
 import { UserService } from '../../services/user.service';
 
