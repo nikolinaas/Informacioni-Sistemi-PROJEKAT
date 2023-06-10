@@ -1,51 +1,54 @@
-<div class="column-container">
-    <div class="tabs">
-        <p class="title">Podaci o vaspitaču</p>
-        <button mat-raised-button class="create-button" (click)="enableEdit()">
-            <mat-icon>edit</mat-icon>
-            Izmijeni
-        </button>
-    </div>
-    <div class="before-search"></div>
+<div class="row-container">
+    <app-side-nav-bar></app-side-nav-bar>
+    <div class="column-container, width-64">
+        <div class="tabs">
+            <p class="title">Podaci o vaspitaču</p>
+            <button mat-raised-button class="create-button" (click)="enableEdit()">
+                <mat-icon>edit</mat-icon>
+                Izmijeni
+            </button>
+        </div>
+        <div class="before-search"></div>
         <div class="group-scroll">
-          
+
             <form [formGroup]="form">
                 <div class="form-row">
                     Ime:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="name" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="name" required autocomplete="off" readonly />
                         <mat-error>{{ getErrorMessage('name') }}</mat-error>
                     </mat-form-field>
                 </div>
-        
+
                 <div class="form-row">
                     Prezime:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="surname" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="surname" required autocomplete="off" readonly />
                         <mat-error>{{ getErrorMessage('surname') }}</mat-error>
                     </mat-form-field>
                 </div>
-        
+
                 <div class="form-row">
                     JMBG:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="uid" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="uid" required autocomplete="off" readonly />
                         <mat-error>{{ getErrorMessage('jmbg') }}</mat-error>
                     </mat-form-field>
                 </div>
-        
+
                 <div class="form-row">
                     Datum rođenja:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="dateOfBirth" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="dateOfBirth" required autocomplete="off"
+                            readonly />
                         <mat-error>{{ getErrorMessage('dateOfBirth') }}</mat-error>
                     </mat-form-field>
                 </div>
-                
+
                 <div class="form-row">
                     Grad:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="city" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="city" required autocomplete="off" readonly />
                         <mat-error>{{ getErrorMessage('city') }}</mat-error>
                     </mat-form-field>
                 </div>
@@ -53,7 +56,7 @@
                 <div class="form-row">
                     Ulica:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="street" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="street" required autocomplete="off" readonly />
                         <mat-error>{{ getErrorMessage('street') }}</mat-error>
                     </mat-form-field>
                 </div>
@@ -66,12 +69,13 @@
                     </mat-form-field>
                 </div>
 
-             
-                <button mat-raised-button style="background-color: #77238e; border-radius: 10px; vertical-align: left; margin: 15px;" color="primary" (click)="openMedicalFile()">Pogledaj ljekarsko uvjerenje</button>
-                <button mat-raised-button style="background-color: #77238e; border-radius: 10px; vertical-align: left; margin: 15px;  ;" color="primary" (click)="openHygieneFile()">Pogledaj higijenski test</button>
-    <div class="before-search"></div>
+                <!-- // TODO POZICIONIRATI OVA DVA DUGMETA DA BUDU NA SREDINI EKRANA -->
+                <button mat-raised-button
+                    style="background-color: #77238e; border-radius: 10px; vertical-align: left; margin: 15px;"
+                    color="primary" (click)="openMedicalFile()">Pogledaj ljekarsko uvjerenje</button>
+                <button mat-raised-button
+                    style="background-color: #77238e; border-radius: 10px; vertical-align: left; margin: 15px;  ;"
+                    color="primary" (click)="openHygieneFile()">Pogledaj higijenski test</button>
+                <div class="before-search"></div>
 
- <!-- TODO OVDE FALI HTML KODA -->
-
-
-
+                <!-- TODO OVDE FALI HTML KODA -->

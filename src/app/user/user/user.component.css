@@ -1,3 +1,12 @@
+.row-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.width-64 {
+    width: calc(100% - 64px);
+}
+
 .column-container {
     display: flex;
     flex-direction: column;
@@ -47,6 +56,7 @@
 .group-scroll {
     overflow-y: auto;
     height: calc(100vh - 230px);
+    background-color: whitesmoke;
 }
 
 .group-section {

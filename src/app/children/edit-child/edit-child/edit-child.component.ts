@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ChildrenService } from '../../services/children.service';
-import { EditChildDialogComponent } from './edit-child-dialog/edit-child-dialog.component';
+import { EditChildDialogComponent } from '../edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
 
 @Component({
   selector: 'app-edit-child',

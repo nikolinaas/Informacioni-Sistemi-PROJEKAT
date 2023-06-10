@@ -25,7 +25,6 @@ import { ShowKindergartenInfoComponent } from './show-kindergarten-info/show-kin
 import { DeleteChildComponent } from './children/delete-child-dialog/delete-child/delete-child.component';
 import { CreateChildComponent } from './children/create-child-dialog/create-child/create-child.component';
 import { EditChildComponent } from './children/edit-child/edit-child/edit-child.component';
-import { EditChildDialogComponent } from './children/edit-child/edit-child/edit-child-dialog/edit-child-dialog.component';
 import { UserComponent } from './user/user/user.component';
 import { ChangeCredentialsComponent } from './user/change-credentials/change-credentials/change-credentials.component';
 import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
@@ -44,6 +43,8 @@ import { CreateEducatorDialogComponent } from './educators/create-educator-dialo
 import { DeleteEducatorDialogComponent } from './educators/delete-educator-dialog/delete-educator-dialog.component';
 import { EditEducatorComponent } from './educators/view-edit-educator/edit-educator/edit-educator.component';
 import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
+import { LogInComponent } from './log-in/log-in/log-in.component';
+import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
 
 const MY_FORMATS = {
   parse: {
@@ -89,7 +90,8 @@ const MY_FORMATS = {
     CreateEducatorDialogComponent,
     DeleteEducatorDialogComponent,
     EditEducatorComponent,
-    ViewEducatorComponent
+    ViewEducatorComponent,
+    LogInComponent,
   ],
   imports: [
     BrowserModule,

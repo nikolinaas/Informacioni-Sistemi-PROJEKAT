@@ -1,3 +1,13 @@
+.row-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.width-64 {
+    width: calc(100% - 64px);
+}
+
 .column-container {
     display: flex;
     flex-direction: column;
@@ -39,7 +49,7 @@
 
 .group-scroll {
     overflow-y: auto;
-    height: calc(100vh - 190px);
+    height: calc(100vh - 160px);
 }
 
 .form-row {

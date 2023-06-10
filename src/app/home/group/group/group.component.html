@@ -1,106 +1,109 @@
-<div class="column-container">
-    <div class="tabs">
-        <p class="title" *ngIf="group">{{group.name}}</p>
+<div class="row-container">
+    <app-side-nav-bar></app-side-nav-bar>
+    <div class="column-container, width-64">
+        <div class="tabs">
+            <p class="title" *ngIf="group">{{group.name}}</p>
 
-        <form class="group-of-buttons-form">
-            <button mat-raised-button (click)="changeName()">
-                <mat-icon>edit</mat-icon>
-                Promijeni naziv
-            </button>
-            <div class="between-buttons"></div>
-            <button mat-raised-button (click)="openActivityWindow()">
-                <mat-icon>event</mat-icon>
-                Aktivnosti
-            </button>
-        </form>
-
-    </div>
-    <div class="before-search"></div>
-    <mat-form-field class="search-bar">
-        <input matInput placeholder="Pronadji osobu" [(ngModel)]="searchText" (input)="searchPerson()">
-        <button mat-icon-button matSuffix *ngIf="searchText" (click)="clearSearch()">
-            <mat-icon>close</mat-icon>
-        </button>
-    </mat-form-field>
-    <div class="float-container">
-        <div class="float-child">
-
-            <div class="float-container1">
-                <div class="float-child">
-                    <div class="title1">
-                        <p>Lista djece:</p>
-                        <div class="before-padding1"></div>
-                    </div>
-                </div>
-                <div class="float-child">
-                    <button mat-raised-button class="add-button" (click)="addChildInGroup()">
-                        <mat-icon>add</mat-icon>
-                        Dodaj dijete
-                    </button>
-                </div>
-            </div>
-            <div class="before-padding2"></div>
-            <div *ngIf="!childrenInGroup" class="mat-spinner" id="childSpinner">
-                <mat-spinner></mat-spinner>
-            </div>
-            <div *ngIf="childrenInGroup">
-                <div class="group-section">
-                    <div class="comment-section">
-                        <ng-container *ngFor="let child of childrenInGroup">
-                            <mat-card class="comment-card">
-                                <mat-card-header>
-                                    <mat-card-title class="font-size-25">{{ child.name +" "
-                                        +child.surname}}</mat-card-title>
-                                    <mat-card-subtitle class="number-of-members">Ime oca:
-                                        {{child.fatherName}}</mat-card-subtitle>
-                                </mat-card-header>
-                                <button mat-raised-button class="remove-button" (click)="removeChild(child)">
-                                    <mat-icon>close</mat-icon>
-                                    Ukloni
-                                </button>
-                            </mat-card>
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
+            <form class="group-of-buttons-form">
+                <button mat-raised-button (click)="changeName()">
+                    <mat-icon>edit</mat-icon>
+                    Promijeni naziv
+                </button>
+                <div class="between-buttons"></div>
+                <button mat-raised-button (click)="openActivityWindow()">
+                    <mat-icon>event</mat-icon>
+                    Aktivnosti
+                </button>
+            </form>
 
         </div>
-        <div class="float-child">
-            <div class="float-container1">
-                <div class="float-child">
-                    <div class="title1">
-                        <p>Lista vaspitača:</p>
-                        <div class="before-padding1"></div>
+        <div class="before-search"></div>
+        <mat-form-field class="search-bar">
+            <input matInput placeholder="Pronadji osobu" [(ngModel)]="searchText" (input)="searchPerson()">
+            <button mat-icon-button matSuffix *ngIf="searchText" (click)="clearSearch()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <div class="float-container">
+            <div class="float-child">
+
+                <div class="float-container1">
+                    <div class="float-child">
+                        <div class="title1">
+                            <p>Lista djece:</p>
+                            <div class="before-padding1"></div>
+                        </div>
+                    </div>
+                    <div class="float-child">
+                        <button mat-raised-button class="add-button" (click)="addChildInGroup()">
+                            <mat-icon>add</mat-icon>
+                            Dodaj dijete
+                        </button>
                     </div>
                 </div>
-                <div class="float-child">
-
-
-                    <button mat-raised-button class="add-button">
-                        <mat-icon>add</mat-icon>
-                        Dodaj vaspitača
-                    </button>
+                <div class="before-padding2"></div>
+                <div *ngIf="!childrenInGroup" class="mat-spinner" id="childSpinner">
+                    <mat-spinner></mat-spinner>
                 </div>
+                <div *ngIf="childrenInGroup">
+                    <div class="group-section">
+                        <div class="comment-section">
+                            <ng-container *ngFor="let child of childrenInGroup">
+                                <mat-card class="comment-card">
+                                    <mat-card-header>
+                                        <mat-card-title class="font-size-25">{{ child.name +" "
+                                            +child.surname}}</mat-card-title>
+                                        <mat-card-subtitle class="number-of-members">Ime oca:
+                                            {{child.fatherName}}</mat-card-subtitle>
+                                    </mat-card-header>
+                                    <button mat-raised-button class="remove-button" (click)="removeChild(child)">
+                                        <mat-icon>close</mat-icon>
+                                        Ukloni
+                                    </button>
+                                </mat-card>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="before-padding2"></div>
-            <div *ngIf="!educatorsInGroup" class="mat-spinner" id="educatorSpinner">
-                <mat-spinner></mat-spinner>
-            </div>
-            <div *ngIf="educatorsInGroup">
-                <div class="group-section">
-                    <div class="comment-section">
-                        <ng-container *ngFor="let educator of educatorsInGroup">
-                            <mat-card class="comment-card">
-                                <mat-card-header>
-                                    <mat-card-title class="font-size-25">{{ educator.name +" "
-                                        +educator.surname}}</mat-card-title>
-                                </mat-card-header>
-                                <button mat-raised-button class="remove-button" (click)="removeEducator(educator)">
-                                    <mat-icon>close</mat-icon>
-                                    Ukloni
-                                </button>
-                            </mat-card>
-                        </ng-container>
+            <div class="float-child">
+                <div class="float-container1">
+                    <div class="float-child">
+                        <div class="title1">
+                            <p>Lista vaspitača:</p>
+                            <div class="before-padding1"></div>
+                        </div>
+                    </div>
+                    <div class="float-child">
+
+
+                        <button mat-raised-button class="add-button">
+                            <mat-icon>add</mat-icon>
+                            Dodaj vaspitača
+                        </button>
+                    </div>
+                </div>
+                <div class="before-padding2"></div>
+                <div *ngIf="!educatorsInGroup" class="mat-spinner" id="educatorSpinner">
+                    <mat-spinner></mat-spinner>
+                </div>
+                <div *ngIf="educatorsInGroup">
+                    <div class="group-section">
+                        <div class="comment-section">
+                            <ng-container *ngFor="let educator of educatorsInGroup">
+                                <mat-card class="comment-card">
+                                    <mat-card-header>
+                                        <mat-card-title class="font-size-25">{{ educator.name +" "
+                                            +educator.surname}}</mat-card-title>
+                                    </mat-card-header>
+                                    <button mat-raised-button class="remove-button" (click)="removeEducator(educator)">
+                                        <mat-icon>close</mat-icon>
+                                        Ukloni
+                                    </button>
+                                </mat-card>
+                            </ng-container>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,43 +1,46 @@
-<div class="column-container">
-    <div class="tabs">
-        <p class="title">Podaci o prijavljenom korisniku</p>
-        <button mat-raised-button class="create-button" (click)="changeCredentials()">
-            <mat-icon>edit</mat-icon>
-            Izmjena kredencijala
-        </button>
-    </div>
-    <div class="before-search"></div>
+<div class="row-container">
+    <app-side-nav-bar></app-side-nav-bar>
+    <div class="column-container, width-64">
+        <div class="tabs">
+            <p class="title">Podaci o prijavljenom korisniku</p>
+            <button mat-raised-button class="create-button" (click)="changeCredentials()">
+                <mat-icon>edit</mat-icon>
+                Izmjena kredencijala
+            </button>
+        </div>
+        <div class="before-search"></div>
         <div class="group-scroll">
-          
+
             <form [formGroup]="form" class="form">
                 <div class="form-row">
                     Ime:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="name" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="name" required autocomplete="off" readonly />
                         <mat-error>{{ getErrorMessage('name') }}</mat-error>
                     </mat-form-field>
                 </div>
-        
+
                 <div class="form-row">
                     Prezime:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="surname" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="surname" required autocomplete="off" readonly />
                         <mat-error>{{ getErrorMessage('surname') }}</mat-error>
                     </mat-form-field>
                 </div>
-        
+
                 <div class="form-row">
                     JMBG:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="uid" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="uid" required autocomplete="off" readonly />
                         <mat-error>{{ getErrorMessage('phoneNumber') }}</mat-error>
                     </mat-form-field>
                 </div>
-        
+
                 <div class="form-row">
                     Datum rođenja:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="dateOfBirth" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="dateOfBirth" required autocomplete="off"
+                            readonly />
                         <mat-error>{{ getErrorMessage('phoneNumber') }}</mat-error>
                     </mat-form-field>
                 </div>
@@ -45,7 +48,7 @@
                 <div class="form-row">
                     Grad:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="city" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="city" required autocomplete="off" readonly />
                         <mat-error>{{ getErrorMessage('surname') }}</mat-error>
                     </mat-form-field>
                 </div>
@@ -53,7 +56,7 @@
                 <div class="form-row">
                     Ulica:
                     <mat-form-field appearance="fill">
-                        <input matInput type="text" formControlName="street" required autocomplete="off" readonly/>
+                        <input matInput type="text" formControlName="street" required autocomplete="off" readonly />
                         <mat-error>{{ getErrorMessage('surname') }}</mat-error>
                     </mat-form-field>
                 </div>
@@ -65,9 +68,10 @@
                         <mat-error>{{ getErrorMessage('number') }}</mat-error>
                     </mat-form-field>
                 </div>
-              
+
             </form>
 
         </div>
-    <div class="before-search"></div>
+        <div class="before-search"></div>
+    </div>
 </div>

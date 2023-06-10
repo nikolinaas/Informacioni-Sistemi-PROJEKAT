@@ -1,38 +1,42 @@
-<div class="column-container">
-    <div class="tabs">
-        <p class="title">Pregled djece</p>
-        <button mat-raised-button class="create-button" (click)="createChild()">
-            <mat-icon>add</mat-icon>
-            Dodaj dijete
-        </button>
-    </div>
-    <div class="before-search"></div>
+<div class="row-container">
+    <app-side-nav-bar></app-side-nav-bar>
+    <div class="column-container, width-64">
+        <div class="tabs">
+            <p class="title">Pregled djece</p>
+            <button mat-raised-button class="create-button" (click)="createChild()">
+                <mat-icon>add</mat-icon>
+                Dodaj dijete
+            </button>
+        </div>
+        <div class="before-search"></div>
 
-    <mat-form-field class="search-bar">
-        <input matInput placeholder="Pronađi dijete" [(ngModel)]="searchText" (input)="searchChild()">
-        <button mat-icon-button matSuffix *ngIf="searchText" (click)="clearSearch()">
-            <mat-icon>close</mat-icon>
-        </button>
-    </mat-form-field>
+        <mat-form-field class="search-bar">
+            <input matInput placeholder="Pronađi dijete" [(ngModel)]="searchText" (input)="searchChild()">
+            <button mat-icon-button matSuffix *ngIf="searchText" (click)="clearSearch()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
 
-    <div *ngIf="!children" class="mat-spinner">
-        <mat-spinner></mat-spinner>
-    </div>
-    <div *ngIf="children" class="group-scroll">
-        <div class="group-section">
-            <div class="comment-section">
-                <ng-container *ngFor="let group of children">
-                    <mat-card class="comment-card" (click)="showChildDetails(group?.id)">
-                        <mat-card-header>
-                            <mat-card-title class="font-size-25">{{ group.name + " " +group.surname }}</mat-card-title>
-                        </mat-card-header>
-                        <button mat-raised-button class="remove-button"
-                            (click)="$event.stopPropagation(); deleteChild(group.id)">
-                            <mat-icon>close</mat-icon>
-                            Ukloni
-                        </button>
-                    </mat-card>
-                </ng-container>
+        <div *ngIf="!children" class="mat-spinner">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div *ngIf="children" class="group-scroll">
+            <div class="group-section">
+                <div class="comment-section">
+                    <ng-container *ngFor="let group of children">
+                        <mat-card class="comment-card" (click)="showChildDetails(group?.id)">
+                            <mat-card-header>
+                                <mat-card-title class="font-size-25">{{ group.name + " " +group.surname
+                                    }}</mat-card-title>
+                            </mat-card-header>
+                            <button mat-raised-button class="remove-button"
+                                (click)="$event.stopPropagation(); deleteChild(group.id)">
+                                <mat-icon>close</mat-icon>
+                                Ukloni
+                            </button>
+                        </mat-card>
+                    </ng-container>
+                </div>
             </div>
         </div>
     </div>

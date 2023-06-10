@@ -8,9 +8,9 @@ import { UserComponent } from './user/user/user.component';
 import { GroupComponent } from './home/group/group/group.component';
 import { Group } from './model/Group';
 import { ActivitiesComponent } from './home/group/group/activities/activities.component';
-import { LoginComponent } from './auth/login/login/login.component';
 import { EducatorsComponent } from './educators/educators.component';
 import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
+import { LogInComponent } from './log-in/log-in/log-in.component';
 // import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
 // import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
 // import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
@@ -20,7 +20,7 @@ import { ViewEducatorComponent } from './educators/view-edit-educator/view-educa
 const routes: Routes = [
 
   { path: '', pathMatch: 'full', redirectTo: '/login' },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LogInComponent },
 
   { path: 'groups', component: HomeComponent },
   { path: 'groups/:id', component: GroupComponent, data: {group : Group} },

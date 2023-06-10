@@ -1,3 +1,12 @@
+.row-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.width-64 {
+    width: calc(100% - 64px);
+}
+
 .column-container {
     display: flex;
     flex-direction: column;
@@ -55,11 +64,13 @@ form button {
     padding-left: 16px;
     padding-right: 30px;
     background-color: whitesmoke;
+    width: 100%;
 }
 
 .float-container {
     overflow-y: auto;
     height: calc(100vh - 230px);
+    background-color: whitesmoke;
 }
 
 .float-child {

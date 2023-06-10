@@ -1,3 +1,12 @@
+.row-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.width-64 {
+    width: calc(100% - 64px);
+}
+
 .column-container {
     display: flex;
     flex-direction: column;
@@ -41,6 +50,7 @@
     padding-left: 16px;
     padding-right: 30px;
     background-color: whitesmoke;
+    width: 100%;
 }
 
 .mat-spinner {
