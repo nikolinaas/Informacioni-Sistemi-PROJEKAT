@@ -15,6 +15,14 @@ import { Address } from 'src/app/model/address.model';
   styleUrls: ['./mjesecni-troskovi.component.css']
 })
 export class MjesecniTroskoviComponent implements OnInit {
+  // data: any[] = [
+  //   { name: 'John', age: 25, city: 'New York' },
+  //   { name: 'Alice', age: 32, city: 'London' },
+  //   { name: 'Bob', age: 47, city: 'Paris' },
+  // ];
+
+  displayedColumns: string[] = ['name', 'age', 'city'];
+
      isChecked: boolean = false;
      name:string;
      vrsta:string;
