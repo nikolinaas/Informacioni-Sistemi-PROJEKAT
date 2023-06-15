@@ -28,74 +28,85 @@
         </div>
     </div>
 
-    <form (ngSubmit)="createEducator()" class="column-container margin-bottom">
-
+    <form [formGroup]="form" (ngSubmit)="createEducator()" class="column-container margin-bottom">
+        
         <div class="form-row">
-            Ime:
-            <mat-form-field class="color-white">
-                <input matInput name="title" [(ngModel)]="educator.name" autocomplete="off">
-            </mat-form-field>
+          Ime:
+          <mat-form-field class="color-white">
+            <input matInput formControlName="name" required autocomplete="off">
+            <mat-error>{{ getErrorMessage('name') }}</mat-error>
+          </mat-form-field>
         </div>
+    
+        
 
         <div class="form-row">
             Prezime:
             <mat-form-field class="color-white">
-                <input matInput name="title" [(ngModel)]="educator.surname" autocomplete="on">
+              <input matInput formControlName="surname" required autocomplete="off">
+              <mat-error>{{ getErrorMessage('surname') }}</mat-error>
             </mat-form-field>
-        </div>
-
-        <div class="form-row">
+          </div>
+      
+          <div class="form-row">
             JMBG:
             <mat-form-field class="color-white">
-                <input matInput name="title" [(ngModel)]="educator.uid" autocomplete="on">
+              <input matInput formControlName="uid" required autocomplete="off">
+              <mat-error>{{ getErrorMessage('uid') }}</mat-error>
             </mat-form-field>
-        </div>
+          </div>
 
-        <div class="form-row">
-            Datum rođenja:
-            <mat-form-field class="color-white">
-                <input matInput [matDatepicker]="mydate" [(ngModel)]="date" (dateInput)="addEvent('input', $event)"
-                    readonly (dateChange)="addEvent('change', $event)">
-                <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
-                <mat-datepicker #mydate>
-                </mat-datepicker>
-            </mat-form-field>
-        </div>
-
-        <div class="form-row">
+            <div class="form-row">
+                Datum rođenja:
+                <mat-form-field class="color-white">
+                    <input matInput [ngModelOptions]="{standalone: true}" required [max]="today" [matDatepicker]="mydate" [(ngModel)]="date"
+                        (dateInput)="addEvent('input', $event)" readonly (dateChange)="addEvent('change', $event) ">
+                    <mat-datepicker-toggle  matSuffix [for]="mydate" ></mat-datepicker-toggle>
+                    <mat-datepicker #mydate>
+                    </mat-datepicker>
+                </mat-form-field>
+            </div>
+      
+          <div class="form-row">
             Grad:
             <mat-form-field class="color-white">
-                <input matInput name="title" [(ngModel)]="educator.city" autocomplete="on">
+              <input matInput formControlName="city" required autocomplete="off">
+              <mat-error>{{ getErrorMessage('city') }}</mat-error>
             </mat-form-field>
-        </div>
-
-        <div class="form-row">
+          </div>
+      
+          <div class="form-row">
             Ulica:
             <mat-form-field class="color-white">
-                <input matInput name="title" [(ngModel)]="educator.street" autocomplete="on">
+              <input matInput formControlName="street" required autocomplete="off">
+              <mat-error>{{ getErrorMessage('street') }}</mat-error>
             </mat-form-field>
-        </div>
-
-        <div class="form-row">
+          </div>
+      
+          <div class="form-row">
             Broj:
             <mat-form-field class="color-white">
-                <input type="number" matInput name="title" [(ngModel)]="educator.number" autocomplete="on">
+              <input type="number" matInput formControlName="number" required autocomplete="off">
+              <mat-error>{{ getErrorMessage('number') }}</mat-error>
             </mat-form-field>
-        </div>
-
-        <div class="form-row">
+          </div>
+      
+          <div class="form-row">
             Korisničko ime:
             <mat-form-field class="color-white">
-                <input matInput name="title" [(ngModel)]="educator.username" autocomplete="on">
+              <input matInput formControlName="userName" required autocomplete="off">
+              <mat-error>{{ getErrorMessage('userName') }}</mat-error>
             </mat-form-field>
-        </div>
-
-        <div class="form-row">
+          </div>
+      
+          <div class="form-row">
             Lozinka:
             <mat-form-field class="color-white">
-                <input type="password" matInput name="title" [(ngModel)]="educator.password" autocomplete="on">
+              <input type="password" matInput formControlName="password" required autocomplete="off">
+              <mat-error>{{ getErrorMessage('password') }}</mat-error>
             </mat-form-field>
-        </div>
+          </div>
+      
 
         <div style="text-align: center;">
             <button mat-raised-button style="border-radius: 10px; color: #ffffff; background-color: #77238e;"

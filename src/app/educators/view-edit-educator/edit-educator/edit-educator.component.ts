@@ -9,6 +9,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { EducatorsService } from '../../service/educators.service';
 import { HttpResponse } from '@angular/common/http';
+import * as _moment from 'moment';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+const moment = _moment;
 
 @Component({
   selector: 'app-edit-educator',
@@ -18,6 +21,10 @@ import { HttpResponse } from '@angular/common/http';
 export class EditEducatorComponent {
   public form: FormGroup = new FormGroup({});
   data: any;
+  date = moment();
+  today: Date = new Date();
+  private _dateToFind?: string;
+  birthday: Date = new Date();
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private id: any,
@@ -26,22 +33,43 @@ export class EditEducatorComponent {
     private snackBar: MatSnackBar,
     private dialogRef: MatDialogRef<EditEducatorComponent>
   ) {}
-  getErrorMessage(text?: string) {
-    // TODO OBRISATI METODU AKO NE TREBA
+  
+  getErrorMessage(errosMsg: any) {
+    const control = this.form.get(errosMsg);
+    if (control?.hasError('required')) {
+      return 'Obavezno polje';
+    }
+    return '';
   }
 
   closeDialog() {
     this.dialogRef.close();
   }
 
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    if (type === 'change') {
+      this.date = moment(event.value);
+      this._dateToFind =
+        this.date.format('YYYY') +
+        '-' +
+        this.date.format('MM') +
+        '-' +
+        this.date.format('DD');
+    }
+  }
+
   changeData() {
     const formData = this.form.value;
+    if(this._dateToFind == null){
+      this.date = moment(this.birthday);
+      this._dateToFind =  this.date.format('YYYY') + '-' + this.date.format('MM') + '-' + this.date.format('DD');
+    }
     const data = {
       id: this.id,
       name: formData.name,
       surname: formData.surname,
       uid: formData.uid,
-      dateOfBirth: formData.dateOfBirth,
+      dateOfBirth: this._dateToFind,
       address: {
         city: formData.city,
         street: formData.street,
@@ -50,6 +78,8 @@ export class EditEducatorComponent {
       medicalClearance: formData.formDatamedicalClearance,
       hygieneTest: formData.formDatahygieneTest,
     };
+    this.updateMedicalFile();
+    this.updateHygieneFile();
     this.educatorsService
       .updateEducator(data, this.id)
       .subscribe((response: any) => {
@@ -72,7 +102,7 @@ export class EditEducatorComponent {
       name: [''],
       surname: [''],
       uid: [''],
-      dateOfBirth: [''],
+     // dateOfBirth: [''],
       city: [''],
       street: [''],
       number: [''],
@@ -84,6 +114,7 @@ export class EditEducatorComponent {
       .getEducator(this.id)
       .subscribe((response: HttpResponse<any>) => {
         this.data = response.body;
+        this.birthday = moment(this.data.dateOfBirth).toDate();
         this.form.patchValue(this.data);
         this.form.patchValue(this.data.address);
       });
@@ -94,10 +125,7 @@ export class EditEducatorComponent {
   byteArrayHygieneTest: any | undefined;
 
   onMedicalFileSelected(event: any) {
-    // TODO OVDE JE PROBLEM STO CE SE PORUKA ZA USPJESNO AZURIRANJE LJEKARKSOG UVJERENJA PRIKAZATI
-    // PRIJE NEGO STO KORISNIK PRITISNE NA DUGME 'SACUVAJ'
-    // A TREBA DA SE DESI OBRNUTO, DAKLE AKO AZURIRA LJEKARSKO UVJERENJE ON TREBA DA GA IZABERE
-    // I DA ONDA PRITISNE NA DUGME SACUVAJ, NAKON CEGA CE MU SE PRIKAZATI PORUKA DA JE USPJESNO AZURIRANO
+
     const file: File = event.target.files[0];
     this.selectedFileMedicalClearance = file;
     if (file) {
@@ -105,10 +133,17 @@ export class EditEducatorComponent {
       reader.onload = () => {
         const arrayBuffer = reader.result as ArrayBuffer;
         const uint8Array = new Uint8Array(arrayBuffer);
-        const byteArray = Array.from(uint8Array);
-        const fileJSON = { medicalClearance: byteArray };
-        console.log(fileJSON.medicalClearance); //
-        this.educatorsService
+        this.byteArrayMedicalClearance = Array.from(uint8Array);
+       
+       
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  }
+  updateMedicalFile() {
+    if(this.selectedFileMedicalClearance != undefined) {
+      const fileJSON = {medicalClearance: this?.byteArrayMedicalClearance};
+          this.educatorsService
           .updateMedicalFile(fileJSON, this.id)
           .subscribe((response: any) => {
             this.snackBar.open(
@@ -119,16 +154,11 @@ export class EditEducatorComponent {
               }
             );
           });
-      };
-      reader.readAsArrayBuffer(file);
-    }
+        }
   }
 
   onHygieneFileSelected(event: any) {
-    // TODO OVDE JE PROBLEM STO CE SE PORUKA ZA USPJESNO AZURIRANJE HIGIJENSKOG TESTA PRIKAZATI
-    // PRIJE NEGO STO KORISNIK PRITISNE NA DUGME 'SACUVAJ'
-    // A TREBA DA SE DESI OBRNUTO, DAKLE AKO AZURIRA HIGIJENSKI TEST ON TREBA DA GA IZABERE
-    // I DA ONDA PRITISNE NA DUGME SACUVAJ, NAKON CEGA CE MU SE PRIKAZATI PORUKA DA JE USPJESNO AZURIRANO
+ 
     const file: File = event.target.files[0];
     this.selectedFileHygieneTest = file;
     if (file) {
@@ -136,10 +166,16 @@ export class EditEducatorComponent {
       reader.onload = () => {
         const arrayBuffer = reader.result as ArrayBuffer;
         const uint8Array = new Uint8Array(arrayBuffer);
-        const byteArray = Array.from(uint8Array);
-        const fileJSON = { hygieneTest: byteArray };
-        console.log(fileJSON.hygieneTest);
-        this.educatorsService
+        this.byteArrayHygieneTest = Array.from(uint8Array);  
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  }
+
+  updateHygieneFile() {
+    if(this.selectedFileHygieneTest != undefined) {
+      const fileJSON = {hygieneTest: this?.byteArrayHygieneTest};
+          this.educatorsService
           .updateHygieneFile(fileJSON, this.id)
           .subscribe((response: any) => {
             this.snackBar.open(
@@ -150,10 +186,9 @@ export class EditEducatorComponent {
               }
             );
           });
-      };
-      reader.readAsArrayBuffer(file);
-    }
+        }
   }
+
 
   openFileChooser1() {
     const fileInput: HTMLElement = document.querySelector(

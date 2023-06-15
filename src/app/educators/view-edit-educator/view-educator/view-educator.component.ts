@@ -52,7 +52,14 @@ export class ViewEducatorComponent {
       });
   }
 
-  getErrorMessage(errosMsg: any) {}
+  getErrorMessage(errosMsg: any) {
+    const control = this.form.get(errosMsg);
+    if (control?.hasError('required')) {
+      return 'Obavezno';
+    }
+    return '';
+  }
+
   enableEdit() {
     this.dialog
       .open(EditEducatorComponent, {

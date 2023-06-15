@@ -44,12 +44,12 @@
 
 .before-search {
     height: 30px;
-    background-color: whitesmoke;
+    background-color: rgb(255, 255, 255);
 }
 
 .group-scroll {
     overflow-y: auto;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 190px);
 }
 
 .form-row {
