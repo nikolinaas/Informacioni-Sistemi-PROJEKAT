@@ -5,6 +5,9 @@ import { Finance } from 'src/app/model/Finance';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { FinanceServiceService } from '../services/finance-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CreateBillDialogComponent } from '../create-bill-dialog/create-bill-dialog.component';
+import { Kindergarten } from 'src/app/model/kindergarten.model';
+import { Address } from 'src/app/model/address.model';
 
 @Component({
   selector: 'app-mjesecni-troskovi',
@@ -35,19 +38,6 @@ export class MjesecniTroskoviComponent implements OnInit {
      finance : Finance[] = [];
      load()
      {
-
-     }
-  ngOnInit(): void {
-    console.log("Nesto");
-    this.finance[0] = {
-      "billNumber": "Broj",
-      "billType": "Tip",
-      "amount": "25",
-      "date": "datum",
-      "paid": "Placeno",
-      "kindergartenName" : "Vrtic"
-
-    };
       this.financeService.getBill().subscribe
       (
         (responese)=>
@@ -56,24 +46,42 @@ export class MjesecniTroskoviComponent implements OnInit {
         }
         
       )
+     }
+
+  ngOnInit(): void {
+   /* console.log("Nesto");
+    this.finance[0] = {
+      "billNumber": "Broj",
+      "billType": "Tip",
+      "amount": "25",
+      "date": "datum",
+      "paid": "Placeno",
+      "kindergartenName" : "Vrtic"
+
+    };*/
+      this.load();
   }
      
 
      addClick()
      {
-
-      if(this.combo=="Da")
+      this.dialog.open(CreateBillDialogComponent,{
+        width: '400px'}).afterClosed()
+        .subscribe(() => {
+          this.load()
+        });
+      /*if(this.combo=="Da")
         this.pom=true;
       else
         this.pom=false;
-      /*console.log(this.name+" "+this.vrsta+" "+this.datetime.substring(0,10));*/
+      /*console.log(this.name+" "+this.vrsta+" "+this.datetime.substring(0,10));
       const data = {
         billNumber: this.name,
         billType: this.vrsta,
         amount: parseInt(this.iznos,10),
         date: this.datetime.substring(0,10),
         paid: this.pom,
-        kindergartenName: "e-Vritc"
+        kindergartenName: kindergarten
         
         
       };
@@ -94,11 +102,15 @@ export class MjesecniTroskoviComponent implements OnInit {
           }
         );
       }
-    );
+    );*/
      }
      deleteClick()
      {
       this.dialog.open(DeleteDialogComponent,{
-        width: '400px'})
+        width: '350px',
+        height: '200px'}).afterClosed()
+        .subscribe(() => {
+          this.load()
+        });
      }
 }

@@ -11,7 +11,7 @@
 </div>
 
 <div class="table">
-    <input type="text" placeholder="Name" [(ngModel)]="name" required id="name" class="textbox1">
+    <!-- <input type="text" placeholder="Name" [(ngModel)]="name" required id="name" class="textbox1">
     <input type="text" placeholder="Vrsta racuna" [(ngModel)]="vrsta" required id="vrsta" class="textbox2">
     <input type="text" placeholder="Iznos" [(ngModel)]="iznos" required id="Iznos" class="textbox3">
     <label for="datetime">Select Date and Time:</label>
@@ -20,7 +20,7 @@
     <select id="combo" name="combo" [(ngModel)]="combo" class="combo1">
       <option value="Da">Da</option>
       <option value="Ne">Ne</option>
-    </select>
+    </select> -->
    <!-- <table>
       <tr>
         <th>Broj racuna</th>
@@ -44,8 +44,14 @@
         </th>
       </tr>
       <tr *ngFor="let financ of finance">
-        <td *ngFor="let col of index">
-          {{financ[col]}}
+       <!-- <td *ngFor="let col of index">
+          {{financ[col]}} -->
+        <td>{{ financ.billNumber }}</td>
+        <td>{{ financ.billType }}</td>
+        <td>{{ financ.amount }}</td>
+        <td>{{ financ.date }}</td>
+        <td>
+          <input type="checkbox" [checked]="financ.paid">
         </td>
       </tr>
     </table>

@@ -37,6 +37,7 @@ import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-
 import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
 import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
 import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
+import { CreateBillDialogComponent } from './finance/create-bill-dialog/create-bill-dialog.component';
 
 
 const MY_FORMATS = {
@@ -77,6 +78,7 @@ const MY_FORMATS = {
     DugovanjaComponent,
     CreateDialogComponent,
     DeleteDialogComponent,
+    CreateBillDialogComponent,
   ],
   imports: [
     BrowserModule,
