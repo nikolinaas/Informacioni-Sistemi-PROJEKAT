@@ -1,32 +1,35 @@
-<div class="column-container">
-    <div class="tabs">
-        <p class="title">Vrtić</p>
-        <button mat-raised-button class="create-button" (click)="createGroup()">
-            <mat-icon>add</mat-icon>
-            Dodaj grupu
-        </button>
-    </div>
-    <div class="before-group"></div>
-    <div *ngIf="!groups" class="mat-spinner">
-        <mat-spinner></mat-spinner>
-    </div>
-    <div *ngIf="groups" class="group-scroll">
-        <div class="group-section">
-            <div class="comment-section">
-                <ng-container *ngFor="let group of groups">
-                    <mat-card class="comment-card"  (click)="showGroupDetails(group?.id)">
-                        <mat-card-header class="comment-header">
-                            <mat-card-title class="font-size-25">{{ group.name }}</mat-card-title>
-                            <mat-card-subtitle class="number-of-members">Broj clanova: {{
-                                group.numberOfMembers}}</mat-card-subtitle>
-                        </mat-card-header>
-                        <button mat-raised-button class="remove-button"
-                            (click)="$event.stopPropagation(); deleteGroup(group.id)">
-                            <mat-icon>close</mat-icon>
-                            Ukloni
-                        </button>
-                    </mat-card>
-                </ng-container>
+<div class="row-container">
+    <app-side-nav-bar></app-side-nav-bar>
+    <div class="column-container, width-64">
+        <div class="tabs">
+            <p class="title">Grupe</p>
+            <button mat-raised-button class="create-button" (click)="createGroup()">
+                <mat-icon>add</mat-icon>
+                Dodaj grupu
+            </button>
+        </div>
+        <div class="before-group"></div>
+        <div *ngIf="!groups" class="mat-spinner">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div *ngIf="groups" class="group-scroll">
+            <div class="group-section">
+                <div class="comment-section">
+                    <ng-container *ngFor="let group of groups">
+                        <mat-card class="comment-card" (click)="showGroupDetails(group?.id)">
+                            <mat-card-header>
+                                <mat-card-title class="font-size-25">{{ group.name }}</mat-card-title>
+                                <mat-card-subtitle class="number-of-members">Broj clanova: {{
+                                    group.numberOfMembers}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <button mat-raised-button class="remove-button"
+                                (click)="$event.stopPropagation(); deleteGroup(group.id)">
+                                <mat-icon>close</mat-icon>
+                                Ukloni
+                            </button>
+                        </mat-card>
+                    </ng-container>
+                </div>
             </div>
         </div>
     </div>

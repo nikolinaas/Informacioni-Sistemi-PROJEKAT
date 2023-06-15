@@ -25,7 +25,6 @@ import { ShowKindergartenInfoComponent } from './show-kindergarten-info/show-kin
 import { DeleteChildComponent } from './children/delete-child-dialog/delete-child/delete-child.component';
 import { CreateChildComponent } from './children/create-child-dialog/create-child/create-child.component';
 import { EditChildComponent } from './children/edit-child/edit-child/edit-child.component';
-import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
 import { UserComponent } from './user/user/user.component';
 import { ChangeCredentialsComponent } from './user/change-credentials/change-credentials/change-credentials.component';
 import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
@@ -39,6 +38,16 @@ import { CreateDialogComponent } from './finance/create-dialog/create-dialog.com
 import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
 import { CreateBillDialogComponent } from './finance/create-bill-dialog/create-bill-dialog.component';
 
+// import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
+// import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
+// import { EducatorsComponent } from './educators/educators.component';
+// import { CreateEducatorDialogComponent } from './educators/create-educator-dialog/create-educator-dialog.component';
+// import { DeleteEducatorDialogComponent } from './educators/delete-educator-dialog/delete-educator-dialog.component';
+// import { EditEducatorComponent } from './educators/view-edit-educator/edit-educator/edit-educator.component';
+// import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
+// import { LogInComponent } from './log-in/log-in/log-in.component';
+// import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
+// import { AddActivityComponent } from './home/group/group/activities/add-activity/add-activity.component';
 
 const MY_FORMATS = {
   parse: {
@@ -66,7 +75,7 @@ const MY_FORMATS = {
     DeleteChildComponent,
     CreateChildComponent,
     EditChildComponent,
-    EditChildDialogComponent,
+    // EditChildDialogComponent,
     UserComponent,
     ChangeCredentialsComponent,
     SideNavBarComponent,
@@ -79,6 +88,15 @@ const MY_FORMATS = {
     CreateDialogComponent,
     DeleteDialogComponent,
     CreateBillDialogComponent,
+    // AddChildDialogComponent,
+    // AddEducatorDialogComponent,
+    // EducatorsComponent,
+    // CreateEducatorDialogComponent,
+    // DeleteEducatorDialogComponent,
+    // EditEducatorComponent,
+    // ViewEducatorComponent,
+    // LogInComponent,
+    // AddActivityComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,82 +1,167 @@
 import { Component } from '@angular/core';
-import { Child } from 'src/app/model/child.model';
 import { GroupService } from './services/group.service';
-import { Group } from 'src/app/model/group.model';
-import { Subscription } from 'rxjs';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ChangeGroupNameDialogComponent } from './change-group-name-dialog/change-group-name-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddChildDialogComponent } from './add-child-dialog/add-child-dialog.component';
+import { AddEducatorDialogComponent } from './add-educator-dialog/add-educator-dialog.component';
 
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
-  styleUrls: ['./group.component.css']
+  styleUrls: ['./group.component.css'],
 })
 export class GroupComponent {
-
-
   id?: string;
   group?: any;
- private _educatorsInGroup?: any[];
-  private groupService: GroupService;
   searchText: String = '';
   groupName: String = '';
-
+  private _filteredChildren?: any[];
+  private _noFilteredChildren?: any[];
+  private _filteredEducators?: any[];
+  private _noFilteredEducators?: any[];
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id != null) {
-      this.getGroup(id);
-    } else {
-      this.groupName = 'nije dobro';
+      this.id = id;
+      this.getGroup(this.id);
     }
   }
-  constructor(gs: GroupService, private route: ActivatedRoute, private dialog: MatDialog,
-    private router: Router) {
-    this.groupService = gs;
-  }
+
+  constructor(
+    private groupService: GroupService,
+    private route: ActivatedRoute,
+    private dialog: MatDialog,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) { }
 
   getGroup(id: any) {
     this.groupService.getGroup(parseInt(id)).subscribe((gro: any) => {
       this.group = gro;
-
-
+      this._noFilteredChildren = this.group.children;
+      this._noFilteredEducators=this.group.educators;
     });
   }
 
+  removeEducator(item: any) {
+    this.groupService
+      .deleteEducatorFromGroup(this.group.id, item.id)
+      .subscribe((response: any) => {
+        this.ngOnInit();
+        if (response.status == 200) {
+          //ne radi nesto response status
+
+          this.snackBar.open(
+            'Uspjesno ste vaspitača dijete iz grupe',
+            undefined,
+            {
+              duration: 2000,
+            }
+          );
+        }
+      });
+  }
+
+  removeChild(child: any) {
+    this.groupService
+      .deleteChildFromGroup(this.group.id, child.id)
+      .subscribe((response: any) => {
+        this.ngOnInit();
+        if (response.status == 200) {
+          this.snackBar.open(
+            'Uspješno ste obrisali dijete iz grupe',
+            undefined,
+            {
+              duration: 2000,
+            }
+          );
+          this.getGroup(this.id);
+        }
+      });
+  }
+
+  addChildInGroup() {
+    this.dialog
+      .open(AddChildDialogComponent, {
+        width: '400px',
+        data: { id: this.group?.id, name: this.group?.name },
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.childrenInGroup;
+        this.educatorsInGroup;
+        this.ngOnInit();
+      });
+  }
+
+  addEducatorInGroup() {
+    this.dialog
+      .open(AddEducatorDialogComponent, {
+        width: '400px',
+       data : { id: this.group?.id, name: this.group?.name },
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.childrenInGroup;
+        this.educatorsInGroup;
+        this.ngOnInit();
+      });
+  }
 
   searchPerson() {
-    //napraviti za trazenje
+    if (this.searchText != '') {
+      const searchTextLowerCase = this.searchText.toLowerCase();
+      this._filteredChildren = this._noFilteredChildren;
+      this.group.children = this._filteredChildren?.filter(child =>
+        child.name?.toLowerCase().includes(searchTextLowerCase) ||
+        child.surname?.toLowerCase().includes(searchTextLowerCase)
+      );
+      this._filteredEducators= this._noFilteredEducators;
+      this.group.educators = this._filteredEducators?.filter(educator =>
+        educator.name?.toLowerCase().includes(searchTextLowerCase) ||
+        educator.surname?.toLowerCase().includes(searchTextLowerCase)
+      );
+    } else {
+      this.group.children = this._noFilteredChildren;
+      this.group.educators=this._noFilteredEducators;
+    }
   }
 
   openActivityWindow() {
-    this.router.navigate(['activity']); //popraviti sa id da ima
+    this.router.navigate([`groups/${this.group?.id}/activities`]);
   }
+
   clearSearch() {
-
+    this.searchText = '';
+    this.group.children = this._noFilteredChildren;
+    this.group.educators = this._noFilteredEducators;
   }
 
-  addChildClick() {
+  changeName() {
     this.dialog
       .open(ChangeGroupNameDialogComponent, {
         width: '400px',
         data: { id: this.group?.id, name: this.group?.name },
-      }).afterClosed()
+      })
+      .afterClosed()
       .subscribe(() => {
         this.childrenInGroup;
+        this.educatorsInGroup;
         this.ngOnInit();
       });
-     
   }
 
   get childrenInGroup() {
     if (this.group?.children) {
       return this.group.children;
-    }
-    else return null;
+    } else return null;
   }
 
-get educatorsInGroup(){
-  return this._educatorsInGroup;
-}
-
+  get educatorsInGroup() {
+    if (this.group?.educators) {
+      return this.group.educators;
+    }
+  }
 }

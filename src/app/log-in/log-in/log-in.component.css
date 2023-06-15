@@ -1,0 +1,53 @@
+mat-card-title {
+  margin-bottom: 20px;
+}
+
+mat-card {
+  width: 400px;
+  height: 420px;
+  margin-left:  calc(50vw - 200px);
+  margin-top: calc(50vh - 210px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+  
+  
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+  
+.column-container{
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.title{
+  margin-left: 20px;
+}
+
+.logo-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host {
+  display: flex;
+  height: 100%;
+}
+
+mat-sidenav-container, mat-sidenav-content {
+  height: 100%;
+}
+
+.mat-button-rounded {
+  border-radius: 10px;
+}

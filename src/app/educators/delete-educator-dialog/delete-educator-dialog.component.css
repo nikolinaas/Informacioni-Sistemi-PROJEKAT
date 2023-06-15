@@ -1,0 +1,11 @@
+.exit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-top: 7px;
+}
+
+.width-100 {
+    width: 100px;
+}

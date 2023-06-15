@@ -3,34 +3,29 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ChildrenService } from './../../services/children.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Child } from 'src/app/model/child.model';
-import { Address } from 'src/app/model/address.model';
 import * as _moment from 'moment';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 const moment = _moment;
 
-
 @Component({
   selector: 'app-create-child',
   templateUrl: './create-child.component.html',
-  styleUrls: ['./create-child.component.css']
+  styleUrls: ['./create-child.component.css'],
 })
 export class CreateChildComponent {
-
   date = moment();
   public form: FormGroup = new FormGroup({});
-  private _dateToShow?: string;
   private _dateToFind?: string;
   child: any = {
-    name: '', 
-    surname: '', 
-    uid: '', 
-    dateOfBirth: '', 
-    motherName: '', 
-    fatherName: '', 
-    motherPhoneNumber: '', 
-    fatherPhoneNumber: '', 
-    height: '', 
+    name: '',
+    surname: '',
+    uid: '',
+    dateOfBirth: '',
+    motherName: '',
+    fatherName: '',
+    motherPhoneNumber: '',
+    fatherPhoneNumber: '',
+    height: '',
     weight: '',
     note: '',
     city: '',
@@ -39,32 +34,46 @@ export class CreateChildComponent {
     id: '',
     isHere: '',
     arrivalAndDepartureTime: '',
-    medicalClearance: ''
+    medicalClearance: '',
   };
 
   constructor(
-    private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<CreateChildComponent>,
     private childrenService: ChildrenService,
     private snackBar: MatSnackBar
   ) {}
 
-  closeDialog(){
+  closeDialog() {
     this.dialogRef.close();
+  }
+
+  getErrorMessage(errorMsg:string) {
+    const control = this.form.get(errorMsg);
+    if (control?.hasError('required')) {
+      return 'Obavezno polje';
+    }
+    return '';
   }
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     if (type === 'change') {
       this.date = moment(event.value);
-      this._dateToShow = this.date.format('DD') + "-" + this.date.format('MM') + "-" + this.date.format('YYYY');
-      this._dateToFind = this.date.format('YYYY') + "-" + this.date.format('MM') + "-" + this.date.format('DD');
-
+      this._dateToFind =
+        this.date.format('YYYY') +
+        '-' +
+        this.date.format('MM') +
+        '-' +
+        this.date.format('DD');
     }
   }
 
   createChild() {
-    if (this.child.name !='' || this.child.surname !='') {
-      const date: string='';
+    // TODO TREBA PROVJERITI VRIJEDNOST SVIH POLJA, ODNOSNO SVA POLJA MORAJU BITI REQUIRED
+    // SVA POLJA OSIM 'NAPOMENA' (MOZDA JOS NE TREBA, PROVJERITI U BAZI KOJA POLJA IMAJU VRIJEDNOST NOT-NULL)
+    // TAKODJE TREBA PROVJERITI DA LI JMBG IMA 13 CIFARA
+    // TREBA ONEMOGUCITI DA OSOBA IZABERE DATUM KOJI JE VECI OD DANASNJEG (PRIMJER - NE SMIJE MOCI IZABRATI ZA DATUM RODJENJA NPR. 15.06.2023 AKO JE DANAS 14.06.2023), DAKLE SAMO TO TREBA DISABLE-OVATI
+    if (this.child.name != '' || this.child.surname != '') {
+      const date: string = '';
       const data = {
         name: this.child.name,
         surname: this.child.surname,
@@ -74,31 +83,30 @@ export class CreateChildComponent {
         fatherName: this.child.fatherName,
         motherPhoneNumber: this.child.motherPhoneNumber,
         fatherPhoneNumber: this.child.fatherPhoneNumber,
-        height: this.child.height+'',
-        weight: this.child.weight+'',
-        note: { description: this.child.note},
-        address: {city: this.child.city, street: this.child.street, number: (this.child.number+'')},
-        medicalClearance: this.byteArray
-        
+        height: this.child.height + '',
+        weight: this.child.weight + '',
+        note: { description: this.child.note },
+        address: {
+          city: this.child.city,
+          street: this.child.street,
+          number: this.child.number + '',
+        },
+        medicalClearance: this.byteArray,
       };
-      
+
       this.childrenService.createChild(data).subscribe(
         (response: any) => {
           if (response.status == 201) {
-            this.snackBar.open('Uspjesno ste kreirali dijete ', '', {
+            this.snackBar.open('Uspjesno ste kreirali nalog za dijete ', '', {
               duration: 2000,
             });
             this.dialogRef.close(true);
           }
         },
         () => {
-          this.snackBar.open(
-            'Nije moguće kreirati dijete!'+date,
-            '',
-            {
-              duration: 2000,
-            }
-          );
+          this.snackBar.open('Nije moguće kreirati nalog za dijete!' + date, '', {
+            duration: 2000,
+          });
         }
       );
     }
@@ -109,10 +117,8 @@ export class CreateChildComponent {
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
-    this.selectedFile=file;
+    this.selectedFile = file;
     if (file) {
-      console.log(file);
-
       const reader = new FileReader();
       reader.onload = () => {
         const arrayBuffer = reader.result as ArrayBuffer;
@@ -120,13 +126,13 @@ export class CreateChildComponent {
         this.byteArray = Array.from(uint8Array);
       };
       reader.readAsArrayBuffer(file);
-      console.log(this.byteArray);
     }
   }
 
   openFileChooser() {
-    const fileInput: HTMLElement = document.querySelector('input[type="file"]') as HTMLElement;
+    const fileInput: HTMLElement = document.querySelector(
+      'input[type="file"]'
+    ) as HTMLElement;
     fileInput.click();
   }
-
 }

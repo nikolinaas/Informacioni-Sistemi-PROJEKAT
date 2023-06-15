@@ -6,12 +6,12 @@
     Unesite naziv grupe:
 </div>
 <div mat-dialog-content>
-        <form (ngSubmit)="createGroup()" class="column-container margin-bottom">
-            <mat-form-field class="color-white">
-                <input matInput name="title" [(ngModel)]="group.title" autocomplete="off">
-            </mat-form-field>
-            <div style="text-align: center;">
-                <button mat-raised-button color="primary" type="submit">Kreiraj</button>
-            </div>
-        </form>
+    <form (ngSubmit)="createGroup()" class="column-container margin-bottom">
+        <mat-form-field class="color-white">
+            <input matInput name="title" [(ngModel)]="group.title" autocomplete="off">
+        </mat-form-field>
+        <div style="text-align: center;">
+            <button mat-raised-button color="primary" type="submit">Kreiraj</button>
+        </div>
+    </form>
 </div>

@@ -5,7 +5,8 @@ export class Group {
     private _id?: number,
     private _name?: string,
     private _numberOfMembers?: number,
-    private _children?: Child[] 
+    private _children?: Child[],
+    private _educators?:any[]
   ) {}
 
   get id() {
@@ -24,7 +25,9 @@ export class Group {
     return this._children;
   }
 
- 
+ get educators(){
+  return this._educators;
+ }
 
   addChildren(list:Child[]){
     this._children=list;

@@ -1,0 +1,95 @@
+<h1 mat-dialog-title class="header-info">Izmjena podataka o vaspitaču</h1>
+<button mat-icon-button class="exit-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-content>
+
+    <div class="form-row" style="margin-bottom: 20px;">
+        Ljekarsko uvjerenje:
+        <div class="file-chooser">
+            <button mat-raised-button style="background-color: #77238e; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser1()">Dodaj dokument</button>
+            <span style="margin-left: 5px;">{{ selectedFileMedicalClearance?.name }} </span>
+            <input #fileInputMedicalClearance type="file" id="fileInputMedicalClearance" (change)="onMedicalFileSelected($event)" hidden>
+        </div>
+    </div>
+
+    <div class="form-row" style="margin-bottom: 20px;">
+        Higijenski test:
+        <div class="file-chooser">
+            <button mat-raised-button style="background-color: #77238e; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser2()">Dodaj dokument</button>
+            <span style="margin-left: 5px;">{{ selectedFileHygieneTest?.name }} </span>
+            <input #fileInputHygieneTest type="file" id="fileInputHygieneTest" (change)="onHygieneFileSelected($event)" hidden>
+        </div>
+    </div>
+ 
+    <form [formGroup]="form">
+
+        <div class="form-row">
+            Ime:
+            <mat-form-field appearance="fill">
+                <input matInput type="text" formControlName="name" required autocomplete="off"  />
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Prezime:
+            <mat-form-field appearance="fill">
+                <input matInput type="text" formControlName="surname" required autocomplete="off"  />
+                <mat-error>{{ getErrorMessage('surname') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            JMBG:
+            <mat-form-field appearance="fill">
+                <input matInput type="text" formControlName="uid" required autocomplete="off"  />
+                <mat-error>{{ getErrorMessage('uid') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Datum rođenja:
+            <mat-form-field class="color-white">
+                <input matInput [ngModel]="birthday" [ngModelOptions]="{standalone: true}" required [max]="today" [matDatepicker]="mydate" [(ngModel)]="date"
+                    (dateInput)="addEvent('input', $event)" readonly (dateChange)="addEvent('change', $event) ">
+                <mat-datepicker-toggle  matSuffix [for]="mydate" ></mat-datepicker-toggle>
+                <mat-datepicker #mydate>
+                </mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        
+        <div class="form-row">
+            Grad:
+            <mat-form-field appearance="fill">
+                <input matInput type="text" formControlName="city" required autocomplete="off"  />
+                <mat-error>{{ getErrorMessage('city') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Ulica:
+            <mat-form-field appearance="fill">
+                <input matInput type="text" formControlName="street" required autocomplete="off"  />
+                <mat-error>{{ getErrorMessage('street') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Broj:
+            <mat-form-field appearance="fill">
+                <input matInput type="number" formControlName="number" required autocomplete="off"   />
+                <mat-error>{{ getErrorMessage('number') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div style="text-align: center; ">
+            <button mat-raised-button color="primary" class="save-button"
+                (click)="changeData()">
+                Sačuvaj
+            </button>
+        </div>
+    </form>
+</div>
+

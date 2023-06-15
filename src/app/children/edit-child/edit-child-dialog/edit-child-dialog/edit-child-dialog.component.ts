@@ -1,7 +1,7 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ChildrenService } from 'src/app/children/services/children.service';
@@ -22,12 +22,16 @@ export class EditChildDialogComponent {
     private formBuilder: FormBuilder,
     private childrenService: ChildrenService,
     private snackBar: MatSnackBar,
-    private dialog: MatDialog,
     private dialogRef: MatDialogRef<EditChildDialogComponent>
     ) {
 
   }
-  getErrorMessage(text?:string){
+  getErrorMessage(errorMsg:string){
+    const control = this.form.get(errorMsg);
+    if (control?.hasError('required')) {
+      return 'Obavezno polje';
+    }
+    return '';
   }
 
   closeDialog() {
@@ -54,6 +58,7 @@ export class EditChildDialogComponent {
       medicalClearance:  formData.formDatamedicalClearance
     };
   
+    this.updateFile();
     this.childrenService
       .updateChild(data, this.id)
       .subscribe((response: any) => {
@@ -64,7 +69,6 @@ export class EditChildDialogComponent {
             duration: 2000,
           }
         );
-        //this.childrenService.kindergarten = response;
         this.dialogRef.close();
       });
   }
@@ -109,22 +113,27 @@ export class EditChildDialogComponent {
       reader.onload = () => {
         const arrayBuffer = reader.result as ArrayBuffer;
         const uint8Array = new Uint8Array(arrayBuffer);
-        const byteArray = Array.from(uint8Array);
-        const fileJSON = {medicalClearance: byteArray};
-        console.log(fileJSON.medicalClearance);//
-        this.childrenService
-        .updateFile(fileJSON, this.id)
-        .subscribe((response: any) => {
-          this.snackBar.open(
-            'Uspješno ste ažurirali ljekarsko uvjerenje',
-            undefined,
-            {
-              duration: 2000,
-            }
-          );
-        });
+        this.byteArray = Array.from(uint8Array);
+        
       };
       reader.readAsArrayBuffer(file);
+    }
+  }
+
+  updateFile() {
+    if(this.selectedFile != undefined) {
+      const fileJSON = {medicalClearance: this?.byteArray};
+          this.childrenService
+          .updateFile(fileJSON, this.id)
+          .subscribe((response: any) => {
+            this.snackBar.open(
+              'Uspješno ste ažurirali ljekarsko uvjerenje',
+              undefined,
+              {
+                duration: 2000,
+              }
+            );
+          });
     }
   }
 

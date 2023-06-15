@@ -12,8 +12,6 @@ import { ShowKindergartenInfoComponent } from '../show-kindergarten-info/show-ki
 })
 export class SideNavBarComponent {
 
-  selectedMenu: any = 'home';
-
   constructor(
     private router: Router,
     private dialog: MatDialog,
@@ -23,7 +21,7 @@ export class SideNavBarComponent {
   }
 
   ngOnInit(){
-    this.goTo('home');
+    //this.goTo('groups');
   }
 
   goTo(paramText: string) {

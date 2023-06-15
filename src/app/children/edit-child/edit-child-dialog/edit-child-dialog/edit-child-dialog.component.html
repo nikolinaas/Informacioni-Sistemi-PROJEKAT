@@ -42,6 +42,7 @@
         <div class="form-row">
             Datum rođenja:
             <mat-form-field appearance="fill">
+                <!-- TODO OVDE TREBA ZA DATUM RODJENJA DA BUDE DATAPICKER, A NE TEXT -->
                 <input matInput type="text" formControlName="dateOfBirth" required autocomplete="off"  />
                 <mat-error>{{ getErrorMessage('phoneNumber') }}</mat-error>
             </mat-form-field>
@@ -125,7 +126,7 @@
                 <mat-error>{{ getErrorMessage('number') }}</mat-error>
             </mat-form-field>
         </div>
-        <div style="text-align: center; ">
+        <div style="text-align: center;">
             <button mat-raised-button color="primary" class="save-button"
                 (click)="changeData()">
                 Sacuvaj
