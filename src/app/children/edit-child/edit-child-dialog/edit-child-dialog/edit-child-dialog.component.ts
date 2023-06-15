@@ -1,11 +1,13 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import * as _moment from 'moment';
 import { ChildrenService } from 'src/app/children/services/children.service';
-
+const moment = _moment;
 @Component({
   selector: 'app-edit-child-dialog',
   templateUrl: './edit-child-dialog.component.html',
@@ -15,6 +17,10 @@ export class EditChildDialogComponent {
 
   public form: FormGroup = new FormGroup({});
   data: any;
+  birthday: Date = new Date();
+  date = moment();
+  today: Date = new Date();
+  private _dateToFind?: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private id: any,
@@ -38,13 +44,29 @@ export class EditChildDialogComponent {
     this.dialogRef.close();
   }
 
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    if (type === 'change') {
+      this.date = moment(event.value);
+      this._dateToFind =
+        this.date.format('YYYY') +
+        '-' +
+        this.date.format('MM') +
+        '-' +
+        this.date.format('DD');
+    }
+  }
+
   changeData(){
-    const  formData = this.form.value;
+    const formData = this.form.value;
+    if(this._dateToFind == null){
+      this.date = moment(this.birthday);
+      this._dateToFind =  this.date.format('YYYY') + '-' + this.date.format('MM') + '-' + this.date.format('DD');
+    }
     const data = {
       name:  formData.name, 
       surname:  formData.surname, 
       uid:  formData.uid, 
-      dateOfBirth:  formData.dateOfBirth, 
+      dateOfBirth:  this._dateToFind, 
       motherName:  formData.motherName, 
       fatherName:  formData.fatherName, 
       motherPhoneNumber:  formData.motherPhoneNumber, 

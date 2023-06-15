@@ -24,20 +24,7 @@ export class CreateEducatorDialogComponent {
   byteArrayMedicalClearance: any | undefined;
   byteArrayHygieneTest: any | undefined;
 
-  educator: any = {
-    name: '',
-    surname: '',
-    uid: '',
-    dateOfBirth: '',
-    id: '',
-    address: '',
-    userName: '',
-    password: '',
-    salary: '',
-    idGroup: '',
-    medicalClearance: '',
-    hygieneTest: '',
-  };
+  
   public form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     surname: new FormControl('', Validators.required),
@@ -72,11 +59,7 @@ export class CreateEducatorDialogComponent {
   }
 
   createEducator() {
-    console.log(this.form.value.name, this.educator.surname, this.educator.uid, this.educator.dateOfBirth, this.educator.city,
-      this.educator.street, this.educator.number, this.educator.userName, this.educator.password);
-      console.log(this.form.valid);
-      console.log(this.form.value);
-      console.log(this._dateToFind);
+    
 
       if(this._dateToFind == null){
           
@@ -103,7 +86,7 @@ export class CreateEducatorDialogComponent {
         medicalClearance: this.byteArrayMedicalClearance,
         hygieneTest: this.byteArrayHygieneTest,
       };
-      console.log(this.educator.dateOfBirth);
+     
       this.educatorService.createEducator(data).subscribe(
         (response: any) => {
           if (response.status == 201) {
