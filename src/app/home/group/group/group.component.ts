@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ChangeGroupNameDialogComponent } from './change-group-name-dialog/change-group-name-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddChildDialogComponent } from './add-child-dialog/add-child-dialog.component';
+import { AddEducatorDialogComponent } from './add-educator-dialog/add-educator-dialog.component';
 
 @Component({
   selector: 'app-group',
@@ -16,7 +17,10 @@ export class GroupComponent {
   group?: any;
   searchText: String = '';
   groupName: String = '';
-
+  private _filteredChildren?: any[];
+  private _noFilteredChildren?: any[];
+  private _filteredEducators?: any[];
+  private _noFilteredEducators?: any[];
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id != null) {
@@ -31,11 +35,13 @@ export class GroupComponent {
     private dialog: MatDialog,
     private router: Router,
     private snackBar: MatSnackBar
-  ) {}
+  ) { }
 
   getGroup(id: any) {
     this.groupService.getGroup(parseInt(id)).subscribe((gro: any) => {
       this.group = gro;
+      this._noFilteredChildren = this.group.children;
+      this._noFilteredEducators=this.group.educators;
     });
   }
 
@@ -91,19 +97,46 @@ export class GroupComponent {
   }
 
   addEducatorInGroup() {
-    // TODO OVO IMPLEMENTIRATI
+    this.dialog
+      .open(AddEducatorDialogComponent, {
+        width: '400px',
+       data : { id: this.group?.id, name: this.group?.name },
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.childrenInGroup;
+        this.educatorsInGroup;
+        this.ngOnInit();
+      });
   }
 
   searchPerson() {
-    // TODO OVO IMPLEMENTIRATI
+    if (this.searchText != '') {
+      const searchTextLowerCase = this.searchText.toLowerCase();
+      this._filteredChildren = this._noFilteredChildren;
+      this.group.children = this._filteredChildren?.filter(child =>
+        child.name?.toLowerCase().includes(searchTextLowerCase) ||
+        child.surname?.toLowerCase().includes(searchTextLowerCase)
+      );
+      this._filteredEducators= this._noFilteredEducators;
+      this.group.educators = this._filteredEducators?.filter(educator =>
+        educator.name?.toLowerCase().includes(searchTextLowerCase) ||
+        educator.surname?.toLowerCase().includes(searchTextLowerCase)
+      );
+    } else {
+      this.group.children = this._noFilteredChildren;
+      this.group.educators=this._noFilteredEducators;
+    }
   }
 
   openActivityWindow() {
-    this.router.navigate([`groups/${this.id}/activities`]);
+    this.router.navigate([`groups/${this.group?.id}/activities`]);
   }
 
   clearSearch() {
-    // TODO OVO IMPLEMENTIRATI
+    this.searchText = '';
+    this.group.children = this._noFilteredChildren;
+    this.group.educators = this._noFilteredEducators;
   }
 
   changeName() {

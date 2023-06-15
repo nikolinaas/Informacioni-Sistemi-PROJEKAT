@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 230px);
+    height: calc(80vh - 230px);
 }
 
 .group-scroll {

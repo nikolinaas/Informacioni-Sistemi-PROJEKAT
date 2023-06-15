@@ -12,14 +12,17 @@ import { ChildService } from '../services/child.service';
 })
 export class AddChildDialogComponent {
   private _children?: any[];
+  private _filteredChildren?: any[];
+  private _noFilteredChildren?:any[];
 
+  searchText: string = '';
   constructor(
     private dialogRef: MatDialogRef<ChangeGroupNameDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private childService: ChildService,
     private groupService: GroupService,
     private snackBar: MatSnackBar
-  ) {}
+  ) { }
 
   closeWindow() {
     this.dialogRef.close();
@@ -32,7 +35,26 @@ export class AddChildDialogComponent {
   getChildren() {
     this.childService.getChildren().subscribe((children: any) => {
       this._children = children;
+      this._noFilteredChildren=children;
     });
+  }
+
+  clearSearch() {
+    this.searchText = '';
+    this._children = this._noFilteredChildren;
+  }
+
+  searchChild() {
+    if(this.searchText != ''){
+      const searchTextLowerCase = this.searchText.toLowerCase();
+      this._filteredChildren = this._noFilteredChildren;
+      this._children = this._filteredChildren?.filter(child =>
+        child.name?.toLowerCase().includes(searchTextLowerCase) ||
+        child.surname?.toLowerCase().includes(searchTextLowerCase)
+      );
+    }else{
+      this._children = this._noFilteredChildren;
+    }
   }
 
   addChildInGroup(child: any) {
@@ -47,8 +69,8 @@ export class AddChildDialogComponent {
               duration: 2000,
             }
           );
-        } else if(response.body.statusCode == 404) {
-          this.snackBar.open('Nije moguće dodati dijete,  jer vec pripada nekoj grupi', undefined, {
+        } else if (response.body.statusCode == 404) {
+          this.snackBar.open('Nije moguće dodati dijete, jer vec pripada nekoj grupi', undefined, {
             duration: 2000,
           });
           // TODO OVDE JE POTREBNO POSTAVITI VRIJEDNOST ZA CHECKBOX NA 'false' JER NIJE MOGUCE DODATI DIJET

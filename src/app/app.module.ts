@@ -45,6 +45,7 @@ import { EditEducatorComponent } from './educators/view-edit-educator/edit-educa
 import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
 import { LogInComponent } from './log-in/log-in/log-in.component';
 import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
+import { AddActivityComponent } from './home/group/group/activities/add-activity/add-activity.component';
 
 const MY_FORMATS = {
   parse: {
@@ -92,6 +93,7 @@ const MY_FORMATS = {
     EditEducatorComponent,
     ViewEducatorComponent,
     LogInComponent,
+    AddActivityComponent,
   ],
   imports: [
     BrowserModule,

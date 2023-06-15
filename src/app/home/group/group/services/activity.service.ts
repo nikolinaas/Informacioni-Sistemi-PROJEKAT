@@ -4,18 +4,16 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ChildService {
+export class ActivityService {
 
   constructor(private http: HttpClient) { }
 
-  private groupURL = 'http://localhost:8080/Server/api/children';
+  private groupURL = 'http://localhost:8080/Server/api/groups';
 
-
-  getChildren(){
+  getActivites(id:any){
+    console.log(`${this.groupURL}/${id}/activity`);
     return this.http.get(
-      `${this.groupURL}`
+      `${this.groupURL}/${id}/activity`
     );
   }
-
-
 }

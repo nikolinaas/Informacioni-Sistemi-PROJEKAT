@@ -34,4 +34,11 @@ export class GroupService {
       child, {observe: 'response'}
     );
   }
+
+  addEducatorInGroup(groupId:any, educator:any){
+    return this.http.post(
+      `${this.groupURL + groupId + '/educator/' + educator.id}`,
+      educator, {observe: 'response'}
+    );
+  }
 }

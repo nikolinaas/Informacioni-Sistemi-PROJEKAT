@@ -1,21 +1,18 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ChildService {
+export class EducatorService {
 
   constructor(private http: HttpClient) { }
 
-  private groupURL = 'http://localhost:8080/Server/api/children';
+  private groupURL = 'http://localhost:8080/Server/api/educators';
 
-
-  getChildren(){
+  getEducators(){
     return this.http.get(
       `${this.groupURL}`
     );
   }
-
 
 }
