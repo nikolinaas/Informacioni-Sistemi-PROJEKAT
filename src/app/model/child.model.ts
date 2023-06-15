@@ -23,7 +23,10 @@ export class Child {
   ){
     
   }
-
+  toString(): string
+  {
+    return `Child [id=${this._name}, name=${this._surname}]`;
+  }
   get note() {
     return this._note;
   }

@@ -25,14 +25,21 @@ export class DeleteDialogComponent {
   deleteBill()
   {
     console.log("asdsadsa");
-    /*this.financeService.deleteBill(this.idRacuna).subscribe((response: any) => {
+    const num = parseInt(this.idRacuna,10);
+    this.financeService.deleteBill(num).subscribe((response: any) => {
       if (response.status == 200) {
         this.snackBar.open('Uspjesno ste obrisali racun', undefined, {
           duration: 2000,
         });
         this.dialogRef.close(true);
       }
-    });*/
+      else{
+        this.snackBar.open('Taj racun ne postoji u bazi', undefined, {
+          duration: 2000,
+        });
+        this.dialogRef.close(true);
+      }
+    });
   }
 
 }

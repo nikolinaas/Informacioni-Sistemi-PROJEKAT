@@ -3,13 +3,13 @@
     <label>Pregled dugovanja</label>
 </div>
 
-<div class="table">
-    <input type="text" placeholder="Pretraži djecu" [(ngModel)]="pretraziDjecu" required id="pretraziDjecu" class="textbox1">
+ <div class="table">
+    <input type="text" placeholder="Pretraži djecu" [(ngModel)]="pretraziDjecu" (input)="filterMembership()" required id="pretraziDjecu" class="textbox1">
     <button mat-raised-button class="create-button" (click)="addClick()">
         <mat-icon>add</mat-icon>
         Dodaj članarinu
     </button>
-    <table>
+   <!-- <table>
       <tr>
         <th>Ime</th>
         <th>Prezime</th>
@@ -27,6 +27,29 @@
         <td><input type="checkbox" [(ngModel)]="isChecked"/>    &nbsp;   </td>
         <td>200</td>
         <td>08.11.2000</td>
+      </tr>
+    </table> -->
+
+    <table id="membership">
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col}}
+        </th>
+      </tr>
+      <tr *ngFor="let mem of membership">
+        <!--<td *ngFor="let col of index">
+          {{mem[col]}}
+        </td> -->
+        <td>{{ mem.child?.name }}</td>
+        <td>{{ mem.child?.surname }}</td>
+        <td>{{ mem.serviceType }}</td>
+        <td>{{ mem.date }}</td>
+        <!--<td>{{ mem.paid }}</td> -->
+        <td>
+          <input type="checkbox" [checked]="mem.paid">
+        </td>
+        <td>{{ mem.amount }}</td>
+        <td>{{ mem.paymentDate }}</td>
       </tr>
     </table>
 </div>
