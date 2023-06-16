@@ -3,49 +3,53 @@
     <mat-icon>close</mat-icon>
 </button>
 <div mat-dialog-content>
+<form [formGroup]="form" (ngSubmit)="saveBill()" class="column-container margin-bottom">
+    <div class="form-row">
+        Broj:
+        <mat-form-field class="color-white">
+            <input matInput formControlName="number" required  autocomplete="off">
+            <mat-error>{{ getErrorMessage('number') }}</mat-error>
+        </mat-form-field>
+    </div>
 
-<div class="form-row">
-    Broj:
-    <mat-form-field class="color-white">
-        <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="number" autocomplete="off">
-    </mat-form-field>
-</div>
+    <div class="form-row">
+        Tip:
+        <mat-form-field class="color-white">
+            <input matInput formControlName="name" required autocomplete="on">
+            <mat-error>{{ getErrorMessage('name') }}</mat-error>
+        </mat-form-field>
+    </div>
 
-<div class="form-row">
-    Tip:
-    <mat-form-field class="color-white">
-        <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="naziv" autocomplete="on">
-    </mat-form-field>
-</div>
+    <div class="form-row">
+        Iznos:
+        <mat-form-field class="color-white">
+            <input type="number" matInput formControlName="amount" required autocomplete="on">
+            <mat-error>{{ getErrorMessage('amount') }}</mat-error>
+        </mat-form-field>
+    </div>
 
-<div class="form-row">
-    Iznos:
-    <mat-form-field class="color-white">
-        <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="iznos" autocomplete="on">
-    </mat-form-field>
-</div>
+    <div class="form-row">
+        Datum:
+        <mat-form-field class="color-white">
+            <input matInput [ngModelOptions]="{standalone: true}" [matDatepicker]="mydate" [(ngModel)]="date" (dateInput)="addEvent('input', $event)" readonly
+            (dateChange)="addEvent('change', $event)">
+            <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
+            <mat-datepicker #mydate>
+            </mat-datepicker>
+        </mat-form-field>
+    </div>
 
-<div class="form-row">
-    Datum:
-    <mat-form-field class="color-white">
-        <input matInput [ngModelOptions]="{standalone: true}" [matDatepicker]="mydate" [(ngModel)]="date" (dateInput)="addEvent('input', $event)" readonly
-        (dateChange)="addEvent('change', $event)">
-        <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
-        <mat-datepicker #mydate>
-        </mat-datepicker>
-    </mat-form-field>
-</div>
+    <div class="form-row">
+        <label>Placeno</label>
+        <mat-select class="comboBox" [(ngModel)]="paid">
+        <mat-option value="option1">Da</mat-option>
+        <mat-option value="option2">Ne</mat-option>
+        </mat-select>
 
-<div class="input-field">
-    <label>Placeno</label>
-    <mat-select class="comboBox" [(ngModel)]="paid">
-      <mat-option value="option1">Da</mat-option>
-      <mat-option value="option2">Ne</mat-option>
-    </mat-select>
+    </div>
 
-  </div>
-
-<button mat-button class="save-button" (click)="saveBill()">
-    Sacuvaj
-    <mat-icon>save</mat-icon>
-</button>
+    <button mat-button type="submit" class="save-button" (click)="saveBill()">
+        Sacuvaj
+        <mat-icon>save</mat-icon>
+    </button>
+</form>

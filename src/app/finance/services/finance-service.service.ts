@@ -33,6 +33,10 @@ export class FinanceServiceService {
   deleteBill(id?: number) {
     return this.http.delete(`${this.billURL}/${id}`, {observe: 'response'});
   }
+  putBill(billNumber?: number)
+  {
+    return this.http.put(`${this.billURL}/${billNumber}`, {observe: 'response'})
+  }
   getMembership()
   {
     return this.http.get(
