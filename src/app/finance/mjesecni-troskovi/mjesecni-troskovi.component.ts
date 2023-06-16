@@ -12,44 +12,41 @@ import { Address } from 'src/app/model/address.model';
 @Component({
   selector: 'app-mjesecni-troskovi',
   templateUrl: './mjesecni-troskovi.component.html',
-  styleUrls: ['./mjesecni-troskovi.component.css']
+  styleUrls: ['./mjesecni-troskovi.component.css'],
 })
 export class MjesecniTroskoviComponent implements OnInit {
-     isChecked: boolean = false;
-     name:string;
-     vrsta:string;
-     iznos:string;
-     datetime:string;
-     combo:string;
-     pom: Boolean;
-     constructor(private router:Router, private dialog: MatDialog, private financeService: FinanceServiceService,
-      private snackBar: MatSnackBar)
-     {
-      this.name='';
-      this.vrsta='';
-      this.iznos='';
-      this.datetime=''
-      this.combo='';
-      this.pom=true;
-     }
-     columns = ["Broj racuna","Vrsta racuna","Iznos","Datum","Placeno"];
-     index = ["billNumber","billType","amount","date","paid"];
+  isChecked: boolean = false;
+  name: string;
+  vrsta: string;
+  iznos: string;
+  datetime: string;
+  combo: string;
+  pom: Boolean;
+  constructor(
+    private router: Router,
+    private dialog: MatDialog,
+    private financeService: FinanceServiceService,
+    private snackBar: MatSnackBar
+  ) {
+    this.name = '';
+    this.vrsta = '';
+    this.iznos = '';
+    this.datetime = '';
+    this.combo = '';
+    this.pom = true;
+  }
+  columns = ['Broj racuna', 'Vrsta racuna', 'Iznos', 'Datum', 'Placeno'];
+  index = ['billNumber', 'billType', 'amount', 'date', 'paid'];
 
-     finance : Finance[] = [];
-     load()
-     {
-      this.financeService.getBill().subscribe
-      (
-        (responese)=>
-        {
-          this.finance=responese as Finance[];
-        }
-        
-      )
-     }
+  finance: Finance[] = [];
+  load() {
+    this.financeService.getBill().subscribe((responese) => {
+      this.finance = responese as Finance[];
+    });
+  }
 
   ngOnInit(): void {
-   /* console.log("Nesto");
+    /* console.log("Nesto");
     this.finance[0] = {
       "billNumber": "Broj",
       "billType": "Tip",
@@ -59,18 +56,19 @@ export class MjesecniTroskoviComponent implements OnInit {
       "kindergartenName" : "Vrtic"
 
     };*/
-      this.load();
+    this.load();
   }
-     
 
-     addClick()
-     {
-      this.dialog.open(CreateBillDialogComponent,{
-        width: '400px'}).afterClosed()
-        .subscribe(() => {
-          this.load()
-        });
-      /*if(this.combo=="Da")
+  addClick() {
+    this.dialog
+      .open(CreateBillDialogComponent, {
+        width: '400px',
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.load();
+      });
+    /*if(this.combo=="Da")
         this.pom=true;
       else
         this.pom=false;
@@ -103,14 +101,16 @@ export class MjesecniTroskoviComponent implements OnInit {
         );
       }
     );*/
-     }
-     deleteClick()
-     {
-      this.dialog.open(DeleteDialogComponent,{
+  }
+  deleteClick() {
+    this.dialog
+      .open(DeleteDialogComponent, {
         width: '350px',
-        height: '200px'}).afterClosed()
-        .subscribe(() => {
-          this.load()
-        });
-     }
+        height: '200px',
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.load();
+      });
+  }
 }

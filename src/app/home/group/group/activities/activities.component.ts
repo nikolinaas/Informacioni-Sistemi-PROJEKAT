@@ -51,8 +51,6 @@ export class ActivitiesComponent {
     this.activites=act;
 
   });
-
-  console.log("------"+this.activites?.at);
 }
   onSelect(event: any) {
     this.selectedDate=event._i.date + "-" + event._i.month + "-" + event._i.year;
