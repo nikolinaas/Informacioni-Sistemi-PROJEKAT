@@ -61,7 +61,12 @@ export class CreateEducatorDialogComponent {
   createEducator() {
     
 
-      if(this._dateToFind == null){
+      if (this.form.valid === false || this.byteArrayMedicalClearance == null || this.byteArrayHygieneTest == null) {
+        this.snackBar.open('Molimo Vas da popunite sva obavezna polja.', undefined, {
+          duration: 2000,
+        });
+      }
+      else if(this._dateToFind == null){
           
       this.snackBar.open('Molimo Vas unesite datum rođenja!', undefined, {
         duration: 2000,
@@ -70,10 +75,9 @@ export class CreateEducatorDialogComponent {
         this.snackBar.open('JMBG mora imati 13 karaktera!', undefined, {
           duration: 2000,
         });
-      }
-      else if (this.form.valid && this.byteArrayMedicalClearance != null && this.byteArrayHygieneTest != null) {
-      const date: string = '';
-      const data = {
+      }else{
+        const date: string = '';
+        const data = {
         name: this.form.value.name,
         surname: this.form.value.surname,
         uid: this.form.value.uid,
@@ -86,6 +90,7 @@ export class CreateEducatorDialogComponent {
         medicalClearance: this.byteArrayMedicalClearance,
         hygieneTest: this.byteArrayHygieneTest,
       };
+
      
       this.educatorService.createEducator(data).subscribe(
         (response: any) => {
@@ -110,12 +115,7 @@ export class CreateEducatorDialogComponent {
           );
         }
       );
-    } else {
-      // Forma nije validna, prikaži greške
-      this.snackBar.open('Molimo popunite sva obavezna polja.', undefined, {
-        duration: 2000,
-      });
-    }
+    } 
   }
 
   getErrorMessage(controlName: string) {
