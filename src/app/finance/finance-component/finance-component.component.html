@@ -1,7 +1,27 @@
-<div class="form">
-    <label>Finansije</label>
-</div>
-<div class="form2">
-    <label (click)="handleLabelClick1()">Evidencija o mjesečnim troškovima</label>
-    <label (click)="handleLabelClick2()">Pregled dugovanja za svu djecu</label>
+
+<div class="row-container">
+    <app-side-nav-bar></app-side-nav-bar>
+    <div class="column-container, width-64">
+        <div class="tabs">
+            <p class="title">Finansije</p>
+
+        </div>
+        <div class="group-scroll">
+            <div class="float-container">
+                <div class="float-child">
+                    <mat-card class="comment-card">
+                        <label class="label" (click)="handleLabelClick1()">Evidencija o mjesečnim troškovima</label>
+                        <p class="sub-label">Prikazuje mjesecni troskove nestoo... za svu djecu</p>
+                    </mat-card>
+                </div>
+                <div class="float-child">
+                    <mat-card class="comment-card">
+                        <label class="label" (click)="handleLabelClick2()">Pregled dugovanja za svu djecu</label>
+                        <p  class="sub-label">Prikazuje dugovanja za svu djecu</p>
+                    </mat-card>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

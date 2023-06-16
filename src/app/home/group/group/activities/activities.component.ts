@@ -49,9 +49,12 @@ export class ActivitiesComponent {
  
   this.activityService.getActivites(this.id).subscribe((act: any) => {
     this.activites=act;
-
+    console.log(this.activites);
+    console.log(this.activites?.[1].date);
+    
   });
 
+  
 }
   onSelect(event: any) {
     this.selectedDate=event._i.date + "-" + event._i.month + "-" + event._i.year;
