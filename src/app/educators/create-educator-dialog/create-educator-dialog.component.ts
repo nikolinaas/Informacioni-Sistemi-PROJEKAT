@@ -24,6 +24,7 @@ export class CreateEducatorDialogComponent {
   byteArrayMedicalClearance: any | undefined;
   byteArrayHygieneTest: any | undefined;
 
+  
   public form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     surname: new FormControl('', Validators.required),
@@ -58,10 +59,7 @@ export class CreateEducatorDialogComponent {
   }
 
   createEducator() {
-     console.log("ff" ,this.form.valid);
-     console.log("c" , !this.form.valid);
-     console.log(this.byteArrayMedicalClearance);
-     console.log(this.byteArrayHygieneTest);
+    
 
       if (this.form.valid === false || this.byteArrayMedicalClearance == null || this.byteArrayHygieneTest == null) {
         this.snackBar.open('Molimo Vas da popunite sva obavezna polja.', undefined, {
@@ -93,6 +91,7 @@ export class CreateEducatorDialogComponent {
         hygieneTest: this.byteArrayHygieneTest,
       };
 
+     
       this.educatorService.createEducator(data).subscribe(
         (response: any) => {
           if (response.status == 201) {

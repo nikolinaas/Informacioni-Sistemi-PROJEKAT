@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ChildrenService } from './../../services/children.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -14,28 +14,29 @@ const moment = _moment;
 })
 export class CreateChildComponent {
   date = moment();
-  public form: FormGroup = new FormGroup({});
   private _dateToFind?: string;
-  child: any = {
-    name: '',
-    surname: '',
-    uid: '',
-    dateOfBirth: '',
-    motherName: '',
-    fatherName: '',
-    motherPhoneNumber: '',
-    fatherPhoneNumber: '',
-    height: '',
-    weight: '',
-    note: '',
-    city: '',
-    street: '',
-    number: '',
-    id: '',
-    isHere: '',
-    arrivalAndDepartureTime: '',
-    medicalClearance: '',
-  };
+  today: Date = new Date();
+
+  public form: FormGroup = new FormGroup({
+    name: new FormControl('', Validators.required),
+    surname: new FormControl('', Validators.required),
+    uid: new FormControl('',[
+      Validators.required,
+      Validators.minLength(13), 
+      Validators.maxLength(13), 
+    ]),
+    dateOfBirth: new FormControl('', Validators.required),
+    motherName: new FormControl('', Validators.required),
+    fatherName: new FormControl('', Validators.required),
+    motherPhoneNumber: new FormControl('', Validators.required),
+    fatherPhoneNumber: new FormControl('', Validators.required),
+    height: new FormControl('', Validators.required),
+    weight: new FormControl('', Validators.required),
+    note: new FormControl('', Validators.required),
+    city: new FormControl('', Validators.required),
+    street: new FormControl('', Validators.required),
+    number: new FormControl('', Validators.required)
+  });
 
   constructor(
     private dialogRef: MatDialogRef<CreateChildComponent>,
@@ -47,10 +48,15 @@ export class CreateChildComponent {
     this.dialogRef.close();
   }
 
-  getErrorMessage(errorMsg:string) {
-    const control = this.form.get(errorMsg);
+  getErrorMessage(controlName:string) {
+    const control = this.form.get(controlName);
     if (control?.hasError('required')) {
       return 'Obavezno polje';
+    }else if(control?.hasError('minLength')){
+      console.log('wefwfe');
+      return 'Mora sadrzavati 13 karaktera!';
+    }else if(control?.hasError('maxLength')){
+      return 'Mora sadrzavati 13 karaktera!';
     }
     return '';
   }
@@ -68,28 +74,24 @@ export class CreateChildComponent {
   }
 
   createChild() {
-    // TODO TREBA PROVJERITI VRIJEDNOST SVIH POLJA, ODNOSNO SVA POLJA MORAJU BITI REQUIRED
-    // SVA POLJA OSIM 'NAPOMENA' (MOZDA JOS NE TREBA, PROVJERITI U BAZI KOJA POLJA IMAJU VRIJEDNOST NOT-NULL)
-    // TAKODJE TREBA PROVJERITI DA LI JMBG IMA 13 CIFARA
-    // TREBA ONEMOGUCITI DA OSOBA IZABERE DATUM KOJI JE VECI OD DANASNJEG (PRIMJER - NE SMIJE MOCI IZABRATI ZA DATUM RODJENJA NPR. 15.06.2023 AKO JE DANAS 14.06.2023), DAKLE SAMO TO TREBA DISABLE-OVATI
-    if (this.child.name != '' || this.child.surname != '') {
+    if (this.byteArray != null) {
       const date: string = '';
       const data = {
-        name: this.child.name,
-        surname: this.child.surname,
-        uid: this.child.uid,
+        name: this.form.value.name,
+        surname: this.form.value.surname,
+        uid: this.form.value.uid,
         dateOfBirth: this._dateToFind,
-        motherName: this.child.motherName,
-        fatherName: this.child.fatherName,
-        motherPhoneNumber: this.child.motherPhoneNumber,
-        fatherPhoneNumber: this.child.fatherPhoneNumber,
-        height: this.child.height + '',
-        weight: this.child.weight + '',
-        note: { description: this.child.note },
+        motherName: this.form.value.motherName,
+        fatherName: this.form.value.fatherName,
+        motherPhoneNumber: this.form.value.motherPhoneNumber,
+        fatherPhoneNumber: this.form.value.fatherPhoneNumber,
+        height: this.form.value.height + '',
+        weight: this.form.value.weight + '',
+        note: { description: this.form.value.note },
         address: {
-          city: this.child.city,
-          street: this.child.street,
-          number: this.child.number + '',
+          city: this.form.value.city,
+          street: this.form.value.street,
+          number: this.form.value.number + '',
         },
         medicalClearance: this.byteArray,
       };
@@ -109,6 +111,10 @@ export class CreateChildComponent {
           });
         }
       );
+    }else{
+      this.snackBar.open('Molimo popunite sva obavezna polja.', undefined, {
+        duration: 2000,
+      });
     }
   }
 

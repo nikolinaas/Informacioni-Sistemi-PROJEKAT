@@ -41,10 +41,12 @@
 
         <div class="form-row">
             Datum rođenja:
-            <mat-form-field appearance="fill">
-                <!-- TODO OVDE TREBA ZA DATUM RODJENJA DA BUDE DATAPICKER, A NE TEXT -->
-                <input matInput type="text" formControlName="dateOfBirth" required autocomplete="off"  />
-                <mat-error>{{ getErrorMessage('phoneNumber') }}</mat-error>
+            <mat-form-field class="color-white">
+                <input matInput [ngModel]="birthday" [ngModelOptions]="{standalone: true}" required [max]="today" [matDatepicker]="mydate" [(ngModel)]="date"
+                    (dateInput)="addEvent('input', $event)" readonly (dateChange)="addEvent('change', $event) ">
+                <mat-datepicker-toggle  matSuffix [for]="mydate" ></mat-datepicker-toggle>
+                <mat-datepicker #mydate>
+                </mat-datepicker>
             </mat-form-field>
         </div>
 

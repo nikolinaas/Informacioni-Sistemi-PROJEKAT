@@ -24,11 +24,26 @@ label {
   }
 
   .table{
+    /*position: absolute;
+    top: 200px;
     display: flex;
-    margin-top: 400px;
+    
+    border-collapse: collapse;*/
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
     border-collapse: collapse;
-    width: 32.3cm;
+    
    }
+   @media (max-width: 600px) {
+    .table thead,
+    .table tbody,
+    .table th,
+    .table td,
+    .table tr {
+        display: block;
+    }
+}
 .textbox1
 {
     position: absolute;
@@ -54,13 +69,11 @@ label {
     left: 1065px;
 }
 table {
-    border-collapse: collapse;
-    width: 32.3cm;
-    position: absolute;
-    top: 60px;
+    
+    width: 100%;
   }
-  
-  th, td {
+
+   th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #f724ad;
@@ -68,12 +81,13 @@ table {
   
   th {
     background-color: #f080c3;
-  }
+  } 
   
   tr:hover {
     background-color: #f5f5f5;
   }
 .create-button{
+    
     width: 140px;
     height: 50x;
     font-size: 14px;
@@ -85,6 +99,7 @@ table {
     color: white !important;
 }
 .delete-button{
+   
     width: 140px;
     height: 50x;
     font-size: 14px;
@@ -100,4 +115,122 @@ table {
 }
 .delete-button:hover{
     background-color: rgb(221, 17, 232) !important;
+}
+
+
+
+
+
+
+
+
+
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.width-64 {
+    width: calc(100% - 64px);
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: #f7f7f7;
+}
+
+.tabs{
+    display: flex;
+    margin-top: 30px;
+    height: 100px;
+    background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
+    text-align: left;
+    font-size: 26px;
+    align-items: center;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.title{
+    margin-left: 20px;
+}
+
+.create-button {
+    position: absolute;
+    right: 0;
+    font-size: 18px;
+    background-color: #2db0b0 !important;
+    margin-right: 20px;
+    height: 40px;
+    color: white !important;
+    border-radius: 10px;
+}
+
+.before-search {
+    height: 20px;
+    background-color: whitesmoke;
+}
+
+.search-bar {
+    padding-left: 16px;
+    padding-right: 30px;
+    background-color: whitesmoke;
+    width: 100%;
+}
+
+.mat-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 140px);
+}
+
+.group-scroll {
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100vh - 230px);
+}
+
+.group-section {
+    background-color: #f7f7f7;
+}
+
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+}
+
+.comment-card {
+    margin-bottom: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.comment-card:hover {
+    background-color: #ddd;
+}
+
+.font-size-25 {
+    font-size: 22px;
+}
+
+.remove-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 15px;
+    width: 150px;
+    margin-right: 20px;
+    height: 30px;
+    background-color: #2db0b0 !important;
+    border-radius: 10px;
+    color: white !important;
 }

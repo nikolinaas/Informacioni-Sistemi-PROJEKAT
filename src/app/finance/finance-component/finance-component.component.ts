@@ -13,11 +13,11 @@ export class FinanceComponentComponent {
   }
   handleLabelClick1()
   {
-    this.router.navigate(['troskovi']);
+    this.router.navigate(['costs']);
   }
   handleLabelClick2()
   {
-    this.router.navigate(['dugovanja']);
+    this.router.navigate(['debts']);
   }
 
 }

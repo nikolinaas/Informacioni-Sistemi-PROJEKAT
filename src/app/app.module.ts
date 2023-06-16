@@ -36,16 +36,21 @@ import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-
 import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
 import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
 import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
-import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
-import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
+import { CreateBillDialogComponent } from './finance/create-bill-dialog/create-bill-dialog.component';
 import { EducatorsComponent } from './educators/educators.component';
-import { CreateEducatorDialogComponent } from './educators/create-educator-dialog/create-educator-dialog.component';
-import { DeleteEducatorDialogComponent } from './educators/delete-educator-dialog/delete-educator-dialog.component';
-import { EditEducatorComponent } from './educators/view-edit-educator/edit-educator/edit-educator.component';
-import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
-import { LogInComponent } from './log-in/log-in/log-in.component';
-import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
-import { AddActivityComponent } from './home/group/group/activities/add-activity/add-activity.component';
+import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
+import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
+
+ //import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
+ //import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
+// import { EducatorsComponent } from './educators/educators.component';
+ import { CreateEducatorDialogComponent } from './educators/create-educator-dialog/create-educator-dialog.component';
+ import { DeleteEducatorDialogComponent } from './educators/delete-educator-dialog/delete-educator-dialog.component';
+ import { EditEducatorComponent } from './educators/view-edit-educator/edit-educator/edit-educator.component';
+ import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
+ import { LogInComponent } from './log-in/log-in/log-in.component';
+ import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
+ import { AddActivityComponent } from './home/group/group/activities/add-activity/add-activity.component';
 
 const MY_FORMATS = {
   parse: {
@@ -85,15 +90,16 @@ const MY_FORMATS = {
     DugovanjaComponent,
     CreateDialogComponent,
     DeleteDialogComponent,
-    AddChildDialogComponent,
-    AddEducatorDialogComponent,
-    EducatorsComponent,
-    CreateEducatorDialogComponent,
-    DeleteEducatorDialogComponent,
-    EditEducatorComponent,
-    ViewEducatorComponent,
-    LogInComponent,
-    AddActivityComponent,
+    CreateBillDialogComponent,
+   AddChildDialogComponent,
+   AddEducatorDialogComponent,
+   EducatorsComponent,
+     CreateEducatorDialogComponent,
+     DeleteEducatorDialogComponent,
+     EditEducatorComponent,
+     ViewEducatorComponent,
+     LogInComponent,
+     AddActivityComponent
   ],
   imports: [
     BrowserModule,
