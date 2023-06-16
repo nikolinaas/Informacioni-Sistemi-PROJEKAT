@@ -32,6 +32,9 @@ import { ActivitiesComponent } from './home/group/group/activities/activities.co
 import { EducatorsComponent } from './educators/educators.component';
 import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
 import { LogInComponent } from './log-in/log-in/log-in.component';
+import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
+import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
+import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
 // import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
 // import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
 // import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
@@ -53,15 +56,17 @@ const routes: Routes = [
   { path: 'educators' , component: EducatorsComponent },
   { path: 'educators/:id', component: ViewEducatorComponent },
 
+  
+  {path: 'finance', component:FinanceComponentComponent},
+  {path: 'troskovi', component:MjesecniTroskoviComponent},
+  {path: 'dugovanja', component:DugovanjaComponent},
+
   { path: 'evidence', component: EvidenceComponent },
 
   { path: 'account-information', component: UserComponent },
 
   { path: '**', redirectTo: '/groups', pathMatch: 'full' }
 
-//   {path: 'finance', component:FinanceComponentComponent},
-//   {path: 'troskovi', component:MjesecniTroskoviComponent},
-//   {path: 'dugovanja', component:DugovanjaComponent},
 //   {path: 'dialog',component:CreateDialogComponent},
 //   {path: 'deleteDialog', component:DeleteDialogComponent},
   ];
