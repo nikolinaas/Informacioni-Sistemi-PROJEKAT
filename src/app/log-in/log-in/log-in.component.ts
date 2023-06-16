@@ -41,7 +41,6 @@ export class LogInComponent {
           duration: 2000,
         });
       } else if (response.status == 200) {
-        console.log("SALEW");
         this.router.navigate(['groups']);
         sessionStorage.setItem(this.sessionStorageKey, response.token);
         this.isLog = true;

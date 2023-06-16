@@ -83,4 +83,6 @@ export class ChildrenComponent {
     this.searchText = '';
     this.children = this.notFilteredChildren;
   }
+
+  
 }
