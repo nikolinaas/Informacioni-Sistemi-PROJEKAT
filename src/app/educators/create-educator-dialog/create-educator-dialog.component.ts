@@ -24,20 +24,6 @@ export class CreateEducatorDialogComponent {
   byteArrayMedicalClearance: any | undefined;
   byteArrayHygieneTest: any | undefined;
 
-  educator: any = {
-    name: '',
-    surname: '',
-    uid: '',
-    dateOfBirth: '',
-    id: '',
-    address: '',
-    userName: '',
-    password: '',
-    salary: '',
-    idGroup: '',
-    medicalClearance: '',
-    hygieneTest: '',
-  };
   public form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     surname: new FormControl('', Validators.required),
@@ -72,13 +58,17 @@ export class CreateEducatorDialogComponent {
   }
 
   createEducator() {
-    console.log(this.form.value.name, this.educator.surname, this.educator.uid, this.educator.dateOfBirth, this.educator.city,
-      this.educator.street, this.educator.number, this.educator.userName, this.educator.password);
-      console.log(this.form.valid);
-      console.log(this.form.value);
-      console.log(this._dateToFind);
+     console.log("ff" ,this.form.valid);
+     console.log("c" , !this.form.valid);
+     console.log(this.byteArrayMedicalClearance);
+     console.log(this.byteArrayHygieneTest);
 
-      if(this._dateToFind == null){
+      if (this.form.valid === false || this.byteArrayMedicalClearance == null || this.byteArrayHygieneTest == null) {
+        this.snackBar.open('Molimo Vas da popunite sva obavezna polja.', undefined, {
+          duration: 2000,
+        });
+      }
+      else if(this._dateToFind == null){
           
       this.snackBar.open('Molimo Vas unesite datum rođenja!', undefined, {
         duration: 2000,
@@ -87,10 +77,9 @@ export class CreateEducatorDialogComponent {
         this.snackBar.open('JMBG mora imati 13 karaktera!', undefined, {
           duration: 2000,
         });
-      }
-      else if (this.form.valid && this.byteArrayMedicalClearance != null && this.byteArrayHygieneTest != null) {
-      const date: string = '';
-      const data = {
+      }else{
+        const date: string = '';
+        const data = {
         name: this.form.value.name,
         surname: this.form.value.surname,
         uid: this.form.value.uid,
@@ -103,7 +92,7 @@ export class CreateEducatorDialogComponent {
         medicalClearance: this.byteArrayMedicalClearance,
         hygieneTest: this.byteArrayHygieneTest,
       };
-      console.log(this.educator.dateOfBirth);
+
       this.educatorService.createEducator(data).subscribe(
         (response: any) => {
           if (response.status == 201) {
@@ -127,12 +116,7 @@ export class CreateEducatorDialogComponent {
           );
         }
       );
-    } else {
-      // Forma nije validna, prikaži greške
-      this.snackBar.open('Molimo popunite sva obavezna polja.', undefined, {
-        duration: 2000,
-      });
-    }
+    } 
   }
 
   getErrorMessage(controlName: string) {

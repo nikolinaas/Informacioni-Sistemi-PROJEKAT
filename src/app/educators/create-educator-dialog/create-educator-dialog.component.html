@@ -12,7 +12,7 @@
                 color="primary" (click)="openFileChooser2()">Dodaj dokument</button>
             <span style="margin-left: 5px;">{{ selectedFileHygieneTest?.name }} </span>
             <input #fileInputHygieneTest type="file" id="fileInputHygieneTest" (change)="onHygieneFileSelected($event)"
-                hidden>
+                hidden required>
         </div>
     </div>
 
@@ -24,7 +24,7 @@
                 color="primary" (click)="openFileChooser1()">Dodaj dokument</button>
             <span style="margin-left: 5px;">{{ selectedFileMedicalClearance?.name }} </span>
             <input #fileInputMedicalClearance type="file" id="fileInputMedicalClearance"
-                (change)="onMedicalFileSelected($event)" hidden>
+                (change)="onMedicalFileSelected($event)" hidden required>
         </div>
     </div>
 
