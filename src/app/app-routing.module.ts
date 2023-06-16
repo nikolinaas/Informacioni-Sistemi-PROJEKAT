@@ -14,6 +14,7 @@ import { LogInComponent } from './log-in/log-in/log-in.component';
 import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
 import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
 import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
+import { ShowKindergartenInfoComponent } from './show-kindergarten-info/show-kindergarten-info.component';
 
 const routes: Routes = [
 
@@ -35,6 +36,8 @@ const routes: Routes = [
   { path: 'debts', component: DugovanjaComponent},
 
   { path: 'evidence', component: EvidenceComponent },
+
+  { path: 'info', component: ShowKindergartenInfoComponent },
 
   { path: 'account-information', component: UserComponent },
 

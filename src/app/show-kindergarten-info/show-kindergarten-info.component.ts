@@ -1,7 +1,6 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 import { KindergartenService } from './services/kindergarten.service';
 import { Kindergarten } from '../model/kindergarten.model';
 
@@ -13,16 +12,23 @@ import { Kindergarten } from '../model/kindergarten.model';
 export class ShowKindergartenInfoComponent implements OnInit {
   public form: FormGroup = new FormGroup({});
   private _kindergarten?: Kindergarten;
+  isButtonEnabled = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private dialogRef: MatDialogRef<ShowKindergartenInfoComponent>,
     private kindergartenService: KindergartenService,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
-    this._kindergarten = this.kindergartenService.kindergarten;
+    this.kindergartenService.getInfo().subscribe((kindergarten: any) => {
+      this._kindergarten = kindergarten;
+      if(this._kindergarten) {
+        this.form.patchValue(this._kindergarten);
+        if(this._kindergarten.address)
+          this.form.patchValue(this._kindergarten.address);
+      }
+    });
     this.form = this.formBuilder.group({
       city: [this._kindergarten?.address?.city, Validators.required],
       street: [this._kindergarten?.address?.street, Validators.required],
@@ -34,7 +40,7 @@ export class ShowKindergartenInfoComponent implements OnInit {
   getErrorMessage(controlName: string): string {
     const control = this.form.get(controlName);
     if (control?.hasError('required')) {
-      return 'You must enter a value';
+      return 'Obavezno polje';
     }
     return '';
   }
@@ -62,12 +68,10 @@ export class ShowKindergartenInfoComponent implements OnInit {
             duration: 2000,
           }
         );
-        this.kindergartenService.kindergarten = response;
-        this.dialogRef.close();
       });
   }
 
-  closeDialog() {
-    this.dialogRef.close();
+  enableButton() {
+    this.isButtonEnabled = true;
   }
 }

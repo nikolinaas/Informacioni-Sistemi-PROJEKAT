@@ -51,7 +51,7 @@ export class LogInComponent {
   getErrorMessage(controlName: string): string {
     const control = this.form.get(controlName);
     if (control?.hasError('required')) {
-      return 'You must enter a value';
+      return 'Obavezno polje';
     }
     return '';
   }
