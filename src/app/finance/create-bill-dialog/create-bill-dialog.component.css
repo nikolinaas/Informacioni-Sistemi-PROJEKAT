@@ -55,9 +55,9 @@
       font-size: 16px;
     margin-left: 40px;
 }
-.save-button
-{
-    position: absolute;
-    margin-left: 130px;
-    background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
+.save-button {
+    border-radius: 10px; 
+    background-color: #2db0b0;
+    width: 150px;
+    color: white;
 }

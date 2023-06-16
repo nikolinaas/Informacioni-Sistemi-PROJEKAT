@@ -44,14 +44,17 @@
   <div class="column-container, width-64">
       <div class="tabs">
           <p class="title">Mjesecni troskovi</p>
-          <button mat-raised-button class="create-button" (click)="addClick()">
-              <mat-icon>add</mat-icon>
-              Dodaj 
-          </button>
-          <button mat-raised-button class="delete-button" (click)="deleteClick()">
-            <mat-icon>add</mat-icon>
-             Obrisi
-        </button>
+          <form class="group-of-buttons-form">
+            <button mat-raised-button  (click)="addClick()">
+                <mat-icon>add</mat-icon>
+                Dodaj 
+            </button>
+            <div class="between-buttons"></div>
+            <button mat-raised-button  (click)="deleteClick()">
+              <mat-icon>delete</mat-icon>
+              Obrisi
+            </button>
+          </form>
       </div>
       
 

@@ -27,7 +27,7 @@ export class DugovanjaComponent implements OnInit{
         }
         
       )
-      console.log(this.membership[0].serviceType);
+     
   }
   columns = ["Ime","Prezime","Paket","Datum1","Placeno", "Iznos", "Datum2"];
   index = ["child.name", "child.surname", "serviceType", "date", "paid", "amount", "paymentDate"];

@@ -24,17 +24,14 @@ label {
   }
 
   .table{
-    /*position: absolute;
-    top: 200px;
-    display: flex;
     
-    border-collapse: collapse;*/
     display: block;
     overflow-x: auto;
     white-space: nowrap;
     border-collapse: collapse;
     
    }
+   
    @media (max-width: 600px) {
     .table thead,
     .table tbody,
@@ -76,11 +73,11 @@ table {
    th, td {
     padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #f724ad;
+    border-bottom: 1px rgb(141, 14, 219);
   }
   
   th {
-    background-color: #f080c3;
+    background-color: rgb(141, 14, 219);
   } 
   
   tr:hover {
@@ -146,7 +143,7 @@ table {
     display: flex;
     margin-top: 30px;
     height: 100px;
-    background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
+    background:  rgb(167, 101, 228);
     text-align: left;
     font-size: 26px;
     align-items: center;
@@ -191,7 +188,7 @@ table {
 .group-scroll {
     padding: 20px;
     overflow-y: auto;
-    height: calc(100vh - 230px);
+    height: calc(100vh - 130px);
 }
 
 .group-section {
@@ -222,7 +219,7 @@ table {
     font-size: 22px;
 }
 
-.remove-button {
+/* .button {
     position: absolute;
     top: 0;
     right: 0;
@@ -233,4 +230,27 @@ table {
     background-color: #2db0b0 !important;
     border-radius: 10px;
     color: white !important;
+} */
+
+.group-of-buttons-form {
+    right: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: absolute;
+    margin-right: 20px;
+    padding: 20px;
+}
+form button {
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    font-size: 18px;
+    background-color:  #2db0b0 !important;
+    color: white !important;
+}
+.between-buttons {
+    height: 10px;
 }

@@ -7,6 +7,7 @@ import { FinanceServiceService } from '../services/finance-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as _moment from 'moment';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 const moment = _moment;
 @Component({
   selector: 'app-create-bill-dialog',
@@ -14,6 +15,11 @@ const moment = _moment;
   styleUrls: ['./create-bill-dialog.component.css']
 })
 export class CreateBillDialogComponent {
+  public form: FormGroup = new FormGroup({
+    number: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required),
+    
+  });
   datum=moment();
   private _dateToShow?: string;
   private _dateToFind?: string;
@@ -55,7 +61,7 @@ export class CreateBillDialogComponent {
         kindergarten.address = address;
 
 
-        if(this.paid=="option1")
+      if(this.paid=="option1")
         this.pom=true;
       else
         this.pom=false;
