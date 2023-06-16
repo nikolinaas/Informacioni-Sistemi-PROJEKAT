@@ -19,8 +19,10 @@
                         <mat-card class="comment-card" (click)="showGroupDetails(group?.id)">
                             <mat-card-header>
                                 <mat-card-title class="font-size-25">{{ group.name }}</mat-card-title>
-                                <mat-card-subtitle class="number-of-members">Broj clanova: {{
-                                    group.numberOfMembers}}</mat-card-subtitle>
+                                <mat-card-subtitle class="number-of-members">Broj vaspitača: {{
+                                    group.numberOfEducators}}</mat-card-subtitle>
+                                <mat-card-subtitle class="number-of-members">Broj djece: {{
+                                    group.numberOfChildren}}</mat-card-subtitle>
                             </mat-card-header>
                             <button mat-raised-button class="remove-button"
                                 (click)="$event.stopPropagation(); deleteGroup(group.id)">

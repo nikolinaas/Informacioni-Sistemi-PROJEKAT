@@ -32,13 +32,13 @@ export class CreateGroupDialogComponent {
       this.groupService.createGroup(group).subscribe(
         (response: any) => {
           if (response.status == 201) {
-            this.snackBar.open('Uspjesno ste kreirali grupu', undefined, {
+            this.snackBar.open('Uspješno ste kreirali grupu.', undefined, {
               duration: 2000,
             });
             this.dialogRef.close(true);
           } else if(response.body.statusCode == 409) {
             this.snackBar.open(
-              'Nije moguće kreirati grupu sa tim nazivom',
+              'Nije moguće kreirati grupu sa tim nazivom.',
               undefined,
               {
                 duration: 2000,

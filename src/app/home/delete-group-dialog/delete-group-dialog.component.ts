@@ -23,7 +23,7 @@ export class DeleteGroupDialogComponent {
   deleteGroup() {
     this.groupService.deleteGroup(this.data.id).subscribe((response: any) => {
       if (response.status == 200) {
-        this.snackBar.open('Uspjesno ste obrisali grupu grupu', undefined, {
+        this.snackBar.open('Uspješno ste obrisali grupu.', undefined, {
           duration: 2000,
         });
         this.dialogRef.close(true);
