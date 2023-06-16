@@ -114,6 +114,13 @@ table {
     background-color: rgb(221, 17, 232) !important;
 }
 
+.rowButton{
+    background-color: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
+}
+.rowButton:hover{
+    background-color: rgb(221, 17, 232) !important;
+}
+
 
 
 

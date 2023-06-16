@@ -1,49 +1,8 @@
-<!-- <div class="column-container">
-  <div class="form">
-    <label>Mjesecni troskovi</label>
-    <div class="tabs">
-      <p class="title">Pregled djece</p>
-      <button mat-raised-button class="create-button" (click)="addClick()">
-        <mat-icon>add</mat-icon>
-        Dodaj račun
-      </button>
-      <button mat-raised-button class="delete-button" (click)="deleteClick()">
-        <mat-icon>delete</mat-icon>
-        Obriši račun
-      </button>
-    </div>
-
-   
-  </div>
-
-  <div class="table">
-
-    <table id="finance">
-      <tr>
-
-        <th *ngFor="let col of columns">
-          {{col}}
-        </th>
-      </tr>
-      <tr *ngFor="let financ of finance">
-
-        <td>{{ financ.billNumber }}</td>
-        <td>{{ financ.billType }}</td>
-        <td>{{ financ.amount }}</td>
-        <td>{{ financ.date }}</td>
-        <td>
-          <input type="checkbox" [checked]="financ.paid">
-        </td>
-      </tr>
-    </table>
-  </div>
-</div> -->
-
 <div class="row-container">
   <app-side-nav-bar></app-side-nav-bar>
   <div class="column-container, width-64">
       <div class="tabs">
-          <p class="title">Mjesecni troskovi</p>
+          <p class="title">Mjesecni troškovi</p>
           <form class="group-of-buttons-form">
             <button mat-raised-button  (click)="addClick()">
                 <mat-icon>add</mat-icon>
@@ -52,7 +11,7 @@
             <div class="between-buttons"></div>
             <button mat-raised-button  (click)="deleteClick()">
               <mat-icon>delete</mat-icon>
-              Obrisi
+              Obriši
             </button>
           </form>
       </div>
@@ -76,34 +35,17 @@
               <td>{{ financ.amount }}</td>
               <td>{{ financ.date }}</td>
               <td>
-                <input type="checkbox" [checked]="financ.paid">
+                <input type="checkbox" [checked]="financ.paid" (click)="onComboBoxClick(financ)">
+              </td>
+              <td>
+                <button mat-raised-button class="rowButton" (click)="deleteClickRow(financ)">
+                  <mat-icon>delete</mat-icon>
+                  Obriši
+                </button>
               </td>
             </tr>
           </table>
         </div> 
-
-        <!-- <table mat-table [dataSource]="data">
-          
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>Name</th>
-            <td mat-cell *matCellDef="let item">{{ item.name }}</td>
-          </ng-container>
-    
-          <ng-container matColumnDef="age">
-            <th mat-header-cell *matHeaderCellDef>Age</th>
-            <td mat-cell *matCellDef="let item">{{ item.age }}</td>
-          </ng-container>
-    
-          <ng-container matColumnDef="city">
-            <th mat-header-cell *matHeaderCellDef>City</th>
-            <td mat-cell *matCellDef="let item">{{ item.city }}</td>
-          </ng-container>
-    
-         
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table> -->
-        
       </div>
   </div>
 </div>

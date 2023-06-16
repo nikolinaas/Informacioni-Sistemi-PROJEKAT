@@ -18,7 +18,7 @@ export class CreateBillDialogComponent {
   public form: FormGroup = new FormGroup({
     number: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
-    
+    amount: new FormControl('', Validators.required)
   });
   datum=moment();
   private _dateToShow?: string;
@@ -49,6 +49,14 @@ export class CreateBillDialogComponent {
     this.dialogRef.close();
   }
 
+  getErrorMessage(controlName:string) {
+    const control = this.form.get(controlName);
+    if (control?.hasError('required')) {
+      return 'Obavezno polje';
+    }
+    return '';
+  }
+
   saveBill() {
     const kindergarten = new Kindergarten();
         kindergarten.name = 'Vrtic 1';
@@ -67,9 +75,9 @@ export class CreateBillDialogComponent {
         this.pom=false;
       console.log(this.paid);
       const data = {
-        billNumber: this.number,
-        billType: this.naziv,
-        amount: parseInt(this.iznos,10),
+        billNumber: this.form.value.number,
+        billType: this.form.value.name,
+        amount: this.form.value.amount,
         date: this._dateToFind,
         paid: this.pom,
         kindergartenName: kindergarten.name  };

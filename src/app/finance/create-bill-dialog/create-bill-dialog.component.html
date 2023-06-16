@@ -7,21 +7,24 @@
     <div class="form-row">
         Broj:
         <mat-form-field class="color-white">
-            <input matInput formControlName="number" autocomplete="off">
+            <input matInput formControlName="number" required  autocomplete="off">
+            <mat-error>{{ getErrorMessage('number') }}</mat-error>
         </mat-form-field>
     </div>
 
     <div class="form-row">
         Tip:
         <mat-form-field class="color-white">
-            <input matInput formControlName="name" autocomplete="on">
+            <input matInput formControlName="name" required autocomplete="on">
+            <mat-error>{{ getErrorMessage('name') }}</mat-error>
         </mat-form-field>
     </div>
 
     <div class="form-row">
         Iznos:
         <mat-form-field class="color-white">
-            <input matInput formControlName="amount" autocomplete="on">
+            <input type="number" matInput formControlName="amount" required autocomplete="on">
+            <mat-error>{{ getErrorMessage('amount') }}</mat-error>
         </mat-form-field>
     </div>
 
