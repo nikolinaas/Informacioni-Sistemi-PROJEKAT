@@ -21,13 +21,13 @@ const routes: Routes = [
   { path: 'login', component: LogInComponent },
 
   { path: 'groups', component: HomeComponent },
-  { path: 'groups/:id', component: GroupComponent, data: {group : Group} },
+  { path: 'groups/:id', component: GroupComponent, data: { group: Group } },
   { path: 'groups/:id/activities', component: ActivitiesComponent },
 
   { path: 'children', component: ChildrenComponent },
   { path: 'children/:id', component: EditChildComponent },
 
-  { path: 'educators' , component: EducatorsComponent },
+  { path: 'educators', component: EducatorsComponent },
   { path: 'educators/:id', component: ViewEducatorComponent },
 
   { path: 'finance', component: FinanceComponentComponent },

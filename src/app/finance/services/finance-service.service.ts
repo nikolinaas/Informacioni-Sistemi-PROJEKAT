@@ -11,9 +11,9 @@ export class FinanceServiceService {
 
   }
 
-  private billURL = 'http://10.1.1.186:8080/Server/api/bill';
-  private memberShipURL='http://10.1.1.186:8080/Server/api/membership'
-  private childrenURL = 'http://10.1.1.186:8080/Server/api/children';
+  private billURL = 'http://localhost:8080/Server/api/bill';
+  private memberShipURL='http://localhost:8080/Server/api/membership'
+  private childrenURL = 'http://localhost:8080/Server/api/children';
 
   getChildren() {
     return this.http.get(

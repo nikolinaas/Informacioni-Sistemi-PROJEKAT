@@ -15,28 +15,33 @@ import { Address } from 'src/app/model/address.model';
   styleUrls: ['./mjesecni-troskovi.component.css'],
 })
 export class MjesecniTroskoviComponent implements OnInit {
-  isChecked: boolean = false;
-  name: string;
-  vrsta: string;
-  iznos: string;
-  datetime: string;
-  combo: string;
-  pom: Boolean;
-  constructor(
-    private router: Router,
-    private dialog: MatDialog,
-    private financeService: FinanceServiceService,
-    private snackBar: MatSnackBar
-  ) {
-    this.name = '';
-    this.vrsta = '';
-    this.iznos = '';
-    this.datetime = '';
-    this.combo = '';
-    this.pom = true;
-  }
-  columns = ['Broj racuna', 'Vrsta racuna', 'Iznos', 'Datum', 'Placeno'];
-  index = ['billNumber', 'billType', 'amount', 'date', 'paid'];
+  // data: any[] = [
+  //   { name: 'John', age: 25, city: 'New York' },
+  //   { name: 'Alice', age: 32, city: 'London' },
+  //   { name: 'Bob', age: 47, city: 'Paris' },
+  // ];
+
+  displayedColumns: string[] = ['name', 'age', 'city'];
+
+     isChecked: boolean = false;
+     name:string;
+     vrsta:string;
+     iznos:string;
+     datetime:string;
+     combo:string;
+     pom: Boolean;
+     constructor(private router:Router, private dialog: MatDialog, private financeService: FinanceServiceService,
+      private snackBar: MatSnackBar)
+     {
+      this.name='';
+      this.vrsta='';
+      this.iznos='';
+      this.datetime=''
+      this.combo='';
+      this.pom=true;
+     }
+     columns = ["Broj racuna","Vrsta racuna","Iznos","Datum","Placeno"];
+     index = ["billNumber","billType","amount","date","paid"];
 
   finance: Finance[] = [];
   load() {
