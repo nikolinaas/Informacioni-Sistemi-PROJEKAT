@@ -32,7 +32,7 @@
                     JMBG:
                     <mat-form-field appearance="fill">
                         <input matInput type="text" formControlName="uid" required autocomplete="off" readonly />
-                        <mat-error>{{ getErrorMessage('jmbg') }}</mat-error>
+                        <mat-error>{{ getErrorMessage('uid') }}</mat-error>
                     </mat-form-field>
                 </div>
 
@@ -42,6 +42,14 @@
                         <input matInput type="text" formControlName="dateOfBirth" required autocomplete="off"
                             readonly />
                         <mat-error>{{ getErrorMessage('dateOfBirth') }}</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-row">
+                    Broj telefona:
+                    <mat-form-field appearance="fill">
+                        <input matInput type="text" formControlName="phoneNumber" required autocomplete="off" readonly />
+                        <mat-error>{{ getErrorMessage('phoneNumber') }}</mat-error>
                     </mat-form-field>
                 </div>
 
@@ -69,7 +77,7 @@
                     </mat-form-field>
                 </div>
             </form>
-                <!-- // TODO POZICIONIRATI OVA DVA DUGMETA DA BUDU NA SREDINI EKRANA ovo jos vidjeti -->
+           
    
                 <button mat-raised-button
                     style="background-color: #77238e; border-radius: 10px;  vertical-align: center; margin: 15px; margin-left: 380px;"

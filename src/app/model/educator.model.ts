@@ -12,6 +12,7 @@ export class Educator{
         private _address?: Address,
         private _username?: string,
         private _password?: string,
+        private _phoneNumber?: string
       ){}
       
     get name() {
@@ -76,6 +77,14 @@ export class Educator{
     
     set id(id: number | undefined){
         this._id = id;
+    }
+
+    get phoneNumber() {
+        return this._phoneNumber;
+    }
+
+    set phoneNumber(phoneNumber: string | undefined) {
+        this._phoneNumber = phoneNumber;
     }
 
 

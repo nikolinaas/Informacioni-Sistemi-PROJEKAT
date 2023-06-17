@@ -41,6 +41,7 @@ export class ViewEducatorComponent {
       number: [''],
       userName: [''],
       password: [''],
+      phoneNumber: ['']
     });
 
     this.educatorsService

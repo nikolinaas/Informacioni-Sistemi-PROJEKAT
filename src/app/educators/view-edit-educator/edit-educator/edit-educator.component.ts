@@ -75,11 +75,13 @@ export class EditEducatorComponent {
         street: formData.street,
         number: formData.number,
       },
+      phoneNumber: formData.phoneNumber,
       medicalClearance: formData.formDatamedicalClearance,
       hygieneTest: formData.formDatahygieneTest,
     };
     this.updateMedicalFile();
     this.updateHygieneFile();
+    console.log(formData.phoneNumber);
     this.educatorsService
       .updateEducator(data, this.id)
       .subscribe((response: any) => {
@@ -102,12 +104,12 @@ export class EditEducatorComponent {
       name: [''],
       surname: [''],
       uid: [''],
-     // dateOfBirth: [''],
       city: [''],
       street: [''],
       number: [''],
       userName: [''],
       password: [''],
+      phoneNumber: ['']
     });
 
     this.educatorsService
