@@ -11,9 +11,11 @@ export class ActivityService {
   private groupURL = 'http://localhost:8080/Server/api/groups';
 
   getActivites(id:any){
-    console.log(`${this.groupURL}/${id}/activity`);
     return this.http.get(
-      `${this.groupURL}/${id}/activity`
-    );
+      `${this.groupURL}/${id}/activity`);
+  }
+
+  addActivity(id:any,activity:any){
+return this.http.post(`${this.groupURL}/${id}/activity`, activity, {observe: 'response'});
   }
 }

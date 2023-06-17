@@ -37,7 +37,6 @@ import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.com
 import { CreateBillDialogComponent } from './finance/create-bill-dialog/create-bill-dialog.component';
 import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
 import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
-import { EducatorsComponent } from './educators/educators.component';
 import { CreateEducatorDialogComponent } from './educators/create-educator-dialog/create-educator-dialog.component';
 import { DeleteEducatorDialogComponent } from './educators/delete-educator-dialog/delete-educator-dialog.component';
 import { EditEducatorComponent } from './educators/view-edit-educator/edit-educator/edit-educator.component';
@@ -45,8 +44,12 @@ import { ViewEducatorComponent } from './educators/view-edit-educator/view-educa
 import { LogInComponent } from './log-in/log-in/log-in.component';
 import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
 import { AddActivityComponent } from './home/group/group/activities/add-activity/add-activity.component';
+import { WarningDialogComponent } from './home/group/group/activities/warning-dialog/warning-dialog.component';
+import { EducatorsComponent } from './educators/educators.component';
 import { MembershipComponent } from './finance/membership/membership.component';
 import { CreateMembershipDialogComponent } from './finance/create-membership-dialog/create-membership-dialog.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ChangeDataComponent } from './user/change-data/change-data/change-data.component';
 
 const MY_FORMATS = {
   parse: {
@@ -95,7 +98,10 @@ const MY_FORMATS = {
     LogInComponent,
     AddActivityComponent,
     MembershipComponent,
-    CreateMembershipDialogComponent
+    CreateMembershipDialogComponent,
+    WarningDialogComponent,
+    ChangeDataComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,12 +117,9 @@ const MY_FORMATS = {
     MatDatepickerModule,
     MatMomentDateModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [
-    DatePipe,
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
-  ],
+  providers: [DatePipe, { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

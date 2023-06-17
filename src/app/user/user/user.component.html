@@ -3,15 +3,49 @@
     <div class="column-container, width-64">
         <div class="tabs">
             <p class="title">Podaci o prijavljenom korisniku</p>
-            <button mat-raised-button class="create-button" (click)="changeCredentials()">
-                <mat-icon>edit</mat-icon>
-                Izmjena kredencijala
-            </button>
+            
+            <form *ngIf="userData.isAdmin" class="group-of-buttons-form">
+
+                <button mat-raised-button  (click)="changeData()">
+                    <mat-icon>edit</mat-icon>
+                    Izmjena podataka
+                    
+                </button>
+                <div class="between-buttons"></div>
+                <button mat-raised-button  (click)="changeCredentials()">
+                    <mat-icon>edit</mat-icon>
+                    Izmjena kredencijala
+                    
+                </button>
+            </form>
+                
+            <form *ngIf="!userData.isAdmin" class="group-of-buttons-form">
+
+                <button mat-raised-button  (click)="changeCredentials()">
+                    <mat-icon>edit</mat-icon>
+                    Izmjena kredencijala
+                    
+                </button>
+
+            </form>
+            
         </div>
         <div class="before-search"></div>
+        
         <div class="group-scroll">
 
+            <div style="display: flex;
+            justify-content: center;
+            align-items: center;">
+                <mat-icon class="icon-large">account_circle</mat-icon>
+                
+            </div>
+            <p style="display: flex;
+            justify-content: center;
+            align-items: center; font-size: 30px;">{{ userData.username }} <span *ngIf="userData.isAdmin">(administrator)</span></p>
+           
             <form [formGroup]="form" class="form">
+                
                 <div class="form-row">
                     Ime:
                     <mat-form-field appearance="fill">

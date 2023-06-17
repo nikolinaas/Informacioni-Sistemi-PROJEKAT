@@ -1,0 +1,40 @@
+<h1 mat-dialog-title class="header-info">Izmjena kredencijala</h1>
+<button mat-icon-button class="exit-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-content>
+
+    
+
+    <form [formGroup]="form" (ngSubmit)="changeCredentials()" class="column-container margin-bottom">
+
+        <div class="form-row">
+            Korisničko ime:
+            <mat-form-field class="color-white">
+                <input matInput  formControlName="username" required autocomplete="off">
+                <mat-error>{{ getErrorMessage('username') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Lozinka:
+            <mat-form-field class="color-white">
+                <input matInput type="password"  formControlName="password1" required autocomplete="on">
+                <mat-error>{{ getErrorMessage('password1') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Lozinka ponovo:
+            <mat-form-field class="color-white">
+                <input matInput type="password" formControlName="password2" required autocomplete="on">
+                <mat-error>{{ getErrorMessage('password2') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+
+        <div style="text-align: center;">
+            <button mat-raised-button class="save-button" type="submit">Sačuvaj</button>
+        </div>
+    </form>
+</div>
