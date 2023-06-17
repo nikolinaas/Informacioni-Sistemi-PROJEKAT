@@ -13,6 +13,7 @@ export class UserService {
 
    }
 
+
   getAdminData(id: number) {
     return this.http.get(`${this.adminURL}/${id}`, {observe: 'response'});
   }
@@ -22,12 +23,12 @@ export class UserService {
 }
 
   updateAdminCredentials(data:any, id:number){
-    return this.http.put(`${this.adminURL}/${id}/${'{'+data?.userName+'-'+data?.password+'}'}`, {observe: 'response'});
+    return this.http.put(`${this.adminURL}/${id}/${'credentials'}`, data, {observe: 'response'});
 
   }
 
   updateEducatorCredentials(data:any, id:number){
-    return this.http.put(`${this.educatorsURL}/${id}/${'{'+data?.userName+'-'+data?.password+'}'}`, {observe: 'response'});
+    return this.http.put(`${this.educatorsURL}/${id}/${'credentials'}`, data, {observe: 'response'});
 
   }
 

@@ -16,6 +16,8 @@ const moment = _moment;
 export class CreateEducatorDialogComponent {
   date = moment();
   today: Date = new Date();
+  passwordVisible: boolean = false;
+  passwordRepeatVisible: boolean = false;
 
  
   private _dateToFind?: string;
@@ -34,6 +36,8 @@ export class CreateEducatorDialogComponent {
     number: new FormControl('', Validators.required),
     userName: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
+    passwordRepeat: new FormControl('', Validators.required),
+    phoneNumber: new FormControl('', Validators.required),
   });
 
   constructor(
@@ -60,8 +64,12 @@ export class CreateEducatorDialogComponent {
 
   createEducator() {
     
-
-      if(this._dateToFind == null){
+      if (this.form.valid === false || this.byteArrayMedicalClearance == null || this.byteArrayHygieneTest == null) {
+        this.snackBar.open('Molimo Vas da popunite sva obavezna polja.', undefined, {
+          duration: 2000,
+        });
+      }
+      else if(this._dateToFind == null){
           
       this.snackBar.open('Molimo Vas unesite datum rođenja!', undefined, {
         duration: 2000,
@@ -70,10 +78,14 @@ export class CreateEducatorDialogComponent {
         this.snackBar.open('JMBG mora imati 13 karaktera!', undefined, {
           duration: 2000,
         });
+      }else if(this.form.value.password !== this.form.value.passwordRepeat){
+        this.snackBar.open('Lozinke se ne poklapaju. Molimo Vas unesite ponovo!', undefined, {
+          duration: 2000,
+        });
       }
-      else if (this.form.valid && this.byteArrayMedicalClearance != null && this.byteArrayHygieneTest != null) {
-      const date: string = '';
-      const data = {
+      else{
+        const date: string = '';
+        const data = {
         name: this.form.value.name,
         surname: this.form.value.surname,
         uid: this.form.value.uid,
@@ -85,7 +97,9 @@ export class CreateEducatorDialogComponent {
         password: this.form.value.password,
         medicalClearance: this.byteArrayMedicalClearance,
         hygieneTest: this.byteArrayHygieneTest,
+        phoneNumber: this.form.value.phoneNumber
       };
+
      
       this.educatorService.createEducator(data).subscribe(
         (response: any) => {
@@ -110,12 +124,7 @@ export class CreateEducatorDialogComponent {
           );
         }
       );
-    } else {
-      // Forma nije validna, prikaži greške
-      this.snackBar.open('Molimo popunite sva obavezna polja.', undefined, {
-        duration: 2000,
-      });
-    }
+    } 
   }
 
   getErrorMessage(controlName: string) {
@@ -168,5 +177,13 @@ export class CreateEducatorDialogComponent {
       '#fileInputHygieneTest'
     ) as HTMLElement;
     fileInput.click();
+  }
+
+  togglePasswordVisibility(field: string) {
+    if (field === 'password') {
+      this.passwordVisible = !this.passwordVisible;
+    } else if (field === 'passwordRepeat') {
+      this.passwordRepeatVisible = !this.passwordRepeatVisible;
+    }
   }
 }

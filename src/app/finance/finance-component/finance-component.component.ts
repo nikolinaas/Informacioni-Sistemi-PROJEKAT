@@ -4,20 +4,16 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-finance-component',
   templateUrl: './finance-component.component.html',
-  styleUrls: ['./finance-component.component.css']
+  styleUrls: ['./finance-component.component.css'],
 })
 export class FinanceComponentComponent {
+  constructor(private router: Router) {}
 
-  constructor(private router:Router){
-
-  }
-  handleLabelClick1()
-  {
+  handleLabelClick1() {
     this.router.navigate(['costs']);
   }
-  handleLabelClick2()
-  {
+  
+  handleLabelClick2() {
     this.router.navigate(['debts']);
   }
-
 }

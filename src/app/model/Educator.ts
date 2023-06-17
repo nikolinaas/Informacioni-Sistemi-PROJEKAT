@@ -11,5 +11,6 @@ export class Educator{
     public idGroup: any;
     public medicalClearance: any;
     public hygieneTest: any;
+    public phoneNumber: any;
 
 }

@@ -7,6 +7,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ChildrenService } from 'src/app/children/services/children.service';
 import { ChangeCredentialsComponent } from '../change-credentials/change-credentials/change-credentials.component';
 import { UserService } from '../services/user.service';
+import { ChangeDataComponent } from '../change-data/change-data/change-data.component';
+import { DataSharingService } from 'src/app/data-sharing.service';
 
 @Component({
   selector: 'app-user',
@@ -16,9 +18,7 @@ import { UserService } from '../services/user.service';
 export class UserComponent {
   public form: FormGroup = new FormGroup({});
   data?: any;
-  id: number=3; //id treba da se kupi iz app-component komponente
-  isAdmin: boolean=true; // isAdmin  treba da se kupi iz app-component komponente
-  // prosljedjuje se objekat tipa const data = {id:number, isAdmin:boolean}
+  userData: any;
  
 
   constructor(
@@ -26,13 +26,12 @@ export class UserComponent {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dataSharingService: DataSharingService
   ) {}
 
   ngOnInit() {
-    // this.route.params.subscribe(params => {
-    //    this.id = params['id'];
-    // });   
+    this.userData = this.dataSharingService.getSharedData();
     this.fillData();
   }
 
@@ -47,14 +46,14 @@ export class UserComponent {
       number: [''],  
      });
 
-    if(this.isAdmin){
-      this.userService.getAdminData(this.id).subscribe((response: HttpResponse<any>) => {
+    if(this.userData.isAdmin){
+      this.userService.getAdminData(this.userData.id).subscribe((response: HttpResponse<any>) => {
         this.data = response.body; 
         this.form.patchValue(this.data);
         this.form.patchValue(this.data.address);
       });
     }else{
-      this.userService.getEducatorData(this.id).subscribe((response: HttpResponse<any>) => {
+      this.userService.getEducatorData(this.userData.id).subscribe((response: HttpResponse<any>) => {
         this.data = response.body; 
         this.form.patchValue(this.data);
         this.form.patchValue(this.data.address);
@@ -70,16 +69,39 @@ export class UserComponent {
 
   }
 
-  changeCredentials(){
+  changeCredentials() {
       this.dialog
-        .open(ChangeCredentialsComponent, {
+        .open(ChangeDataComponent, {
         width: '400px',
-        data: {id: this.id, isAdmin: this.isAdmin}
+        data: {
+          id: this.userData.id,
+          username: this.userData.password,
+          password: this.userData.password,
+          isAdmin: this.userData.isAdmin
+        }
       })
         .afterClosed()
         .subscribe(() => {
         this.fillData();
       });
+    
+  }
+
+  changeData(){ 
+    this.dialog
+      .open(ChangeCredentialsComponent, {
+      width: '600px',
+      data: {
+        id: this.userData.id,
+        username: this.userData.password,
+        password: this.userData.password,
+        isAdmin: this.userData.isAdmin}
+      })
+      .afterClosed()
+      .subscribe(() => {
+      this.fillData();
+    });
+
   }
 
   

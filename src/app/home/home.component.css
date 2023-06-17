@@ -7,12 +7,6 @@
     width: calc(100% - 64px);
 }
 
-.column-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
-
 .tabs{
     display: flex;
     margin-top: 30px;
@@ -86,7 +80,7 @@
 
 .number-of-members {
     margin-left: 20px;
-    margin-top: 5px;
+    font-size: 14px;
 }
 
 .remove-button {

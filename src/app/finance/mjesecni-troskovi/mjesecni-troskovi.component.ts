@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Finance } from 'src/app/model/Finance';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
@@ -12,17 +12,10 @@ import { Address } from 'src/app/model/address.model';
 @Component({
   selector: 'app-mjesecni-troskovi',
   templateUrl: './mjesecni-troskovi.component.html',
-  styleUrls: ['./mjesecni-troskovi.component.css']
+  styleUrls: ['./mjesecni-troskovi.component.css'],
 })
 export class MjesecniTroskoviComponent implements OnInit {
-  // data: any[] = [
-  //   { name: 'John', age: 25, city: 'New York' },
-  //   { name: 'Alice', age: 32, city: 'London' },
-  //   { name: 'Bob', age: 47, city: 'Paris' },
-  // ];
-
-  displayedColumns: string[] = ['name', 'age', 'city'];
-
+  
      isChecked: boolean = false;
      name:string;
      vrsta:string;
@@ -40,36 +33,20 @@ export class MjesecniTroskoviComponent implements OnInit {
       this.combo='';
       this.pom=true;
      }
-     columns = ["Broj racuna","Vrsta racuna","Iznos","Datum","Placeno"];
+     columns = ["Broj racuna","Vrsta racuna","Iznos","Datum","Placeno",""];
      index = ["billNumber","billType","amount","date","paid"];
 
-     finance : Finance[] = [];
-     load()
-     {
-      this.financeService.getBill().subscribe
-      (
-        (responese)=>
-        {
-          this.finance=responese as Finance[];
-        }
-        
-      )
-     }
+  finance: Finance[] = [];
+  load() {
+    this.financeService.getBill().subscribe((responese) => {
+      this.finance = responese as Finance[];
+    });
+  }
 
   ngOnInit(): void {
-   /* console.log("Nesto");
-    this.finance[0] = {
-      "billNumber": "Broj",
-      "billType": "Tip",
-      "amount": "25",
-      "date": "datum",
-      "paid": "Placeno",
-      "kindergartenName" : "Vrtic"
 
-    };*/
       this.load();
   }
-     
 
      addClick()
      {
@@ -78,39 +55,7 @@ export class MjesecniTroskoviComponent implements OnInit {
         .subscribe(() => {
           this.load()
         });
-      /*if(this.combo=="Da")
-        this.pom=true;
-      else
-        this.pom=false;
-      /*console.log(this.name+" "+this.vrsta+" "+this.datetime.substring(0,10));
-      const data = {
-        billNumber: this.name,
-        billType: this.vrsta,
-        amount: parseInt(this.iznos,10),
-        date: this.datetime.substring(0,10),
-        paid: this.pom,
-        kindergartenName: kindergarten
-        
-        
-      };
-      console.log(data.billType);
-      this.financeService.createBill(data).subscribe((response: any) => {
-        if (response.status == 201) {
-          this.snackBar.open('Uspjesno ste kreirali racun ', '', {
-            duration: 2000,
-          });
-        }
-      },
-      () => {
-        this.snackBar.open(
-          'Nije moguće kreirati racun!',
-          '',
-          {
-            duration: 2000,
-          }
-        );
-      }
-    );*/
+     
      }
      deleteClick()
      {
@@ -120,5 +65,50 @@ export class MjesecniTroskoviComponent implements OnInit {
         .subscribe(() => {
           this.load()
         });
+     }
+
+     onComboBoxClick(financ: Finance)
+     {
+        console.log(financ.billNumber);
+
+        this.financeService.putBill(financ.billNumber).subscribe(
+          (response: any) => {
+            // Check if response and response.status are not null
+            if (response && response.status==200) {
+              // Access the 'status' property
+              this.snackBar.open('Success!', 'Close', { duration: response.status });
+            } else {
+              // Handle the case when response or response.status is null
+              console.error('Invalid response or response.status is null.');
+            }
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+    
+        // ...
+      
+     }
+
+
+     deleteClickRow(financ: Finance){
+        console.log(financ.billNumber);
+
+        this.financeService.deleteBill(financ.billNumber).subscribe((response: any) => {
+      if (response.status == 200) {
+        this.snackBar.open('Uspjesno ste obrisali racun', undefined, {
+          duration: 2000,
+        });
+        this.load();
+       // this.dialogRef.close(true);
+      }
+      else{
+        this.snackBar.open('Taj racun ne postoji u bazi', undefined, {
+          duration: 2000,
+        });
+       // this.dialogRef.close(true);
+      }
+    });
      }
 }
