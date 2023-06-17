@@ -14,11 +14,13 @@ import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
 import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
 import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
 import { CreateBillDialogComponent } from './finance/create-bill-dialog/create-bill-dialog.component';
-import { AuthGuardService } from 'src/app/auth-guard.service';
+
 import { EducatorsComponent } from './educators/educators.component';
 import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
 import { LogInComponent } from './log-in/log-in/log-in.component';
+import { AuthGuardService } from './auth-guard.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ShowKindergartenInfoComponent } from './show-kindergarten-info/show-kindergarten-info.component';
 
 
 const routes: Routes = [
@@ -43,6 +45,8 @@ const routes: Routes = [
   { path: 'debts', component: DugovanjaComponent, canActivate:[AuthGuardService] },//
 
   { path: 'evidence', component: EvidenceComponent },
+
+  { path: 'info', component: ShowKindergartenInfoComponent },
 
   { path: 'account-information', component: UserComponent },
 

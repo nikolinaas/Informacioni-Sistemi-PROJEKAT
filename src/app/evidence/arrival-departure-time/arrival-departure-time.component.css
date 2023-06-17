@@ -1,13 +1,13 @@
 .exit-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 5px;
-    margin-top: 7px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 5px;
+  margin-top: 7px;
 }
 
 .height-65 {
-    height: 65px;
+  height: 65px;
 }
 
 .mat-cell {

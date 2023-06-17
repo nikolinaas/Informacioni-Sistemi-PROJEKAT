@@ -17,7 +17,6 @@ export class HomeComponent {
 
   constructor(
     private router: Router ,
-    
     private groupService: GroupService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
@@ -48,7 +47,7 @@ export class HomeComponent {
     const group = this._groups?.find((g) => g.id === groupId);
     if (group?.numberOfMembers != 0) {
       this.snackBar.open(
-        'Broj clanova grupe mora da bude 0 da bi grupa bila obrisana.',
+        'Broj članova grupe mora da bude 0 da bi grupa bila obrisana.',
         undefined,
         {
           duration: 2000,

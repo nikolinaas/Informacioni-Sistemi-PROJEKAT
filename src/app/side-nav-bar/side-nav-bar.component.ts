@@ -37,11 +37,4 @@ export class SideNavBarComponent {
       width: '400px',
     });
   }
-
-  showInfo() {
-    this.dialog.open(ShowKindergartenInfoComponent, {
-      width: '400px',
-    });
-  }
-
 }

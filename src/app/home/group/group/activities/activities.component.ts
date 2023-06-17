@@ -53,8 +53,6 @@ export class ActivitiesComponent {
     console.log(this.activites?.[1].date);
     
   });
-
-  
 }
   onSelect(event: any) {
     this.selectedDate=event._i.date + "-" + event._i.month + "-" + event._i.year;

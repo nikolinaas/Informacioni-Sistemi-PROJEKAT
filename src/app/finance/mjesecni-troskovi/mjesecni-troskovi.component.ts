@@ -12,7 +12,7 @@ import { Address } from 'src/app/model/address.model';
 @Component({
   selector: 'app-mjesecni-troskovi',
   templateUrl: './mjesecni-troskovi.component.html',
-  styleUrls: ['./mjesecni-troskovi.component.css']
+  styleUrls: ['./mjesecni-troskovi.component.css'],
 })
 export class MjesecniTroskoviComponent implements OnInit {
   
@@ -36,24 +36,17 @@ export class MjesecniTroskoviComponent implements OnInit {
      columns = ["Broj racuna","Vrsta racuna","Iznos","Datum","Placeno",""];
      index = ["billNumber","billType","amount","date","paid"];
 
-     finance : Finance[] = [];
-     load()
-     {
-      this.financeService.getBill().subscribe
-      (
-        (responese)=>
-        {
-          this.finance=responese as Finance[];
-        }
-        
-      )
-     }
+  finance: Finance[] = [];
+  load() {
+    this.financeService.getBill().subscribe((responese) => {
+      this.finance = responese as Finance[];
+    });
+  }
 
   ngOnInit(): void {
 
       this.load();
   }
-     
 
      addClick()
      {

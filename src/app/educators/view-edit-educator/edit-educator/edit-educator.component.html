@@ -59,6 +59,14 @@
             </mat-form-field>
         </div>
 
+        <div class="form-row">
+            Broj telefona:
+            <mat-form-field appearance="fill">
+                <input matInput type="text" formControlName="phoneNumber" required autocomplete="off"  />
+                <mat-error>{{ getErrorMessage('phoneNumber') }}</mat-error>
+            </mat-form-field>
+        </div>
+
         
         <div class="form-row">
             Grad:

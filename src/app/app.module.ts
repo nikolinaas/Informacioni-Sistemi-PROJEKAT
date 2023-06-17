@@ -37,9 +37,8 @@ import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
 import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
 import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
 import { CreateBillDialogComponent } from './finance/create-bill-dialog/create-bill-dialog.component';
-import { EducatorsComponent } from './educators/educators.component';
-import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
 import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
+import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
 
  //import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
  //import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
@@ -51,8 +50,9 @@ import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add
  import { LogInComponent } from './log-in/log-in/log-in.component';
  import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
  import { AddActivityComponent } from './home/group/group/activities/add-activity/add-activity.component';
- import { ChangeDataComponent } from './user/change-data/change-data/change-data.component';
+import { EducatorsComponent } from './educators/educators.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ChangeDataComponent } from './user/change-data/change-data/change-data.component';
 
 const MY_FORMATS = {
   parse: {
