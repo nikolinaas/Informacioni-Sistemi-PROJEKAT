@@ -25,13 +25,13 @@
 }
 
 .before-info {
-    height: 180px;
+    height: 80px;
     background-color: whitesmoke;
 }
 
 .group-scroll {
     overflow-y: auto;
-    height: calc(100vh - 310px);
+    height: calc(100vh - 210px);
     background-color: whitesmoke;
 }
 

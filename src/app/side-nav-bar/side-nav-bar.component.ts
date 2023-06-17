@@ -12,6 +12,9 @@ import { DataSharingService } from '../data-sharing.service';
   styleUrls: ['./side-nav-bar.component.css']
 })
 export class SideNavBarComponent {
+  showInfo() {
+    this.router.navigate(['info']);
+  }
 
   userData: any;
 
