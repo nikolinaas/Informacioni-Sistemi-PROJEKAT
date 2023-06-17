@@ -152,3 +152,32 @@
     background-color: whitesmoke;
 }
 
+mat-icon{
+    width: 150px;
+    height: 150px;
+    font-size: 150px;
+}
+
+.group-of-buttons-form {
+    right: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: absolute;
+    margin-right: 20px;
+    padding: 20px;
+}
+form button {
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    font-size: 18px;
+    background-color:  #2db0b0 !important;
+    color: white !important;
+}
+.between-buttons {
+    height: 10px;
+}
+

@@ -14,30 +14,19 @@ import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
 import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
 import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
 import { CreateBillDialogComponent } from './finance/create-bill-dialog/create-bill-dialog.component';
-
-/* const routes: Routes = [
-   {path: 'home', component:HomeComponent },
-   {path: 'evidence', component:EvidenceComponent },
-   {path: 'children', component:ChildrenComponent },
-   {path: 'edit/:id', component:EditChildComponent },
-   {path: 'user', component:UserComponent }, //TODO treba dodati /:id gdje se id prosljedjuje prilikom logovanja, za sada je hardkodovan u komponenti 
-   {path: 'group/:id', component: GroupComponent, data: {group : Group}},
-   {path: 'activity', component: ActivitiesComponent},
-   {path: 'finance', component:FinanceComponentComponent},
-   {path: 'troskovi', component:MjesecniTroskoviComponent},
-   {path: 'dugovanja', component:DugovanjaComponent},
-   {path: 'dialog',component:CreateDialogComponent},
-   {path: 'deleteDialog', component:DeleteDialogComponent},
-   {path: 'createBillDialog', component: CreateBillDialogComponent}]*/
+import { AuthGuardService } from 'src/app/auth-guard.service';
 import { EducatorsComponent } from './educators/educators.component';
 import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
 import { LogInComponent } from './log-in/log-in/log-in.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
 
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'login', component: LogInComponent },
+
+  { path: 'unauthorized', component: PageNotFoundComponent },
 
   { path: 'groups', component: HomeComponent },
   { path: 'groups/:id', component: GroupComponent, data: { group: Group } },
@@ -46,12 +35,12 @@ const routes: Routes = [
   { path: 'children', component: ChildrenComponent },
   { path: 'children/:id', component: EditChildComponent },
 
-  { path: 'educators', component: EducatorsComponent },
-  { path: 'educators/:id', component: ViewEducatorComponent },
+  { path: 'educators', component: EducatorsComponent, canActivate:[AuthGuardService] },  //Rute kojima nije dozvoljen neautorizovan pristup
+  { path: 'educators/:id', component: ViewEducatorComponent, canActivate:[AuthGuardService] },//
 
-  { path: 'finance', component: FinanceComponentComponent },
-  { path: 'costs', component: MjesecniTroskoviComponent },
-  { path: 'debts', component: DugovanjaComponent },
+  { path: 'finance', component: FinanceComponentComponent, canActivate:[AuthGuardService] },//
+  { path: 'costs', component: MjesecniTroskoviComponent, canActivate:[AuthGuardService] },//
+  { path: 'debts', component: DugovanjaComponent, canActivate:[AuthGuardService] },//
 
   { path: 'evidence', component: EvidenceComponent },
 
@@ -59,8 +48,6 @@ const routes: Routes = [
 
   { path: '**', redirectTo: '/groups', pathMatch: 'full' }
 
-  //  {path: 'dialog',component:CreateDialogComponent},
-  //{path: 'deleteDialog', component:DeleteDialogComponent},
 ];
 
 @NgModule({

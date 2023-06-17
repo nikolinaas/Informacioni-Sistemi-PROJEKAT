@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../service/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataSharingService } from 'src/app/data-sharing.service';
+
 
 @Component({
   selector: 'app-log-in',
@@ -20,7 +22,8 @@ export class LogInComponent {
     private formBuilder: FormBuilder,
     private loginService: LoginService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dataSharingService: DataSharingService
   ) {}
 
   ngOnInit(): void {
@@ -41,9 +44,16 @@ export class LogInComponent {
           duration: 2000,
         });
       } else if (response.status == 200) {
-        console.log("SALEW");
+        console.log(response.body.account);
+        const sharedData = {
+          id: response.body.account.idPerson, 
+          isAdmin: response.body.account.administrator,
+          username: form.get('username').value,
+          password: form.get('password').value
+        };
+        this.dataSharingService.setSharedData(sharedData);
         this.router.navigate(['groups']);
-        sessionStorage.setItem(this.sessionStorageKey, response.token);
+        sessionStorage.setItem(this.sessionStorageKey, response.body.token);
         this.isLog = true;
       }
     });

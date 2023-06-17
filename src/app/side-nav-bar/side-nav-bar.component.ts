@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LogOffDialogComponent } from '../log-off-dialog/log-off-dialog.component';
 import { KindergartenService } from '../show-kindergarten-info/services/kindergarten.service';
 import { ShowKindergartenInfoComponent } from '../show-kindergarten-info/show-kindergarten-info.component';
+import { DataSharingService } from '../data-sharing.service';
 
 @Component({
   selector: 'app-side-nav-bar',
@@ -12,16 +13,19 @@ import { ShowKindergartenInfoComponent } from '../show-kindergarten-info/show-ki
 })
 export class SideNavBarComponent {
 
+  userData: any;
+
   constructor(
     private router: Router,
     private dialog: MatDialog,
-    private kindergartenService: KindergartenService
+    private kindergartenService: KindergartenService,
+    private dataSharingService: DataSharingService
   ) {
     this.kindergartenService.getInfo();
   }
 
   ngOnInit(){
-    //this.goTo('groups');
+    this.userData = this.dataSharingService.getSharedData();
   }
 
   goTo(paramText: string) {
