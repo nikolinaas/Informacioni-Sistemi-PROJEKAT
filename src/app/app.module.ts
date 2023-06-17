@@ -33,8 +33,6 @@ import { ActivitiesComponent } from './home/group/group/activities/activities.co
 import { ChangeGroupNameDialogComponent } from './home/group/group/change-group-name-dialog/change-group-name-dialog.component';
 import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
 import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
-import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
-import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
 import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
 import { CreateBillDialogComponent } from './finance/create-bill-dialog/create-bill-dialog.component';
 import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
@@ -47,6 +45,8 @@ import { ViewEducatorComponent } from './educators/view-edit-educator/view-educa
 import { LogInComponent } from './log-in/log-in/log-in.component';
 import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
 import { AddActivityComponent } from './home/group/group/activities/add-activity/add-activity.component';
+import { MembershipComponent } from './finance/membership/membership.component';
+import { CreateMembershipDialogComponent } from './finance/create-membership-dialog/create-membership-dialog.component';
 
 const MY_FORMATS = {
   parse: {
@@ -83,8 +83,6 @@ const MY_FORMATS = {
     ChangeGroupNameDialogComponent,
     FinanceComponentComponent,
     MjesecniTroskoviComponent,
-    DugovanjaComponent,
-    CreateDialogComponent,
     DeleteDialogComponent,
     CreateBillDialogComponent,
     AddChildDialogComponent,
@@ -95,7 +93,9 @@ const MY_FORMATS = {
     EditEducatorComponent,
     ViewEducatorComponent,
     LogInComponent,
-    AddActivityComponent
+    AddActivityComponent,
+    MembershipComponent,
+    CreateMembershipDialogComponent
   ],
   imports: [
     BrowserModule,

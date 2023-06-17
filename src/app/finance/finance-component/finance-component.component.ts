@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 export class FinanceComponentComponent {
   constructor(private router: Router) {}
 
-  handleLabelClick1() {
+  showCosts() {
     this.router.navigate(['costs']);
   }
   
-  handleLabelClick2() {
-    this.router.navigate(['debts']);
+  showMemberships() {
+    this.router.navigate(['memberships']);
   }
 }

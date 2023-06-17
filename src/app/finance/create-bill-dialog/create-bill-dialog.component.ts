@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { CreateDialogComponent } from '../create-dialog/create-dialog.component';
 import { Kindergarten } from 'src/app/model/kindergarten.model';
 import { Address } from 'src/app/model/address.model';
 import { FinanceServiceService } from '../services/finance-service.service';
@@ -30,7 +29,7 @@ export class CreateBillDialogComponent {
   paid: string='';
   pom: boolean=true;
 
-  constructor(private dialogRef: MatDialogRef<CreateDialogComponent>,
+  constructor(
     private financeService: FinanceServiceService,
       private snackBar: MatSnackBar)
   {
@@ -46,7 +45,6 @@ export class CreateBillDialogComponent {
     
   }
   closeDialog(){
-    this.dialogRef.close();
   }
 
   getErrorMessage(controlName:string) {

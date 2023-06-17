@@ -6,15 +6,14 @@ import { EvidenceComponent } from './evidence/evidence.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user/user.component';
 import { GroupComponent } from './home/group/group/group.component';
-import { Group } from './model/Group';
 import { ActivitiesComponent } from './home/group/group/activities/activities.component';
 import { EducatorsComponent } from './educators/educators.component';
 import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
 import { LogInComponent } from './log-in/log-in/log-in.component';
 import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
 import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
-import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
 import { ShowKindergartenInfoComponent } from './show-kindergarten-info/show-kindergarten-info.component';
+import { MembershipComponent } from './finance/membership/membership.component';
 
 const routes: Routes = [
 
@@ -22,7 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LogInComponent },
 
   { path: 'groups', component: HomeComponent },
-  { path: 'groups/:id', component: GroupComponent, data: { group: Group } },
+  { path: 'groups/:id', component: GroupComponent },
   { path: 'groups/:id/activities', component: ActivitiesComponent },
 
   { path: 'children', component: ChildrenComponent },
@@ -32,8 +31,8 @@ const routes: Routes = [
   { path: 'educators/:id', component: ViewEducatorComponent },
 
   { path: 'finance', component: FinanceComponentComponent },
-  { path: 'costs', component: MjesecniTroskoviComponent},
-  { path: 'debts', component: DugovanjaComponent},
+  { path: 'costs', component: MjesecniTroskoviComponent },
+  { path: 'memberships', component: MembershipComponent },
 
   { path: 'evidence', component: EvidenceComponent },
 
