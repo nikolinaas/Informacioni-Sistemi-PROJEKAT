@@ -17,9 +17,7 @@ display: flex;
 border-radius: 10px;
 background-color: white;
 }
-.special-date {
-    background-color: red;
-  }
+
 .textArea{
     padding: 93px;
     width:calc(40vw - 50px);
@@ -46,7 +44,7 @@ background-color: white;
     position: absolute;
     right: 0;
     font-size: 18px;
-    background-color: #9f9f53 !important;
+    background-color:  #2db0b0 !important;
     margin-right: 20px;
     height: 40px;
     color: white !important;
@@ -68,14 +66,18 @@ background-color: white;
    
 }
 
-
+::ng-deep .highlight-date-class.mat-calendar-body-cell{
+    background-color: rgb(139, 89, 172);
+    color: rgb(139, 89, 172);
+    border-radius: 50px;
+}
 ::ng-deep .mat-calendar-body{
   padding: 10px;
 }
 ::ng-deep .mat-calendar-cell{
 
     border-radius: 10px;
-    background-color: rgba(128, 128, 128, 0.637);
+  /* background-color: rgba(128, 128, 128, 0.637);*/
 }
 .float-container {
     overflow-y: auto;
@@ -87,11 +89,39 @@ background-color: white;
     width: 50%;
     float: left;
 } 
-::ng-deep .mat-calendar-body-cell:checked{
-    background-color: lightcoral;
+.txtArea{
+    align-self: center;
+    word-wrap: normal;
 }
 ::ng-deep .mat-calendar-body-cell:focus{
 
     background-color: rgb(172, 153, 178);
     border-radius: 50px;
+}
+.color-white {
+    background-color:whitesmoke;
+}
+.save-button {
+    border-radius: 10px; 
+    background-color: #2db0b0;
+    width: 150px;
+    color: white;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 100px auto;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.column-container {
+    margin-top: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
 }

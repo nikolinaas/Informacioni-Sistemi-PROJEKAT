@@ -1,1 +1,51 @@
-<p>add-activity works!</p>
+<h1 mat-dialog-title class="header-info">Dodaj aktivnost</h1>
+<button mat-icon-button class="exit-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-content>
+
+ 
+
+    <form [formGroup]="form" (ngSubmit)="createActivity()" class="column-container margin-bottom">
+
+        <div class="form-row">
+            Naziv:
+            <mat-form-field class="color-white">
+                <input matInput  formControlName="name" required autocomplete="off">
+                <mat-error>{{ getErrorMessage('name') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Opis aktivnosti:
+            <mat-form-field class="color-white">
+                <input matInput  formControlName="description" required autocomplete="on">
+                <mat-error>{{ getErrorMessage('surname') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Period trajanja(h):
+            <mat-form-field class="color-white">
+                <input type="number" matInput formControlName="number"
+                required autocomplete="on">
+                <mat-error>{{ getErrorMessage('number') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Datum aktivnosti:
+            <mat-form-field class="color-white">
+                <input matInput [ngModelOptions]="{standalone: true}" [min]="today" required [matDatepicker]="mydate" [(ngModel)]="date"
+                    (dateInput)="addEvent('input', $event)" readonly (dateChange)="addEvent('change', $event)">
+                <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
+                <mat-datepicker #mydate>
+                </mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div style="text-align: center;">
+            <button mat-raised-button class="save-button" type="submit">Kreiraj</button>
+        </div>
+    </form>
+</div>

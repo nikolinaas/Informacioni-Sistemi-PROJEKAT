@@ -51,6 +51,7 @@ import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add
  import { LogInComponent } from './log-in/log-in/log-in.component';
  import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
  import { AddActivityComponent } from './home/group/group/activities/add-activity/add-activity.component';
+import { WarningDialogComponent } from './home/group/group/activities/warning-dialog/warning-dialog.component';
 
 const MY_FORMATS = {
   parse: {
@@ -99,7 +100,8 @@ const MY_FORMATS = {
      EditEducatorComponent,
      ViewEducatorComponent,
      LogInComponent,
-     AddActivityComponent
+     AddActivityComponent,
+     WarningDialogComponent
   ],
   imports: [
     BrowserModule,
