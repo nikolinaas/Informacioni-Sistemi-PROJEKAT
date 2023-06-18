@@ -70,6 +70,7 @@ background-color: white;
     background-color: rgb(139, 89, 172);
     color: rgb(139, 89, 172);
     border-radius: 50px;
+    
 }
 ::ng-deep .mat-calendar-body{
   padding: 10px;
@@ -77,7 +78,6 @@ background-color: white;
 ::ng-deep .mat-calendar-cell{
 
     border-radius: 10px;
-  /* background-color: rgba(128, 128, 128, 0.637);*/
 }
 .float-container {
     overflow-y: auto;
@@ -104,6 +104,12 @@ background-color: white;
 .save-button {
     border-radius: 10px; 
     background-color: #2db0b0;
+    width: 150px;
+    color: white;
+}
+.save-button:disabled{
+    border-radius: 10px; 
+    background-color: #9de2e2;
     width: 150px;
     color: white;
 }

@@ -62,7 +62,7 @@ id:any;
         '-' +
         (this.date._i.month+1) +
         '-' +
-        this.date._i.date;
+        (this.date._i.date+1);
     }
     console.log(this._dateToFind);
   }

@@ -54,6 +54,7 @@ import { WarningDialogComponent } from './home/group/group/activities/warning-di
 import { EducatorsComponent } from './educators/educators.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChangeDataComponent } from './user/change-data/change-data/change-data.component';
+import { DeleteActivityDialogComponent } from './home/group/group/activities/delete-activity-dialog/delete-activity-dialog.component';
 
 const MY_FORMATS = {
   parse: {
@@ -105,7 +106,8 @@ const MY_FORMATS = {
      AddActivityComponent,
      WarningDialogComponent,
      ChangeDataComponent,
-     PageNotFoundComponent
+     PageNotFoundComponent,
+     DeleteActivityDialogComponent
   ],
   imports: [
     BrowserModule,
