@@ -37,8 +37,8 @@ const routes: Routes = [
   { path: 'educators/:id', component: ViewEducatorComponent, canActivate:[AuthGuardService, IsLoggedGuardService] },
 
   { path: 'finance', component: FinanceComponentComponent, canActivate: [AuthGuardService, IsLoggedGuardService] },
-  { path: 'costs', component: MonthlyCostsComponent, canActivate: [IsLoggedGuardService, IsLoggedGuardService] },
-  { path: 'memberships', component: MembershipComponent, canActivate: [IsLoggedGuardService, IsLoggedGuardService] },
+  { path: 'costs', component: MonthlyCostsComponent, canActivate: [AuthGuardService, IsLoggedGuardService] },
+  { path: 'memberships', component: MembershipComponent, canActivate: [AuthGuardService, IsLoggedGuardService] },
 
   { path: 'evidence', component: EvidenceComponent, canActivate: [IsLoggedGuardService] },
 
