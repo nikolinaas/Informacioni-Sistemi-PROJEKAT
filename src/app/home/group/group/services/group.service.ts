@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -9,12 +9,17 @@ export class GroupService {
 
   private groupURL = 'http://localhost:8080/Server/api/groups/';
 
+  private headers = new HttpHeaders().set(
+    'Authorization',
+    'Bearer ' + sessionStorage.getItem('auth')
+  );
+
   getGroup(id: number) {
-    return this.http.get(`${this.groupURL + id}`);
+    return this.http.get(`${this.groupURL + id}`, {headers: this.headers});
   }
 
   editGroup(group: any, id: any) {
-    return this.http.put(`${this.groupURL + id}`, group, {observe: 'response'});
+    return this.http.put(`${this.groupURL + id}`, group, {observe: 'response', headers: this.headers});
   }
 
   deleteChildFromGroup(groupId: any, childId: any) {

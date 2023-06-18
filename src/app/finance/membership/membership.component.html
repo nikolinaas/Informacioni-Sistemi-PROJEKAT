@@ -9,7 +9,7 @@
             </button>
         </div>
         <div class="before-group"></div>
-        <div *ngIf="memberships.length == 0" class="mat-spinner">
+        <div *ngIf="!memberships" class="mat-spinner">
             <mat-spinner></mat-spinner>
         </div>
         <mat-form-field class="search-bar">
@@ -18,7 +18,7 @@
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
-        <div class="group-scroll">
+        <div class="group-scroll" *ngIf="memberships.length != 0">
             <div class="table">
                 <table>
                     <tr>

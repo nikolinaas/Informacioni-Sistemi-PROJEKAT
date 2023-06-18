@@ -8,8 +8,8 @@
 <div mat-dialog-content>
     <form class="column-container margin-bottom">
         <mat-form-field class="color-white">
-            <input matInput value=" {{data.name}}" [(ngModel)]="group.title" autocomplete="off" >
-           
+            <input matInput value="{{data.name}}" [(ngModel)]="group.title" name="groupName" autocomplete="off">
+
         </mat-form-field>
         <div style="text-align: center;">
             <button class="buttonSave" mat-raised-button color="primary" type="submit" (click)="updateGroupName()">
