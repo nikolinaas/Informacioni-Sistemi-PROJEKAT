@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Membership } from 'src/app/model/membership.model';
-import { FinanceServiceService } from '../services/finance-service.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CreateMembershipDialogComponent } from '../create-membership-dialog/create-membership-dialog.component';
+import { MembershipService } from '../services/membership.service';
 
 @Component({
   selector: 'app-membership',
@@ -20,12 +20,12 @@ export class MembershipComponent {
   columns = ['Ime', 'Prezime', 'Tip usluge', 'Članarina za mjesec', 'Plaćeno', 'Iznos', 'Datum plaćanja'];
 
   constructor(
-    private financeService: FinanceServiceService,
+    private membershipService: MembershipService,
     private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.financeService.getMemberships().subscribe((responese) => {
+    this.membershipService.getMemberships().subscribe((responese) => {
       this._noFilteredMemberships = responese as Membership[];
       this._memberships = responese as Membership[];
     });
@@ -35,7 +35,6 @@ export class MembershipComponent {
     const dialogRef: MatDialogRef<CreateMembershipDialogComponent> = this.dialog.open(CreateMembershipDialogComponent, {
       width: '400px',
     });
-
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'success') {
         this.ngOnInit();
@@ -62,7 +61,7 @@ export class MembershipComponent {
   }
 
   changeStatus(membership: any) {
-    this.financeService.updateMembersip(membership.id).subscribe(() => {
+    this.membershipService.updateMembersip(membership.id).subscribe(() => {
       this.ngOnInit();
     });
   }

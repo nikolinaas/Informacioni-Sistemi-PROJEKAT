@@ -32,8 +32,6 @@ import { GroupComponent } from './home/group/group/group.component';
 import { ActivitiesComponent } from './home/group/group/activities/activities.component';
 import { ChangeGroupNameDialogComponent } from './home/group/group/change-group-name-dialog/change-group-name-dialog.component';
 import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
-import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
-import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
 import { CreateBillDialogComponent } from './finance/create-bill-dialog/create-bill-dialog.component';
 import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
 import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
@@ -50,6 +48,7 @@ import { MembershipComponent } from './finance/membership/membership.component';
 import { CreateMembershipDialogComponent } from './finance/create-membership-dialog/create-membership-dialog.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChangeDataComponent } from './user/change-data/change-data/change-data.component';
+import { MonthlyCostsComponent } from './finance/monthly-costs/monthly-costs.component';
 
 const MY_FORMATS = {
   parse: {
@@ -85,8 +84,6 @@ const MY_FORMATS = {
     ActivitiesComponent,
     ChangeGroupNameDialogComponent,
     FinanceComponentComponent,
-    MjesecniTroskoviComponent,
-    DeleteDialogComponent,
     CreateBillDialogComponent,
     AddChildDialogComponent,
     AddEducatorDialogComponent,
@@ -102,6 +99,7 @@ const MY_FORMATS = {
     WarningDialogComponent,
     ChangeDataComponent,
     PageNotFoundComponent,
+    MonthlyCostsComponent,
   ],
   imports: [
     BrowserModule,

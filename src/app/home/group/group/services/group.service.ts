@@ -14,7 +14,6 @@ export class GroupService {
   }
 
   editGroup(group: any, id: any) {
-    console.log(id);
     return this.http.put(`${this.groupURL + id}`, group, {observe: 'response'});
   }
 

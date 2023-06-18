@@ -44,7 +44,6 @@ export class LogInComponent {
           duration: 2000,
         });
       } else if (response.status == 200) {
-        console.log(response.body.account);
         const sharedData = {
           id: response.body.account.idPerson, 
           isAdmin: response.body.account.administrator,

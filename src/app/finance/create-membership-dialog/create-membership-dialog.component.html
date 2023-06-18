@@ -31,7 +31,7 @@
             Iznos
             <mat-form-field class="color-white">
                 <mat-label>Unesite iznos: </mat-label>
-                <input matInput formControlName="amount" type="number" required autocomplete="off">
+                <input matInput formControlName="amount" type="number" min="0" required autocomplete="off">
                 <mat-error>{{ getErrorMessage('amount') }}</mat-error>
             </mat-form-field>
         </div>
@@ -43,7 +43,7 @@
                     (dateChange)="addEvent('change', $event)">
                 <mat-datepicker-toggle matSuffix [for]="mydate1"></mat-datepicker-toggle>
                 <mat-datepicker #mydate1></mat-datepicker>
-                <mat-error>{{ getErrorMessage('paid') }}</mat-error>
+                <mat-error>{{ getErrorMessage('month') }}</mat-error>
             </mat-form-field>
         </div>
 
