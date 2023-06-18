@@ -73,11 +73,11 @@ table {
    th, td {
     padding: 8px;
     text-align: left;
-    border-bottom: 1px rgb(141, 14, 219);
+    border-bottom: 1px rgb(186, 128, 223);
   }
   
   th {
-    background-color: rgb(141, 14, 219);
+    background-color:rgb(167, 101, 228);
   } 
   
   tr:hover {
@@ -150,7 +150,7 @@ table {
     display: flex;
     margin-top: 30px;
     height: 100px;
-    background:  rgb(167, 101, 228);
+    background:  linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
     text-align: left;
     font-size: 26px;
     align-items: center;

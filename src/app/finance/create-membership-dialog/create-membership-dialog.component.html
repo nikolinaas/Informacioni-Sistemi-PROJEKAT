@@ -1,0 +1,76 @@
+<h1 mat-dialog-title class="header-info">Dodaj članarinu</h1>
+<button mat-icon-button class="exit-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-content>
+    <form [formGroup]="form" (ngSubmit)="createMembership(form)" class="column-container margin-bottom">
+
+        <div class="form-row">
+            Dijete
+            <mat-form-field>
+                <mat-label>Izaberite dijete</mat-label>
+                <mat-select formControlName="child" class="select-container">
+                    <mat-option *ngFor="let child of children" [value]="child.id">{{ child.name }}
+                        ({{child.fatherName}}) {{ child.surname
+                        }}</mat-option>
+                </mat-select>
+                <mat-error>{{ getErrorMessage('child') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Tip usluge
+            <mat-form-field class="color-white">
+                <mat-label>Unesite tip usluge: </mat-label>
+                <input matInput formControlName="serviceType" required autocomplete="off">
+                <mat-error>{{ getErrorMessage('serviceType') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Iznos
+            <mat-form-field class="color-white">
+                <mat-label>Unesite iznos: </mat-label>
+                <input matInput formControlName="amount" type="number" min="0" required autocomplete="off">
+                <mat-error>{{ getErrorMessage('amount') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Mjesec
+            <mat-form-field class="color-white">
+                <input matInput required [matDatepicker]="mydate1" readonly formControlName="month"
+                    (dateChange)="addEvent('change', $event)">
+                <mat-datepicker-toggle matSuffix [for]="mydate1"></mat-datepicker-toggle>
+                <mat-datepicker #mydate1></mat-datepicker>
+                <mat-error>{{ getErrorMessage('month') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Plaćeno
+            <mat-form-field class="color-white">
+                <mat-label>Da li je plaćena?</mat-label>
+                <mat-select formControlName="paid" class="select-container">
+                    <mat-option value="yes">Da</mat-option>
+                    <mat-option value="no">Ne</mat-option>
+                </mat-select>
+                <mat-error>{{ getErrorMessage('paid') }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            Datum plaćanja:
+            <mat-form-field class="color-white">
+                <input matInput [max]="today" [matDatepicker]="mydate2" readonly formControlName="date"
+                    (dateChange)="addEvent('change', $event)">
+                <mat-datepicker-toggle matSuffix [for]="mydate2"></mat-datepicker-toggle>
+                <mat-datepicker #mydate2></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div style="text-align: center;">
+            <button mat-raised-button class="save-button" [disabled]="form.invalid" type="submit">Kreiraj</button>
+        </div>
+    </form>
+</div>

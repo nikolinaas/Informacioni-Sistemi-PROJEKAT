@@ -8,7 +8,7 @@ import { ChildrenService } from 'src/app/children/services/children.service';
 import { ChangeCredentialsComponent } from '../change-credentials/change-credentials/change-credentials.component';
 import { UserService } from '../services/user.service';
 import { ChangeDataComponent } from '../change-data/change-data/change-data.component';
-import { DataSharingService } from 'src/app/data-sharing.service';
+
 
 @Component({
   selector: 'app-user',
@@ -27,11 +27,15 @@ export class UserComponent {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private snackBar: MatSnackBar,
-    private dataSharingService: DataSharingService
   ) {}
 
   ngOnInit() {
-    this.userData = this.dataSharingService.getSharedData();
+    this.userData = {
+      isAdmin: sessionStorage.getItem('isAdmin') === 'true'? true:false,
+      id: sessionStorage.getItem('id'),
+      password: sessionStorage.getItem('password'),
+      username: sessionStorage.getItem('username')
+    };
     this.fillData();
   }
 

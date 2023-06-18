@@ -17,7 +17,6 @@ export class ChildrenService {
   }
 
   createChild(child: any) {
-    console.log("SALJEM " + child);
     return this.http.post(`${this.childrenURL}`, child, {observe: 'response'});
   }
 

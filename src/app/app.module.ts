@@ -32,29 +32,24 @@ import { GroupComponent } from './home/group/group/group.component';
 import { ActivitiesComponent } from './home/group/group/activities/activities.component';
 import { ChangeGroupNameDialogComponent } from './home/group/group/change-group-name-dialog/change-group-name-dialog.component';
 import { FinanceComponentComponent } from './finance/finance-component/finance-component.component';
-import { MjesecniTroskoviComponent } from './finance/mjesecni-troskovi/mjesecni-troskovi.component';
-import { DugovanjaComponent } from './finance/dugovanja/dugovanja.component';
-import { CreateDialogComponent } from './finance/create-dialog/create-dialog.component';
-import { DeleteDialogComponent } from './finance/delete-dialog/delete-dialog.component';
 import { CreateBillDialogComponent } from './finance/create-bill-dialog/create-bill-dialog.component';
 import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
 import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
-
- //import { AddChildDialogComponent } from './home/group/group/add-child-dialog/add-child-dialog.component';
- //import { AddEducatorDialogComponent } from './home/group/group/add-educator-dialog/add-educator-dialog.component';
-// import { EducatorsComponent } from './educators/educators.component';
- import { CreateEducatorDialogComponent } from './educators/create-educator-dialog/create-educator-dialog.component';
- import { DeleteEducatorDialogComponent } from './educators/delete-educator-dialog/delete-educator-dialog.component';
- import { EditEducatorComponent } from './educators/view-edit-educator/edit-educator/edit-educator.component';
- import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
- import { LogInComponent } from './log-in/log-in/log-in.component';
- import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
- import { AddActivityComponent } from './home/group/group/activities/add-activity/add-activity.component';
+import { CreateEducatorDialogComponent } from './educators/create-educator-dialog/create-educator-dialog.component';
+import { DeleteEducatorDialogComponent } from './educators/delete-educator-dialog/delete-educator-dialog.component';
+import { EditEducatorComponent } from './educators/view-edit-educator/edit-educator/edit-educator.component';
+import { ViewEducatorComponent } from './educators/view-edit-educator/view-educator/view-educator.component';
+import { LogInComponent } from './log-in/log-in/log-in.component';
+import { EditChildDialogComponent } from './children/edit-child/edit-child-dialog/edit-child-dialog/edit-child-dialog.component';
+import { AddActivityComponent } from './home/group/group/activities/add-activity/add-activity.component';
 import { WarningDialogComponent } from './home/group/group/activities/warning-dialog/warning-dialog.component';
 import { EducatorsComponent } from './educators/educators.component';
+import { MembershipComponent } from './finance/membership/membership.component';
+import { CreateMembershipDialogComponent } from './finance/create-membership-dialog/create-membership-dialog.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChangeDataComponent } from './user/change-data/change-data/change-data.component';
 import { DeleteActivityDialogComponent } from './home/group/group/activities/delete-activity-dialog/delete-activity-dialog.component';
+import { MonthlyCostsComponent } from './finance/monthly-costs/monthly-costs.component';
 
 const MY_FORMATS = {
   parse: {
@@ -90,24 +85,23 @@ const MY_FORMATS = {
     ActivitiesComponent,
     ChangeGroupNameDialogComponent,
     FinanceComponentComponent,
-    MjesecniTroskoviComponent,
-    DugovanjaComponent,
-    CreateDialogComponent,
-    DeleteDialogComponent,
     CreateBillDialogComponent,
-   AddChildDialogComponent,
-   AddEducatorDialogComponent,
-   EducatorsComponent,
-     CreateEducatorDialogComponent,
-     DeleteEducatorDialogComponent,
-     EditEducatorComponent,
-     ViewEducatorComponent,
-     LogInComponent,
-     AddActivityComponent,
-     WarningDialogComponent,
-     ChangeDataComponent,
-     PageNotFoundComponent,
-     DeleteActivityDialogComponent
+    AddChildDialogComponent,
+    AddEducatorDialogComponent,
+    EducatorsComponent,
+    CreateEducatorDialogComponent,
+    DeleteEducatorDialogComponent,
+    EditEducatorComponent,
+    ViewEducatorComponent,
+    LogInComponent,
+    AddActivityComponent,
+    MembershipComponent,
+    CreateMembershipDialogComponent,
+    WarningDialogComponent,
+    ChangeDataComponent,
+    PageNotFoundComponent,
+     DeleteActivityDialogComponent,
+    MonthlyCostsComponent,
   ],
   imports: [
     BrowserModule,
@@ -123,12 +117,9 @@ const MY_FORMATS = {
     MatDatepickerModule,
     MatMomentDateModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [
-    DatePipe,
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
-  ],
+  providers: [DatePipe, { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

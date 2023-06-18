@@ -29,10 +29,9 @@ export class ChangeGroupNameDialogComponent {
       };
       this.groupService.editGroup(group, this.data.id).subscribe(
         (response: any) => {
-          console.log("ODGOVO JE " + JSON.stringify(response));
           if (response.status == 200) {
             this.snackBar.open(
-              'Uspjesno ste izmijenili naziv grupe',
+              'Uspješno ste izmijenili naziv grupe.',
               undefined,
               {
                 duration: 2000,
@@ -41,7 +40,7 @@ export class ChangeGroupNameDialogComponent {
             this.dialogRef.close(true);
           } else if(response.body.statusCode == 404) {
             this.dialogRef.close();
-            this.snackBar.open('Nije moguće izmijeniti naziv grupe', undefined, {
+            this.snackBar.open('Nije moguće izmijeniti naziv grupe.', undefined, {
               duration: 2000,
             });
           }

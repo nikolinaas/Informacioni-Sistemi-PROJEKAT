@@ -144,7 +144,6 @@ export class CreateEducatorDialogComponent {
         const arrayBuffer = reader.result as ArrayBuffer;
         const uint8Array = new Uint8Array(arrayBuffer);
         this.byteArrayMedicalClearance = Array.from(uint8Array);
-        console.log('Ljekarski', this.byteArrayMedicalClearance);
       };
       reader.readAsArrayBuffer(file);
     }
@@ -159,7 +158,6 @@ export class CreateEducatorDialogComponent {
         const arrayBuffer = reader.result as ArrayBuffer;
         const uint8Array = new Uint8Array(arrayBuffer);
         this.byteArrayHygieneTest = Array.from(uint8Array);
-        console.log('Higijenski', this.byteArrayHygieneTest);
       };
       reader.readAsArrayBuffer(file1);
     }
