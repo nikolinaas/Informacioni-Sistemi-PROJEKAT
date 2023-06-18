@@ -10,13 +10,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ChangeGroupNameDialogComponent {
   group: any = { title: '' };
+ 
   constructor(
     private dialogRef: MatDialogRef<ChangeGroupNameDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private groupService: GroupService,
     private snackBar: MatSnackBar
   ) {}
-
+ 
   closeDialog() {
     this.dialogRef.close();
   }

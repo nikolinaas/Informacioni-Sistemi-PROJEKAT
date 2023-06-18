@@ -18,4 +18,8 @@ export class ActivityService {
   addActivity(id:any,activity:any){
 return this.http.post(`${this.groupURL}/${id}/activity`, activity, {observe: 'response'});
   }
+
+  deleteActivity(id: any, idA:any){
+    return this.http.delete(`${this.groupURL}/${id}/activity/${idA}`, {observe: 'response'});
+  }
 }

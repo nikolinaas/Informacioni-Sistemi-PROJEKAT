@@ -9,6 +9,8 @@ import { Moment } from 'moment';
 import { WarningDialogComponent } from './warning-dialog/warning-dialog.component';
 import { AddActivityComponent } from './add-activity/add-activity.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { faLeaf } from '@fortawesome/free-solid-svg-icons';
+import { DeleteActivityDialogComponent } from './delete-activity-dialog/delete-activity-dialog.component';
 
 @Component({
   selector: 'app-activities',
@@ -17,9 +19,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ActivitiesComponent {
 
+  activityId:any;
   activityDescription: string = '';
-  activityName:string='';
-  activityDuration:any;
+  activityName: string = '';
+  activityDuration: any;
   selectedDate: any;
   groupName: string = '';
   group: any;
@@ -27,14 +30,16 @@ export class ActivitiesComponent {
   activites?: any[];
   private dates: any[] = [];
   highlitedDays: Date[] = [];
-
+  isButtonEnabled = false;
   upcomingCalendarEvents: Date[] = [new Date(2023, 5, 1)];
+
 
   constructor(
     private groupService: GroupService,
     private route: ActivatedRoute,
     private activityService: ActivityService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) { }
 
   public form: FormGroup = new FormGroup({
@@ -90,19 +95,21 @@ export class ActivitiesComponent {
       console.log("***" + dat);
     }
   }
-resetFields(){
-  this.activityDescription='';
-  this.activityName='';
-  this.activityDuration=0;
+  resetFields() {
+    this.activityDescription = '';
+    this.activityName = '';
+    this.activityDuration = 0;
 
-}
+  }
   dateExistsInActivites(selectedDate: string): boolean {
     if (this.activites)
       for (var act of this.activites) {
         if ((new Date(this.convertDate(act.date))).getDate() === new Date(this.convertDate(selectedDate)).getDate() && (new Date(this.convertDate(act.date))).getMonth() === new Date(this.convertDate(selectedDate)).getMonth() && (new Date(this.convertDate(act.date))).getFullYear() === new Date(this.convertDate(selectedDate)).getFullYear()) {
-          this.activityName=act.name;
-          this.activityDescription=act.description;
-          this.activityDuration=act.duration;
+          this.activityName = act.name;
+          this.activityDescription = act.description;
+          this.activityDuration = act.duration;
+          this.activityId=act.id;
+          this.enableButton();
           return true;
         }
       }
@@ -115,7 +122,7 @@ resetFields(){
       console.log("tacno je")
     } else {
       console.log("nije tacno ")
-
+      this.isButtonEnabled=false;
       this.dialog.open(WarningDialogComponent, {
         width: '400px',
       });
@@ -145,17 +152,31 @@ resetFields(){
     }
   }
 
-  addActivity(){
+  addActivity() {
     this.dialog
-    .open(AddActivityComponent, {
-      width: '400px', data: { id: this.id}
-    
-    }).afterClosed().subscribe(()=>{
-this.ngOnInit();
-    });
-   
+      .open(AddActivityComponent, {
+        width: '400px', data: { id: this.id }
+
+      }).afterClosed().subscribe(() => {
+        this.ngOnInit();
+      });
+
   }
 
+  enableButton() {
+    this.isButtonEnabled = true;
+  }
+
+  deleteActivity(idA:any){
+    this.dialog
+      .open(DeleteActivityDialogComponent, {
+        width: '400px',
+        data: { idAct: idA, idG:this.group.id},
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.ngOnInit();
+      });
+  
 }
-
-
+}

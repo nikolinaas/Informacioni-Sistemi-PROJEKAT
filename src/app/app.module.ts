@@ -48,6 +48,7 @@ import { MembershipComponent } from './finance/membership/membership.component';
 import { CreateMembershipDialogComponent } from './finance/create-membership-dialog/create-membership-dialog.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChangeDataComponent } from './user/change-data/change-data/change-data.component';
+import { DeleteActivityDialogComponent } from './home/group/group/activities/delete-activity-dialog/delete-activity-dialog.component';
 import { MonthlyCostsComponent } from './finance/monthly-costs/monthly-costs.component';
 
 const MY_FORMATS = {
@@ -99,6 +100,7 @@ const MY_FORMATS = {
     WarningDialogComponent,
     ChangeDataComponent,
     PageNotFoundComponent,
+     DeleteActivityDialogComponent,
     MonthlyCostsComponent,
   ],
   imports: [
