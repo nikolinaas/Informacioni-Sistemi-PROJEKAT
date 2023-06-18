@@ -53,7 +53,6 @@ export class CreateChildComponent {
     if (control?.hasError('required')) {
       return 'Obavezno polje';
     }else if(control?.hasError('minLength')){
-      console.log('wefwfe');
       return 'Mora sadrzavati 13 karaktera!';
     }else if(control?.hasError('maxLength')){
       return 'Mora sadrzavati 13 karaktera!';

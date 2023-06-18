@@ -81,7 +81,6 @@ export class EditEducatorComponent {
     };
     this.updateMedicalFile();
     this.updateHygieneFile();
-    console.log(formData.phoneNumber);
     this.educatorsService
       .updateEducator(data, this.id)
       .subscribe((response: any) => {

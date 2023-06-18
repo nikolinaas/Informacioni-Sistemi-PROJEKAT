@@ -114,13 +114,10 @@ export class ChangeCredentialsComponent {
       number: [''],  
      });
 
-    console.log(this.params.id);
       this.userService.getAdminData(this.params.id).subscribe((response: HttpResponse<any>) => {
         this.data = response.body; 
-        console.log('data');
         this.form.patchValue(this.data);
         this.form.patchValue(this.data.address);
-      
     });
   }
 

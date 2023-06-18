@@ -1,0 +1,80 @@
+.row-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.width-64 {
+    width: calc(100% - 64px);
+}
+
+.tabs{
+    display: flex;
+    margin-top: 30px;
+    height: 100px;
+    background: linear-gradient(90deg, rgb(176, 108, 235) 0%, rgb(141, 14, 219) 50%, rgb(237, 147, 255) 100%);
+    text-align: left;
+    font-size: 26px;
+    align-items: center;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.title{
+    margin-left: 20px;
+}
+
+.create-button {
+    position: absolute;
+    right: 0;
+    font-size: 18px;
+    background-color:  #2db0b0 !important;
+    margin-right: 20px;
+    height: 40px;
+    color: white !important;
+}
+
+.before-group {
+    height: 10px;
+    background-color: whitesmoke;
+}
+  
+.mat-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 140px);
+}
+
+.group-scroll {
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100vh - 140px);
+    background-color: whitesmoke;
+}
+
+.table{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #f724ad;
+    text-align: center;
+}
+  
+th {
+    background-color: #f080c3;
+}
+  
+tr:hover {
+    background-color: #f5f5f5;
+}

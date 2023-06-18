@@ -1,55 +1,57 @@
-<h1 mat-dialog-title class="header-info">Dodaj racun</h1>
+<h1 mat-dialog-title class="header-info">Dodaj račun</h1>
 <button mat-icon-button class="exit-button" (click)="closeDialog()">
     <mat-icon>close</mat-icon>
 </button>
 <div mat-dialog-content>
-<form [formGroup]="form" (ngSubmit)="saveBill()" class="column-container margin-bottom">
-    <div class="form-row">
-        Broj:
-        <mat-form-field class="color-white">
-            <input matInput formControlName="number" required  autocomplete="off">
-            <mat-error>{{ getErrorMessage('number') }}</mat-error>
-        </mat-form-field>
-    </div>
+    <form [formGroup]="form" (ngSubmit)="createBill(form)" class="column-container margin-bottom">
+        <div class="form-row">
+            Broj
+            <mat-form-field class="color-white">
+                <input matInput formControlName="billNumber" required autocomplete="off">
+                <mat-error>{{ getErrorMessage('billNumber') }}</mat-error>
+            </mat-form-field>
+        </div>
 
-    <div class="form-row">
-        Tip:
-        <mat-form-field class="color-white">
-            <input matInput formControlName="name" required autocomplete="on">
-            <mat-error>{{ getErrorMessage('name') }}</mat-error>
-        </mat-form-field>
-    </div>
+        <div class="form-row">
+            Vrsta
+            <mat-form-field class="color-white">
+                <input matInput formControlName="billType" required autocomplete="on">
+                <mat-error>{{ getErrorMessage('billType') }}</mat-error>
+            </mat-form-field>
+        </div>
 
-    <div class="form-row">
-        Iznos:
-        <mat-form-field class="color-white">
-            <input type="number" matInput formControlName="amount" required autocomplete="on">
-            <mat-error>{{ getErrorMessage('amount') }}</mat-error>
-        </mat-form-field>
-    </div>
+        <div class="form-row">
+            Iznos
+            <mat-form-field class="color-white">
+                <input type="number" matInput formControlName="amount" required autocomplete="on" type="number" min="0">
+                <mat-error>{{ getErrorMessage('amount') }}</mat-error>
+            </mat-form-field>
+        </div>
 
-    <div class="form-row">
-        Datum:
-        <mat-form-field class="color-white">
-            <input matInput [ngModelOptions]="{standalone: true}" [matDatepicker]="mydate" [(ngModel)]="date" (dateInput)="addEvent('input', $event)" readonly
-            (dateChange)="addEvent('change', $event)">
-            <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
-            <mat-datepicker #mydate>
-            </mat-datepicker>
-        </mat-form-field>
-    </div>
+        <div class="form-row">
+            Mjesec
+            <mat-form-field class="color-white">
+                <input matInput required [matDatepicker]="mydate" readonly formControlName="date"
+                    (dateChange)="addEvent('change', $event)">
+                <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
+                <mat-datepicker #mydate></mat-datepicker>
+                <mat-error>{{ getErrorMessage('date') }}</mat-error>
+            </mat-form-field>
+        </div>
 
-    <div class="form-row">
-        <label>Placeno</label>
-        <mat-select class="comboBox" [(ngModel)]="paid">
-        <mat-option value="option1">Da</mat-option>
-        <mat-option value="option2">Ne</mat-option>
-        </mat-select>
+        <div class="form-row">
+            Plaćeno
+            <mat-form-field class="color-white">
+                <mat-select formControlName="paid" class="select-container">
+                    <mat-option value="yes">Da</mat-option>
+                    <mat-option value="no">Ne</mat-option>
+                </mat-select>
+                <mat-error>{{ getErrorMessage('paid') }}</mat-error>
+            </mat-form-field>
+        </div>
 
-    </div>
-
-    <button mat-button type="submit" class="save-button" (click)="saveBill()">
-        Sacuvaj
-        <mat-icon>save</mat-icon>
-    </button>
-</form>
+        <div style="text-align: center;">
+            <button mat-raised-button class="save-button" [disabled]="form.invalid" type="submit">Kreiraj</button>
+        </div>
+    </form>
+</div>

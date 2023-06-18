@@ -1,0 +1,42 @@
+<div class="row-container">
+    <app-side-nav-bar></app-side-nav-bar>
+    <div class="width-64">
+        <div class="tabs">
+            <p class="title">Mjesečni troškovi</p>
+            <button mat-raised-button class="create-button" (click)="createBill()">
+                <mat-icon>add</mat-icon>
+                Kreiraj
+            </button>
+        </div>
+        <div class="before-group"></div>
+        <div *ngIf="bills.length == 0" class="mat-spinner">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div class="group-scroll">
+            <div class="table">
+                <table>
+                    <tr>
+                        <th *ngFor="let col of columns">
+                            {{col}}
+                        </th>
+                    </tr>
+                    <tr *ngFor="let bill of bills">
+                        <td>{{ bill.billNumber }}</td>
+                        <td>{{ bill.billType }}</td>
+                        <td>{{ bill.amount}} KM</td>
+                        <td>{{ bill.date| date: 'MM/yyyy' }}</td>
+                        <td>
+                            <input type="checkbox" [checked]="bill.paid" [disabled]="bill.paid"
+                                (click)="changeStatus(bill)">
+                        </td>
+                        <td> <button mat-raised-button class="rowButton" (click)="deleteBill(bill)">
+                                <mat-icon>delete</mat-icon>
+                                Obriši
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

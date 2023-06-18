@@ -6,7 +6,7 @@ import { ChildService } from 'src/app/evidence/services/child.service';
 import { Child } from 'src/app/model/child.model';
 import * as _moment from 'moment';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FinanceServiceService } from '../services/finance-service.service';
+import { MembershipService } from '../services/membership.service';
 const moment = _moment;
 
 @Component({
@@ -30,7 +30,7 @@ export class CreateMembershipDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<CreateMembershipDialogComponent>,
     private childService: ChildService,
     private snackBar: MatSnackBar,
-    private financeService: FinanceServiceService
+    private membershipService: MembershipService
   ) {}
 
   ngOnInit(): void {
@@ -64,12 +64,11 @@ export class CreateMembershipDialogComponent implements OnInit {
       paid: form.get('paid').value === "Da"? true: false,
       paymentDate: form.get('date').value ? this._paymentDate : "0001-01-01",
     };
-    console.log(membership);
-    this.financeService
+    this.membershipService
       .createMembership(membership)
       .subscribe((response: any) => {
         if (response.status == 201) {
-          this.snackBar.open('Uspješno ste kreirali račun.', '', {
+          this.snackBar.open('Uspješno ste kreirali članarinu.', '', {
             duration: 2000,
           });
           this.dialogRef.close('success');
