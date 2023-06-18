@@ -30,13 +30,17 @@ export class UserComponent {
   ) {}
 
   ngOnInit() {
+    this.updateStorageData();
+    this.fillData();
+  }
+
+  updateStorageData(){
     this.userData = {
       isAdmin: sessionStorage.getItem('isAdmin') === 'true'? true:false,
       id: sessionStorage.getItem('id'),
       password: sessionStorage.getItem('password'),
       username: sessionStorage.getItem('username')
     };
-    this.fillData();
   }
 
   fillData(){  
@@ -87,6 +91,7 @@ export class UserComponent {
         .afterClosed()
         .subscribe(() => {
         this.fillData();
+        this.updateStorageData();
       });
     
   }

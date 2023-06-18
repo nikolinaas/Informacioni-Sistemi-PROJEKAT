@@ -17,9 +17,9 @@ export class ChangeDataComponent {
 
   ngOnInit() {
     this.form = new FormGroup({
-      username: new FormControl(this.params.username, Validators.required),
-      password1: new FormControl(this.params.password, Validators.required),
-      password2: new FormControl(this.params.password, Validators.required),
+      username: new FormControl(sessionStorage.getItem('username'), Validators.required),
+      password1: new FormControl(sessionStorage.getItem('password'), Validators.required),
+      password2: new FormControl(sessionStorage.getItem('password'), Validators.required),
     });
   }
   constructor(
@@ -59,6 +59,8 @@ export class ChangeDataComponent {
                   duration: 2000,
                 }
               );
+              sessionStorage.setItem('password', data.password);
+              sessionStorage.setItem('username', data.userName);
               this.dialogRef.close();
             });
         } else {
@@ -72,6 +74,8 @@ export class ChangeDataComponent {
                   duration: 2000,
                 }
               );
+              sessionStorage.setItem('password', data.password);
+              sessionStorage.setItem('username', data.userName);
               this.dialogRef.close();
             });
         }
