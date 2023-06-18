@@ -33,11 +33,11 @@ const routes: Routes = [
   { path: 'children/:id', component: EditChildComponent },
 
   { path: 'educators', component: EducatorsComponent, canActivate:[AuthGuardService] },  //Rute kojima nije dozvoljen neautorizovan pristup
-  { path: 'educators/:id', component: ViewEducatorComponent, canActivate:[AuthGuardService] },//
+  { path: 'educators/:id', component: ViewEducatorComponent, canActivate:[AuthGuardService] },
 
-  { path: 'finance', component: FinanceComponentComponent },
-  { path: 'costs', component: MjesecniTroskoviComponent },
-  { path: 'memberships', component: MembershipComponent },
+  { path: 'finance', component: FinanceComponentComponent, canActivate:[AuthGuardService] },
+  { path: 'costs', component: MjesecniTroskoviComponent, canActivate:[AuthGuardService] },
+  { path: 'memberships', component: MembershipComponent, canActivate:[AuthGuardService] },
 
   { path: 'evidence', component: EvidenceComponent },
 
