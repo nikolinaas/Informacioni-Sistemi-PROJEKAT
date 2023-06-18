@@ -32,5 +32,9 @@ export class UserService {
 
   }
 
+  updateAdminData(data:any, id:number){
+    return this.http.put(`${this.adminURL}/${id}/${'data'}`, data, {observe: 'response'});
+  }
+
 
 }

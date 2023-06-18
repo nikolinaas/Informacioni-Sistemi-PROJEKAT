@@ -44,11 +44,7 @@ export class ChangeCredentialsComponent {
 
   ngOnInit() {
     this.fillData();
-    // this.form = new FormGroup({
-    //   username: new FormControl('', Validators.required),
-    //   password: new FormControl('', Validators.required),
-    //   password2: new FormControl('', Validators.required),
-    // }, { validators: this.passwordMatchValidator });
+    
   }
 
   passwordMatchValidator: ValidatorFn = (control: AbstractControl): {[key: string]: boolean} | null => {
@@ -71,35 +67,23 @@ export class ChangeCredentialsComponent {
       uid:  formData.uid,
       dateOfBirthday:  formData._dateToFind,
       city:  formData.city,
-      //TODO zavrsiti
+      street: formData.street,
+      number: formData.number,
+
     };
   
-    this.userService
-    if(this.params.isAdmin === true){
-      this.userService.updateAdminCredentials(data, this.params?.id)
-      .subscribe((response: any) => {
-        this.snackBar.open(
-          'Uspješno ste ažurirali kredencijale',
-          undefined,
-          {
-            duration: 2000,
-          }
-        );
-        this.dialogRef.close();
-      });
-    }else{
-      this.userService.updateEducatorCredentials(data, this.params?.id)
-      .subscribe((response: any) => {
-        this.snackBar.open(
-          'Uspješno ste ažurirali kredencijale',
-          undefined,
-          {
-            duration: 2000,
-          }
-        );
-        this.dialogRef.close();
-      });
-    }
+    this.userService.updateAdminData(data, this.params?.id)
+    .subscribe((response: any) => {
+      this.snackBar.open(
+        'Uspješno ste ažurirali podatke',
+        undefined,
+        {
+          duration: 2000,
+        }
+      );
+      this.dialogRef.close();
+      this.fillData();
+    });
   }
 
 
