@@ -37,6 +37,7 @@ export class AddChildDialogComponent {
       this._children = children;
       this._noFilteredChildren=children;
     });
+ 
   }
 
   clearSearch() {

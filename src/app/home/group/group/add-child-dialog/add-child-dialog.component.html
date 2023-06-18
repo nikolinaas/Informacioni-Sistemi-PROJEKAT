@@ -15,8 +15,8 @@
     <div *ngIf="children" class="group-scroll">
         <div>
             <div class="comment-section">
-                <ng-container *ngFor="let child of children">
-                    <mat-card class="comment-card">
+                <ng-container *ngFor="let child of children ">
+                    <mat-card *ngIf="child.idGroup===0" class="comment-card">
                         <mat-card-header>
                             <mat-card-title class="font-size-18">{{child.name}} {{child.surname}}</mat-card-title>
                         </mat-card-header>
