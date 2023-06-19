@@ -4,10 +4,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
 import * as _moment from 'moment';
 import { ChildrenService } from 'src/app/children/services/children.service';
 const moment = _moment;
+
 @Component({
   selector: 'app-edit-child-dialog',
   templateUrl: './edit-child-dialog.component.html',
@@ -24,7 +24,6 @@ export class EditChildDialogComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private id: any,
-    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private childrenService: ChildrenService,
     private snackBar: MatSnackBar,
@@ -92,6 +91,11 @@ export class EditChildDialogComponent {
           }
         );
         this.dialogRef.close();
+      },
+      () => {
+        this.snackBar.open('Nije moguće ažurirati podatke o djetetu!', '', {
+          duration: 2000,
+        });
       });
   }
 
@@ -147,7 +151,7 @@ export class EditChildDialogComponent {
       const fileJSON = {medicalClearance: this?.byteArray};
           this.childrenService
           .updateFile(fileJSON, this.id)
-          .subscribe((response: any) => {
+          .subscribe(() => {
             this.snackBar.open(
               'Uspješno ste ažurirali ljekarsko uvjerenje',
               undefined,
@@ -155,6 +159,11 @@ export class EditChildDialogComponent {
                 duration: 2000,
               }
             );
+          },
+          () => {
+            this.snackBar.open('Nije moguće ažurirati ljekarsko uvjerenje!', '', {
+              duration: 2000,
+            });
           });
     }
   }

@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component } from '@angular/core';
 import { Child } from '../model/child.model';
 import { ChildrenService } from './services/children.service';
@@ -22,7 +23,8 @@ export class ChildrenComponent {
   constructor(
     private childrenService: ChildrenService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {

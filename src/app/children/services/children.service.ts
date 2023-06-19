@@ -43,7 +43,7 @@ export class ChildrenService {
   }
 
   updateChild(child: any, id: number) {
-    return this.http.put(`${this.childrenURL}/${id}`, child);
+    return this.http.put(`${this.childrenURL}/${id}`, child, { headers: this.headers });
   }
 
   getFile(id?: number) {
@@ -56,7 +56,8 @@ export class ChildrenService {
   updateFile(medicalClearance: any, id?: number) {
     return this.http.put(
       `${this.childrenURL}/${id}/medicalClearance`,
-      medicalClearance
+      medicalClearance,
+      { headers: this.headers }
     );
   }
 
