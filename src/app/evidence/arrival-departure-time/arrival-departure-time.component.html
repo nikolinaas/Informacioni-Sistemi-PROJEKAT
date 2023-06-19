@@ -29,5 +29,5 @@
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <p *ngIf="datesOfArrival && datesOfArrival.length == 0">Ne postoje zapisi za {{ dateToShow }}</p>
+    <p *ngIf=" datesOfArrival.length == 0">Ne postoje zapisi za {{ dateToShow }}</p>
 </div>

@@ -1,7 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
 import { MatCalendar, MatCalendarCell, MatCalendarCellClassFunction, MatCalendarCellCssClasses } from '@angular/material/datepicker';
-import { Component, ElementRef, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
-import { MatCalendar, MatCalendarCell, MatCalendarCellClassFunction, MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { GroupService } from '../services/group.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
