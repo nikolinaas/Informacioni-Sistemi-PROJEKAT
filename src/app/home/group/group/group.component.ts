@@ -6,8 +6,7 @@ import { ChangeGroupNameDialogComponent } from './change-group-name-dialog/chang
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddChildDialogComponent } from './add-child-dialog/add-child-dialog.component';
 import { AddEducatorDialogComponent } from './add-educator-dialog/add-educator-dialog.component';
-import { ChildService } from './services/child.service';
-import { ReturnStatement } from '@angular/compiler';
+import { ChildrenService } from 'src/app/children/services/children.service';
 
 @Component({
   selector: 'app-group',
@@ -36,21 +35,30 @@ export class GroupComponent {
 
   constructor(
     private groupService: GroupService,
-    private childService:ChildService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private childService: ChildrenService
   ) {}
 
   getGroup(id: any) {
     this.groupService.getGroup(parseInt(id)).subscribe((gro: any) => {
       this.group = gro;
       this._noFilteredChildren = this.group.children;
+      this.setChildParentName(this._noFilteredChildren);
       this._noFilteredEducators = this.group.educators;
     });
   }
 
+  setChildParentName(children: any) {
+    children.forEach((child: any) => {
+      this.childService.getChild(child.id).subscribe((response: any) => {
+        child.fatherName = response.body.fatherName;
+      });
+    });
+  }
+  
 
   removeEducator(item: any) {
     this.groupService
