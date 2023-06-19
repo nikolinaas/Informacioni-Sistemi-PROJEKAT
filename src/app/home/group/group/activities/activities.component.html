@@ -14,17 +14,18 @@
     <div class="float-container">
       <div class="float-child">
 
-         <div class="calendar-div">
-          
-          <mat-calendar [dateClass]="dateClass()"  [selected]="selectedDate" (selectedChange)="onSelect($event)"> 
-           
+        <div class="calendar-div">
+
+          <mat-calendar #myCalendar [dateClass]="dateClass()" [selected]="selectedDate"
+            (selectedChange)="onSelect($event)" startView="year">
+
           </mat-calendar>
-      
-  </div>
+
+        </div>
 
       </div>
       <div class="float-child">
-     <!--    <mat-label>Pregled aktivnosti za {{selectedDate}} </mat-label>
+        <!--    <mat-label>Pregled aktivnosti za {{selectedDate}} </mat-label>
         <mat-form-field [style.fontSize]="14" class="textArea">
           
           <textarea matInput
@@ -36,42 +37,43 @@
                     Naziv aktivnosti: {{activityName}}
                     Opis: {{activityDescription}}</textarea>
         </mat-form-field> -->
-        
-        <form [formGroup]="form"  class="column-container margin-bottom">
+
+        <form [formGroup]="form" class="column-container margin-bottom">
           <mat-label>Pregled aktivnosti za {{selectedDate}} </mat-label>
           <div class="form-row">
-              Naziv:
-              <mat-form-field class="color-white">
-                  <input matInput cdkAutosizeMaxRows="10" formControlName="name"  autocomplete="off" value="{{activityName}}" (input)="enableButton()"/>
-                
-              </mat-form-field>
+            Naziv:
+            <mat-form-field class="color-white">
+              <input matInput cdkAutosizeMaxRows="10" formControlName="name" autocomplete="off" value="{{activityName}}"
+                (input)="enableButton()" />
+
+            </mat-form-field>
           </div>
-  
+
           <div class="form-row">
-              Opis aktivnosti:
-              <mat-form-field class="color-white">
-                  <textarea matInput
-                  cdkAutosizeMinRows="1"
-                  cdkAutosizeMaxRows="10" formControlName="description"  autocomplete="on" value="{{activityDescription}}" (input)="enableButton()"></textarea>
-                  <mat-error>{{ getErrorMessage('surname') }}</mat-error>
-              </mat-form-field>
+            Opis aktivnosti:
+            <mat-form-field class="color-white">
+              <textarea matInput cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10" formControlName="description"
+                autocomplete="on" value="{{activityDescription}}" (input)="enableButton()"></textarea>
+              <mat-error>{{ getErrorMessage('surname') }}</mat-error>
+            </mat-form-field>
           </div>
-  
+
           <div class="form-row">
-              Period trajanja(h):
-              <mat-form-field class="color-white">
-                  <input type="number" matInput formControlName="number"
-                  required autocomplete="on" value="{{activityDuration}}" (input)="enableButton()">
-                  
-              </mat-form-field>
+            Period trajanja(h):
+            <mat-form-field class="color-white">
+              <input type="number" matInput formControlName="number" required autocomplete="on"
+                value="{{activityDuration}}" (input)="enableButton()">
+
+            </mat-form-field>
           </div>
-  
-          
-  
+
+
+
           <div style="text-align: center;">
-              <button mat-raised-button [disabled]="!isButtonEnabled" class="save-button" type="submit" (input)="enableButton()" (click)="deleteActivity(activityId)">Obriši aktivnost</button>
+            <button mat-raised-button [disabled]="!isButtonEnabled" class="save-button" type="submit"
+              (input)="enableButton()" (click)="deleteActivity(activityId)">Obriši aktivnost</button>
           </div>
-      </form>
+        </form>
       </div>
     </div>
   </div>
