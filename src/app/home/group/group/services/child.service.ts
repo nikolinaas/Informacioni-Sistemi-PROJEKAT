@@ -17,4 +17,7 @@ export class ChildService {
   getChildren() {
     return this.http.get(`${this.groupURL}`, { headers: this.headers });
   }
+  getChild(id:number){
+    return this.http.get(`${this.groupURL}+${id}`, { headers: this.headers });
+  }
 }

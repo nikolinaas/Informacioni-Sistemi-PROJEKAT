@@ -19,7 +19,7 @@ export class GroupComponent {
   group?: any;
   searchText: String = '';
   groupName: String = '';
-
+  child:any;
   private _filteredChildren?: any[];
   private _noFilteredChildren?: any[];
   private _filteredEducators?: any[];
