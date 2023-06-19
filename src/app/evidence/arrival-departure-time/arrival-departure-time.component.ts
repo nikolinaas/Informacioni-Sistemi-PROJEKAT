@@ -148,3 +148,4 @@ export class ArrivalDepartureTimeComponent implements OnInit {
     return this._datesOfArrival;
   }
 }
+
