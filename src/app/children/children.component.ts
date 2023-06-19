@@ -23,8 +23,7 @@ export class ChildrenComponent {
   constructor(
     private childrenService: ChildrenService,
     private router: Router,
-    private dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
