@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -10,21 +10,23 @@ export class BillService {
 
   private billURL = 'http://localhost:8080/Server/api/bills';
 
+  private headers = new HttpHeaders().set('Authorization', 'Bearer ' + sessionStorage.getItem('auth'));
+
   getBills() {
-    return this.http.get(`${this.billURL}`);
+    return this.http.get(`${this.billURL}`, { headers: this.headers });
   }
 
    deleteBill(id?: string) {
-    return this.http.delete(`${this.billURL}/${id}`, { observe: 'response' });
+    return this.http.delete(`${this.billURL}/${id}`, { observe: 'response', headers: this.headers });
   }
 
    updateBill(id?: string) {
     return this.http.put(`${this.billURL}/${id}`, {
-      observe: 'response',
+      observe: 'response', headers: this.headers
     });
   }
 
   createBill(bill: any) {
-    return this.http.post(`${this.billURL}`, bill, { observe: 'response' });
+    return this.http.post(`${this.billURL}`, bill, { observe: 'response', headers: this.headers });
   }
 }
