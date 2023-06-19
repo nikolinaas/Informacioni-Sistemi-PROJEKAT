@@ -24,17 +24,22 @@ export class ChildrenService {
   createChild(child: any) {
     return this.http.post(`${this.childrenURL}`, child, {
       observe: 'response',
+      headers: this.headers,
     });
   }
 
   deleteChild(id?: number) {
     return this.http.delete(`${this.childrenURL}/${id}`, {
       observe: 'response',
+      headers: this.headers,
     });
   }
 
   getChild(id?: number) {
-    return this.http.get(`${this.childrenURL}/${id}`, { observe: 'response', headers: this.headers });
+    return this.http.get(`${this.childrenURL}/${id}`, {
+      observe: 'response',
+      headers: this.headers,
+    });
   }
 
   updateChild(child: any, id: number) {
@@ -43,7 +48,8 @@ export class ChildrenService {
 
   getFile(id?: number) {
     return this.http.get(`${this.childrenURL}/${id}/medicalClearance`, {
-      responseType: 'arraybuffer', headers: this.headers
+      responseType: 'arraybuffer',
+      headers: this.headers,
     });
   }
 

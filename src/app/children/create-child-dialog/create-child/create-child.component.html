@@ -35,8 +35,8 @@
 
         <div class="form-row">
             JMBG:
-            <mat-form-field class="color-white">
-                <input matInput formControlName="uid" required autocomplete="on">
+            <mat-form-field class="color-white"> 
+                <input matInput formControlName="uid" required autocomplete="on" minlength="13" maxlength="13">
                 <mat-error>{{ getErrorMessage('uid') }}</mat-error>
             </mat-form-field>
         </div>
