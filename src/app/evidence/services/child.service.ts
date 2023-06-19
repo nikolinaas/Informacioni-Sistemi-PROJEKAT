@@ -24,19 +24,7 @@ export class ChildService {
     });
   }
 
-  evidenceChild(id?: number, child?: any) {
-    return this.http.put(
-      `${this.childrenURL}/${id}/evidences`,
-      JSON.stringify(child),
-      {
-        headers: this.headersEvidence,
-      }
-    );
-  }
-
-  getArrivalsAndDepartures(id?: number, date?: string) {
-    return this.http.get(`${this.childrenURL}/${id}/evidence/${date}`, {
-      headers: this.headers,
-    });
+  getArrivalsAndDepartures(id?: number) {
+    return this.http.get(`${this.childrenURL}/${id}/evidence`);
   }
 }

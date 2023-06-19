@@ -77,6 +77,11 @@
     right: 0;
     margin-top: 25px;
     margin-right: 20px;
+    
+
+}
+.mat-checkbox-{
+    background-color: red;
 }
 
 .before-search {
