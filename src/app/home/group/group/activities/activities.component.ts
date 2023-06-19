@@ -18,10 +18,10 @@ import { Subject } from 'rxjs/internal/Subject';
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.css']
 })
-export class ActivitiesComponent implements OnInit{
+export class ActivitiesComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
-  activityId:any;
+  activityId: any;
   activityDescription: string = '';
   activityName: string = '';
   activityDuration: any;
@@ -42,19 +42,10 @@ export class ActivitiesComponent implements OnInit{
     private activityService: ActivityService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
-   
+
   ) { }
 
-  ngAfterViewInit(): void {
-    // Access and use the 'calendar' property
 
-    console.log(this.calendar);
-    
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-   console.log("metoddaaa")
-  }
 
   public form: FormGroup = new FormGroup({
     name: new FormControl(''),
@@ -76,9 +67,9 @@ export class ActivitiesComponent implements OnInit{
     this.id = id;
     this.getGroup(id);
     this.getActivities();
-    
-    console.log(this.refresh.next('myCalendar'));
-   
+
+
+
   }
 
   getGroup(id: any) {
@@ -106,10 +97,6 @@ export class ActivitiesComponent implements OnInit{
         this.highlitedDays.push(new Date(this.convertDate(act.date)));
 
       }
-
-    for (var dat of this.dates) {
-      console.log("***" + dat);
-    }
   }
   resetFields() {
     this.activityDescription = '';
@@ -124,7 +111,7 @@ export class ActivitiesComponent implements OnInit{
           this.activityName = act.name;
           this.activityDescription = act.description;
           this.activityDuration = act.duration;
-          this.activityId=act.id;
+          this.activityId = act.id;
           this.enableButton();
           return true;
         }
@@ -135,10 +122,9 @@ export class ActivitiesComponent implements OnInit{
   onSelect(event: any) {
     this.selectedDate = event._i.date + "/" + (Number(event._i.month) + 1) + "/" + event._i.year;
     if (this.dateExistsInActivites(this.selectedDate)) {
-      console.log("tacno je")
+
     } else {
-      console.log("nije tacno ")
-      this.isButtonEnabled=false;
+      this.isButtonEnabled = false;
       this.dialog.open(WarningDialogComponent, {
         width: '400px',
       });
@@ -183,16 +169,16 @@ export class ActivitiesComponent implements OnInit{
     this.isButtonEnabled = true;
   }
 
-  deleteActivity(idA:any){
+  deleteActivity(idA: any) {
     this.dialog
       .open(DeleteActivityDialogComponent, {
         width: '400px',
-        data: { idAct: idA, idG:this.group.id},
+        data: { idAct: idA, idG: this.group.id },
       })
       .afterClosed()
       .subscribe(() => {
         this.ngOnInit();
       });
-  
-}
+
+  }
 }

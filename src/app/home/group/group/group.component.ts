@@ -113,7 +113,7 @@ export class GroupComponent {
     this.dialog
       .open(AddEducatorDialogComponent, {
         width: '400px',
-        data: { id: this.group?.id, name: this.group?.name },
+        data: { id: this.group?.id, name: this.group?.name, educators: this._noFilteredEducators },
       })
       .afterClosed()
       .subscribe(() => {
