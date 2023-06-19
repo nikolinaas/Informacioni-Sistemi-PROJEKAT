@@ -9,6 +9,7 @@ export class ChildrenService {
   constructor(private http: HttpClient) { }
 
   private childrenURL = 'http://localhost:8080/Server/api/children';
+  private groupURL = 'http://localhost:8080/Server/api/groups/';
 
   getChildren() {
     return this.http.get(
@@ -38,5 +39,11 @@ export class ChildrenService {
 
   updateFile(medicalClearance:any, id?: number){
     return this.http.put(`${this.childrenURL}/${id}/medicalClearance`, medicalClearance);
+  }
+
+  
+
+  getGroup(id: number) {
+    return this.http.get(`${this.groupURL + id}`, {observe: 'response'});
   }
 }

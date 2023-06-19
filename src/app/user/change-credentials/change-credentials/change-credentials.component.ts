@@ -31,6 +31,7 @@ export class ChangeCredentialsComponent {
   }
   
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+   
     if (type === 'change') {
       this.date = moment(event.value);
       this._dateToFind =
@@ -39,6 +40,7 @@ export class ChangeCredentialsComponent {
         this.date.format('MM') +
         '-' +
         this.date.format('DD');
+        console.log(this._dateToFind);
     }
   }
 
@@ -46,13 +48,6 @@ export class ChangeCredentialsComponent {
     this.fillData();
     
   }
-
-  passwordMatchValidator: ValidatorFn = (control: AbstractControl): {[key: string]: boolean} | null => {
-    const password1 = control.get('password')?.value;
-    const password2 = control.get('password2')?.value;
-
-    return password1 === password2 ? null : { passwordMismatch: true };
-  };
 
 
   closeDialog() {
@@ -65,7 +60,7 @@ export class ChangeCredentialsComponent {
       name:  formData.name, 
       surname:  formData.surname, 
       uid:  formData.uid,
-      dateOfBirthday:  formData._dateToFind,
+      dateOfBirth:  this._dateToFind,
       city:  formData.city,
       street: formData.street,
       number: formData.number,
