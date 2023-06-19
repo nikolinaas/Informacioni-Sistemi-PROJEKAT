@@ -20,7 +20,7 @@
   border-radius: 10px;
   margin-top: 10px;
   padding-left: 50px;
-  width: calc(20vw - 25px);
+  width: calc(15vw - 25px);
 }
 ::ng-deep .mat-calendar-header{
   
