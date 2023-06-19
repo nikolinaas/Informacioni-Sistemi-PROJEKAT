@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -9,35 +9,49 @@ export class GroupService {
 
   private groupURL = 'http://10.99.145.167:8080/Server/api/groups/';
 
+  private headers = new HttpHeaders().set(
+    'Authorization',
+    'Bearer ' + sessionStorage.getItem('auth')
+  );
+
   getGroup(id: number) {
-    return this.http.get(`${this.groupURL + id}`);
+    return this.http.get(`${this.groupURL + id}`, { headers: this.headers });
   }
 
   editGroup(group: any, id: any) {
-    return this.http.put(`${this.groupURL + id}`, group, {observe: 'response'});
+    return this.http.put(`${this.groupURL + id}`, group, {
+      observe: 'response',
+      headers: this.headers,
+    });
   }
 
   deleteChildFromGroup(groupId: any, childId: any) {
-    return this.http.delete(`${this.groupURL + groupId + '/child/' + childId}`, {observe: 'response'});
+    return this.http.delete(
+      `${this.groupURL + groupId + '/children/' + childId}`,
+      { observe: 'response', headers: this.headers }
+    );
   }
 
   deleteEducatorFromGroup(groupId: any, educatorId: any) {
     return this.http.delete(
-      `${this.groupURL + groupId + '/educator/' + educatorId}`
+      `${this.groupURL + groupId + '/educators/' + educatorId}`,
+      { observe: 'response', headers: this.headers }
     );
   }
 
   addChildInGroup(groupId: any, child: any) {
     return this.http.post(
-      `${this.groupURL + groupId + '/child/' + child.id}`,
-      child, {observe: 'response'}
+      `${this.groupURL + groupId + '/children/' + child.id}`,
+      child,
+      { observe: 'response', headers: this.headers }
     );
   }
 
-  addEducatorInGroup(groupId:any, educator:any){
+  addEducatorInGroup(groupId: any, educator: any) {
     return this.http.post(
-      `${this.groupURL + groupId + '/educator/' + educator.id}`,
-      educator, {observe: 'response'}
+      `${this.groupURL + groupId + '/educators/' + educator.id}`,
+      educator,
+      { observe: 'response', headers: this.headers }
     );
   }
 }

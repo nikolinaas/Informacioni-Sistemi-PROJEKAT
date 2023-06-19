@@ -40,7 +40,6 @@ export class ChangeCredentialsComponent {
         this.date.format('MM') +
         '-' +
         this.date.format('DD');
-        console.log(this._dateToFind);
     }
   }
 

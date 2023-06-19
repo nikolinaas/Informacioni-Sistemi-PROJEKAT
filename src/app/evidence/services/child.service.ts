@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,17 +9,32 @@ export class ChildService {
 
   private childrenURL = 'http://10.99.145.167:8080/Server/api/children';
 
-  getChildren() {
-    return this.http.get(`${this.childrenURL}/evidence`);
-  }
+  private headers = new HttpHeaders().set(
+    'Authorization',
+    'Bearer ' + sessionStorage.getItem('auth')
+  );
 
-  evidenceChild(id?: number, child?: any) {
-    return this.http.put(`${this.childrenURL}/${id}/evidence`, JSON.stringify(child), {
-      headers: { 'Content-Type': 'application/json' },
+  private headersEvidence = new HttpHeaders()
+    .set('Authorization', 'Bearer ' + sessionStorage.getItem('auth'))
+    .set('Content-Type', 'application/json');
+
+  getChildren() {
+    return this.http.get(`${this.childrenURL}/evidences`, {
+      headers: this.headers,
     });
   }
-
-  getArrivalsAndDepartures(id?: number, date?: string) {
-    return this.http.get(`${this.childrenURL}/${id}/evidence/${date}`);
+  evidenceChild(id?: number, child?: any) {
+    return this.http.put(
+      `${this.childrenURL}/${id}/evidences`,
+      JSON.stringify(child),
+      {
+        headers: this.headersEvidence,
+      }
+    );
+  }
+  getArrivalsAndDepartures(id?: number) {
+    return this.http.get(`${this.childrenURL}/${id}/evidence`, {
+      headers: this.headersEvidence,
+    });
   }
 }

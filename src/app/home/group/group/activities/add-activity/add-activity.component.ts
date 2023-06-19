@@ -53,10 +53,8 @@ id:any;
   }
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    console.log(event);
     if (type === 'change') {
       this.date = moment(event.value);
-      console.log(this.date);
       this._dateToFind =
         this.date._i.year+
         '-' +
@@ -64,7 +62,6 @@ id:any;
         '-' +
         (this.date._i.date+1);
     }
-    console.log(this._dateToFind);
   }
 
   createActivity() {

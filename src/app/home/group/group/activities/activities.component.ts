@@ -1,5 +1,7 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
-import { MatCalendarCell, MatCalendarCellClassFunction, MatCalendarCellCssClasses } from '@angular/material/datepicker';
+import { Component, ElementRef, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
+import { MatCalendar, MatCalendarCell, MatCalendarCellClassFunction, MatCalendarCellCssClasses } from '@angular/material/datepicker';
+import { Component, ElementRef, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
+import { MatCalendar, MatCalendarCell, MatCalendarCellClassFunction, MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { GroupService } from '../services/group.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,14 +13,16 @@ import { AddActivityComponent } from './add-activity/add-activity.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { DeleteActivityDialogComponent } from './delete-activity-dialog/delete-activity-dialog.component';
+import { Subject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.css']
 })
-export class ActivitiesComponent {
+export class ActivitiesComponent implements OnInit{
 
+  refresh: Subject<any> = new Subject();
   activityId:any;
   activityDescription: string = '';
   activityName: string = '';
@@ -31,7 +35,7 @@ export class ActivitiesComponent {
   private dates: any[] = [];
   highlitedDays: Date[] = [];
   isButtonEnabled = false;
-  upcomingCalendarEvents: Date[] = [new Date(2023, 5, 1)];
+  @ViewChild('myCalendar') calendar: MatCalendar<Date> | undefined;
 
 
   constructor(
@@ -39,8 +43,20 @@ export class ActivitiesComponent {
     private route: ActivatedRoute,
     private activityService: ActivityService,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+   
   ) { }
+
+  ngAfterViewInit(): void {
+    // Access and use the 'calendar' property
+
+    console.log(this.calendar);
+    
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+   console.log("metoddaaa")
+  }
 
   public form: FormGroup = new FormGroup({
     name: new FormControl(''),
@@ -57,12 +73,14 @@ export class ActivitiesComponent {
   }
   ngOnInit() {
 
+    this.dateClass();
     const id = this.route.snapshot.paramMap.get('id');
     this.id = id;
     this.getGroup(id);
     this.getActivities();
-    this.dateClass();
-
+    
+    console.log(this.refresh.next('myCalendar'));
+   
   }
 
   getGroup(id: any) {

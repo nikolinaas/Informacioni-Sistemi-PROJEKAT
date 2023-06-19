@@ -4,28 +4,30 @@
 </button>
 <div mat-dialog-content>
     Izaberite datum
-    <mat-form-field class="height-65">
-        <input matInput [matDatepicker]="mydate" [(ngModel)]="date" (dateInput)="addEvent('input', $event)" readonly
-            (dateChange)="addEvent('change', $event)" [max]="currentDate">
-        <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
-        <mat-datepicker #mydate>
-        </mat-datepicker>
-    </mat-form-field>
+    <div class="calendar-div">
+
+        <mat-calendar #myCalendar [dateClass]="dateClass()" [selected]="selectedDate"
+        (selectedChange)="onSelect($event)"
+           startView="year">
+
+        </mat-calendar>
+
+      </div>
 </div>
 <div mat-dialog-content>
-    <mat-table *ngIf="dataSource && dataSource.length > 0" [dataSource]="dataSource" class="mat-elevation-z8">
+    <mat-table *ngIf="datesOfArrival && datesOfArrival.length > 0" [dataSource]="datesOfArrival" class="mat-elevation-z8">
         <ng-container matColumnDef="arrivalTime">
             <mat-header-cell class="mat-cell" *matHeaderCellDef> Vrijeme dolaska </mat-header-cell>
-            <mat-cell class="mat-cell" *matCellDef="let element"> {{element.type ? element.recordedTime : '-'}} </mat-cell>
+            <mat-cell class="mat-cell"  *matCellDef="let element" > {{(element?.type && checkDate(element))? element?.recordedTime : '-'}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="departureTime">
             <mat-header-cell class="mat-cell" *matHeaderCellDef> Vrijeme odlaska </mat-header-cell>
-            <mat-cell class="mat-cell" *matCellDef="let element"> {{!element.type ? element.recordedTime : '-'}} </mat-cell>
+            <mat-cell class="mat-cell" *matCellDef="let element"> {{!element?.type ? element?.recordedTime : '-'}} </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <p *ngIf="dataSource && dataSource.length == 0">Ne postoje zapisi za {{ dateToShow }}</p>
+    <p *ngIf="datesOfArrival && datesOfArrival.length == 0">Ne postoje zapisi za {{ dateToShow }}</p>
 </div>

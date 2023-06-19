@@ -38,6 +38,7 @@ export class EvidenceComponent implements OnInit {
   showChildEvidence(id?: number) {
     this.dialog.open(ArrivalDepartureTimeComponent, {
       width: '500px',
+      height: '600px',
       data: { id: id },
     });
   }

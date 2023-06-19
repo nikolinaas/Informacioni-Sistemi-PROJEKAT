@@ -16,7 +16,9 @@ export class ChangeGroupNameDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private groupService: GroupService,
     private snackBar: MatSnackBar
-  ) {}
+  ) {
+    this.group.title = data.name;
+  }
  
   closeDialog() {
     this.dialogRef.close();
