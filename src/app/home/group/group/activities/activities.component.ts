@@ -50,7 +50,8 @@ export class ActivitiesComponent implements OnInit {
   public form: FormGroup = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
-    duration: new FormControl('')
+    duration: new FormControl(''),
+    number: new FormControl(''),
   });
 
   getErrorMessage(controlName: string) {
