@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class ChildService {
   constructor(private http: HttpClient) {}
 
-  private childrenURL = 'http://localhost:8080/Server/api/children';
+  private childrenURL = 'http://10.99.145.167:8080/Server/api/children';
 
   getChildren() {
     return this.http.get(`${this.childrenURL}/evidence`);

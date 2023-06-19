@@ -34,7 +34,7 @@
     position: absolute;
     right: 0;
     font-size: 18px;
-    background-color: #2db0b0 !important;
+    background-color: #8e31a8 !important;
     margin-right: 20px;
     height: 40px;
     color: white !important;
@@ -174,7 +174,7 @@ form button {
     padding: 10px;
     margin: auto;
     font-size: 18px;
-    background-color:  #2db0b0 !important;
+    background-color:  #8e31a8 !important;
     color: white !important;
 }
 .between-buttons {

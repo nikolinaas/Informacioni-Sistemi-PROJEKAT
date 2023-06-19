@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class GroupService {
   constructor(private http: HttpClient) {}
 
-  private groupURL = 'http://localhost:8080/Server/api/groups/';
+  private groupURL = 'http://10.99.145.167:8080/Server/api/groups/';
 
   getGroup(id: number) {
     return this.http.get(`${this.groupURL + id}`);

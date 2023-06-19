@@ -8,7 +8,7 @@ export class MembershipService {
 
   constructor(private http: HttpClient) {}
 
-  private membershipURL = 'http://localhost:8080/Server/api/memberships';
+  private membershipURL = 'http://10.99.145.167:8080/Server/api/memberships';
 
   getMemberships() {
     return this.http.get(`${this.membershipURL}`);

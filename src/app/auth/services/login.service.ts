@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
 
-  private frontendURL: string = 'http://localhost:8080/Server/api';
+  private frontendURL: string = 'http://10.99.145.167:8080/Server/api';
 
   constructor(private router: Router, private http: HttpClient) {}
   
