@@ -25,6 +25,11 @@ export class DeleteChildComponent {
         });
         this.dialogRef.close(true);
       }
+    },
+    () => {
+      this.snackBar.open('Nije moguće obrisati nalog za dijete!', '', {
+        duration: 2000,
+      });
     });
   }
 

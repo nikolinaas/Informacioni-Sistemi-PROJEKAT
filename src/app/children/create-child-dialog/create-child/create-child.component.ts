@@ -105,7 +105,7 @@ export class CreateChildComponent {
           }
         },
         () => {
-          this.snackBar.open('Nije moguće kreirati nalog za dijete!' + date, '', {
+          this.snackBar.open('Nije moguće kreirati nalog za dijete!', '', {
             duration: 2000,
           });
         }
