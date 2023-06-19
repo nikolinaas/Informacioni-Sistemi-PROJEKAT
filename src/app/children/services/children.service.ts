@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class ChildrenService {
   constructor(private http: HttpClient) {}
 
-  private childrenURL = 'http://10.99.145.167:8080/Server/api/children';
-  private groupURL = 'http://10.99.145.167:8080/Server/api/groups/';
+  private childrenURL = 'http://localhost:8080/Server/api/children';
+  private groupURL = 'http://localhost:8080/Server/api/groups/';
 
   private headers = new HttpHeaders().set(
     'Authorization',
@@ -61,6 +61,6 @@ export class ChildrenService {
   }
 
   getGroup(id: number) {
-    return this.http.get(`${this.groupURL + id}`, { observe: 'response' });
+    return this.http.get(`${this.groupURL + id}`, { observe: 'response', headers: this.headers });
   }
 }

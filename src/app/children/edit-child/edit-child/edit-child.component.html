@@ -119,6 +119,14 @@
                 </div>
 
                 <div class="form-row">
+                    Grupa:
+                    <mat-form-field appearance="fill">
+                        <input matInput type="text" formControlName="group" required autocomplete="off" readonly />
+                        <mat-error>{{ getErrorMessage('group') }}</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-row">
                     Napomena:
                     <mat-form-field appearance="fill">
                         <input matInput type="text" formControlName="description" required autocomplete="off"

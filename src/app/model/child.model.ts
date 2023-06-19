@@ -20,6 +20,7 @@ export class Child {
     private _isHere?: boolean,
     private _fatherName?: string,
     private _arrivalAndDepartureTime?: ArrivalAndDepartureTime,
+    private _groupId?: number
   ){
     
   }
@@ -123,6 +124,10 @@ export class Child {
 
   get arrivalAndDepartureTime() {
     return this._arrivalAndDepartureTime;
+  }
+
+  get number() {
+    return this._groupId;
   }
 
 }

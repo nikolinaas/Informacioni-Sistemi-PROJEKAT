@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class ChildService {
   constructor(private http: HttpClient) {}
 
-  private childrenURL = 'http://10.99.145.167:8080/Server/api/children';
+  private childrenURL = 'http://localhost:8080/Server/api/children';
 
   private headers = new HttpHeaders().set(
     'Authorization',
