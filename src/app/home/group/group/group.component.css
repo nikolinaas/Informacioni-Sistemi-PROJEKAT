@@ -51,7 +51,7 @@ form button {
     padding: 10px;
     margin: auto;
     font-size: 18px;
-    background-color:  #2db0b0 !important;
+    background-color:  #8e31a8 !important;
     color: white !important;
 }
 
@@ -96,7 +96,7 @@ form button {
     right: 0;
     height: 40px;
     font-size: 18px;
-    background-color:  #2db0b0 !important;
+    background-color:  #8e31a8 !important;
     border-color: transparent;
     border-style: dashed;
     color: white !important;  
@@ -156,9 +156,10 @@ form button {
     margin-top: 23px;
     width: 150px;
     margin-right: 20px;
-    height: 40px;
-    background-color:  #2db0b0 !important;
+    height: 35px;
+    background-color:  #8e31a8 !important;
     color: white !important;
+    border-radius: 10px;
 }
 
 ::ng-deep .search-bar div:first-child {

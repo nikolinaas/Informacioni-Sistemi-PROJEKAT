@@ -27,10 +27,11 @@
     position: absolute;
     right: 0;
     font-size: 18px;
-    background-color:  #2db0b0 !important;
+    background-color:  #8e31a8 !important;
     margin-right: 20px;
-    height: 40px;
+    height: 35px;
     color: white !important;
+    border-radius: 10px;
 }
 
 .before-group {
@@ -90,7 +91,8 @@
     margin-top: 23px;
     width: 150px;
     margin-right: 20px;
-    height: 40px;
-    background-color: #2db0b0 !important;
+    height: 35px;
+    background-color: #8e31a8!important;
     color: white !important;
+    border-radius: 10px;
 }

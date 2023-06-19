@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class ActivityService {
   constructor(private http: HttpClient) {}
 
-  private groupURL = 'http://localhost:8080/Server/api/groups';
+  private groupURL = 'http://10.99.145.167:8080/Server/api/groups';
 
   getActivites(id: any) {
     return this.http.get(`${this.groupURL}/${id}/activities`);

@@ -7,7 +7,7 @@
     <div class="form-row" style="margin-bottom: 20px;">
         Ljekarsko uvjerenje:
         <div class="file-chooser">
-            <button mat-raised-button style="background-color: #77238e; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser1()">Dodaj dokument</button>
+            <button mat-raised-button style="background-color: #8e31a8; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser1()">Dodaj dokument</button>
             <span style="margin-left: 5px;">{{ selectedFileMedicalClearance?.name }} </span>
             <input #fileInputMedicalClearance type="file" id="fileInputMedicalClearance" (change)="onMedicalFileSelected($event)" hidden>
         </div>
@@ -16,7 +16,7 @@
     <div class="form-row" style="margin-bottom: 20px;">
         Higijenski test:
         <div class="file-chooser">
-            <button mat-raised-button style="background-color: #77238e; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser2()">Dodaj dokument</button>
+            <button mat-raised-button style="background-color: #8e31a8; border-radius: 10px; vertical-align: center; margin: 7px;" color="primary" (click)="openFileChooser2()">Dodaj dokument</button>
             <span style="margin-left: 5px;">{{ selectedFileHygieneTest?.name }} </span>
             <input #fileInputHygieneTest type="file" id="fileInputHygieneTest" (change)="onHygieneFileSelected($event)" hidden>
         </div>

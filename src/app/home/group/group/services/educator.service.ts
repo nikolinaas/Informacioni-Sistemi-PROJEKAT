@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class EducatorService {
   constructor(private http: HttpClient) {}
 
-  private groupURL = 'http://localhost:8080/Server/api/educators';
+  private groupURL = 'http://10.99.145.167:8080/Server/api/educators';
 
   private headers = new HttpHeaders().set(
     'Authorization',

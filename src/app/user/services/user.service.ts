@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
  
-  private adminURL = 'http://localhost:8080/Server/api/admin';
-  private educatorsURL = 'http://localhost:8080/Server/api/educators';
+  private adminURL = 'http://10.99.145.167:8080/Server/api/admin';
+  private educatorsURL = 'http://10.99.145.167:8080/Server/api/educators';
 
   constructor(private http:HttpClient) {
 
