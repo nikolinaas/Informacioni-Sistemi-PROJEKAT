@@ -35,7 +35,18 @@ export class ChildrenComponent {
     this.childrenService.getChildren().subscribe((children: any) => {
       this.notFilteredChildren = children;
       this.children = this.notFilteredChildren;
+      this.getChildFather(this.notFilteredChildren);
     });
+
+  }
+
+  getChildFather(children: any) {
+    children.forEach((child: any) => {
+      this.childrenService.getChild(child.id).subscribe((response: any) => {
+        child.fatherName = response.body.fatherName;
+      });
+    });
+
   }
 
   showChildDetails(id?: number) {
@@ -86,5 +97,5 @@ export class ChildrenComponent {
     this.children = this.notFilteredChildren;
   }
 
-  
+
 }

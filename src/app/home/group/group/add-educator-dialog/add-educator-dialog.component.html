@@ -15,10 +15,10 @@
     <div *ngIf="educators" class="group-scroll">
         <div>
             <div class="comment-section">
-                <ng-container *ngFor="let educator of educators">
-                    <mat-card class="comment-card">
+                <ng-container *ngFor="let educator of educators" >
+                    <mat-card  *ngIf="!educatorExistsInGroup(educator)" class="comment-card">
                         <mat-card-header>
-                            <mat-card-title class="font-size-18">{{educator.name}} {{educator.surname}}</mat-card-title>
+                            <mat-card-title  class="font-size-18">{{educator.name}} {{educator.surname}}</mat-card-title>
                         </mat-card-header>
                         <mat-checkbox class="checkbox-container" 
                             (click)="$event.stopPropagation(); addEducatorInGroup(educator)">
