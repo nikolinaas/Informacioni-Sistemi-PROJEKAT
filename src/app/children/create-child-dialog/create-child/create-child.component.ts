@@ -32,7 +32,7 @@ export class CreateChildComponent {
     fatherPhoneNumber: new FormControl('', Validators.required),
     height: new FormControl('', Validators.required),
     weight: new FormControl('', Validators.required),
-    note: new FormControl('', Validators.required),
+    note: new FormControl(''),
     city: new FormControl('', Validators.required),
     street: new FormControl('', Validators.required),
     number: new FormControl('', Validators.required)

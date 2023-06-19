@@ -13,14 +13,17 @@ import { AddEducatorDialogComponent } from './add-educator-dialog/add-educator-d
   styleUrls: ['./group.component.css'],
 })
 export class GroupComponent {
+
   id?: string;
   group?: any;
   searchText: String = '';
   groupName: String = '';
+
   private _filteredChildren?: any[];
   private _noFilteredChildren?: any[];
   private _filteredEducators?: any[];
   private _noFilteredEducators?: any[];
+
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id != null) {
@@ -35,13 +38,13 @@ export class GroupComponent {
     private dialog: MatDialog,
     private router: Router,
     private snackBar: MatSnackBar
-  ) { }
+  ) {}
 
   getGroup(id: any) {
     this.groupService.getGroup(parseInt(id)).subscribe((gro: any) => {
       this.group = gro;
       this._noFilteredChildren = this.group.children;
-      this._noFilteredEducators=this.group.educators;
+      this._noFilteredEducators = this.group.educators;
     });
   }
 
@@ -51,10 +54,8 @@ export class GroupComponent {
       .subscribe((response: any) => {
         this.ngOnInit();
         if (response.status == 200) {
-          //ne radi nesto response status
-
           this.snackBar.open(
-            'Uspjesno ste vaspitača dijete iz grupe',
+            'Uspješno ste obrisali vaspitača iz grupe.',
             undefined,
             {
               duration: 2000,
@@ -71,7 +72,7 @@ export class GroupComponent {
         this.ngOnInit();
         if (response.status == 200) {
           this.snackBar.open(
-            'Uspješno ste obrisali dijete iz grupe',
+            'Uspješno ste obrisali dijete iz grupe.',
             undefined,
             {
               duration: 2000,
@@ -100,7 +101,7 @@ export class GroupComponent {
     this.dialog
       .open(AddEducatorDialogComponent, {
         width: '400px',
-       data : { id: this.group?.id, name: this.group?.name },
+        data: { id: this.group?.id, name: this.group?.name },
       })
       .afterClosed()
       .subscribe(() => {
@@ -114,18 +115,20 @@ export class GroupComponent {
     if (this.searchText != '') {
       const searchTextLowerCase = this.searchText.toLowerCase();
       this._filteredChildren = this._noFilteredChildren;
-      this.group.children = this._filteredChildren?.filter(child =>
-        child.name?.toLowerCase().includes(searchTextLowerCase) ||
-        child.surname?.toLowerCase().includes(searchTextLowerCase)
+      this.group.children = this._filteredChildren?.filter(
+        (child) =>
+          child.name?.toLowerCase().includes(searchTextLowerCase) ||
+          child.surname?.toLowerCase().includes(searchTextLowerCase)
       );
-      this._filteredEducators= this._noFilteredEducators;
-      this.group.educators = this._filteredEducators?.filter(educator =>
-        educator.name?.toLowerCase().includes(searchTextLowerCase) ||
-        educator.surname?.toLowerCase().includes(searchTextLowerCase)
+      this._filteredEducators = this._noFilteredEducators;
+      this.group.educators = this._filteredEducators?.filter(
+        (educator) =>
+          educator.name?.toLowerCase().includes(searchTextLowerCase) ||
+          educator.surname?.toLowerCase().includes(searchTextLowerCase)
       );
     } else {
       this.group.children = this._noFilteredChildren;
-      this.group.educators=this._noFilteredEducators;
+      this.group.educators = this._noFilteredEducators;
     }
   }
 
