@@ -61,6 +61,6 @@ export class ChildrenService {
   }
 
   getGroup(id: number) {
-    return this.http.get(`${this.groupURL + id}`, { observe: 'response' });
+    return this.http.get(`${this.groupURL + id}`, { observe: 'response', headers: this.headers });
   }
 }

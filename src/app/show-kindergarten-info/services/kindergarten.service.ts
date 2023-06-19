@@ -8,7 +8,7 @@ export class KindergartenService {
 
   constructor(private http: HttpClient) { }
 
-  private kindergartenUrl = 'http://10.99.145.167:8080/Server/api/kindergarten';
+  private kindergartenUrl = 'http://localhost:8080/Server/api/kindergarten';
 
   getInfo() {
     return this.http.get(

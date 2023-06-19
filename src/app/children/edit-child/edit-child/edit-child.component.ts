@@ -21,8 +21,7 @@ export class EditChildComponent {
     private dialog: MatDialog,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private childrenService: ChildrenService,
-    private snackBar: MatSnackBar
+    private childrenService: ChildrenService
   ) {}
 
   ngOnInit() {
@@ -48,11 +47,21 @@ export class EditChildComponent {
       height: [''],
       weight: [''],
       description: [''],
+      group: ['']
     });
     this.childrenService
       .getChild(this.id)
       .subscribe((response: HttpResponse<any>) => {
         this.data = response.body;
+        if(response.body.idGroup == 0) {
+          this.form.get('group')?.setValue("Nije dodjeljeno ni u jednu grupu");
+        } else {
+          this.childrenService.getGroup(response.body.idGroup).subscribe((response: any) => {
+            if(response.status == 200) {
+              this.form.get('group')?.setValue(response.body.name);
+            }
+          });
+        }
         this.form.patchValue(this.data);
         this.form.patchValue(this.data.address);
         this.form.patchValue(this.data.note);
