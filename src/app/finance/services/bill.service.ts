@@ -8,7 +8,7 @@ export class BillService {
 
   constructor(private http: HttpClient) {}
 
-  private billURL = 'http://10.99.145.167:8080/Server/api/bills';
+  private billURL = 'http://localhost:8080/Server/api/bills';
 
   getBills() {
     return this.http.get(`${this.billURL}`);

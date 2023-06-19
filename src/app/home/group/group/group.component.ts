@@ -6,6 +6,8 @@ import { ChangeGroupNameDialogComponent } from './change-group-name-dialog/chang
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddChildDialogComponent } from './add-child-dialog/add-child-dialog.component';
 import { AddEducatorDialogComponent } from './add-educator-dialog/add-educator-dialog.component';
+import { ChildService } from './services/child.service';
+import { ReturnStatement } from '@angular/compiler';
 
 @Component({
   selector: 'app-group',
@@ -18,7 +20,7 @@ export class GroupComponent {
   group?: any;
   searchText: String = '';
   groupName: String = '';
-
+  child:any;
   private _filteredChildren?: any[];
   private _noFilteredChildren?: any[];
   private _filteredEducators?: any[];
@@ -34,6 +36,7 @@ export class GroupComponent {
 
   constructor(
     private groupService: GroupService,
+    private childService:ChildService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
     private router: Router,
@@ -47,6 +50,7 @@ export class GroupComponent {
       this._noFilteredEducators = this.group.educators;
     });
   }
+
 
   removeEducator(item: any) {
     this.groupService
