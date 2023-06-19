@@ -15,3 +15,37 @@
   justify-content: center;
   align-items: center;
 }
+.mat-calendar{
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding-left: 50px;
+  width: calc(20vw - 25px);
+}
+::ng-deep .mat-calendar-header{
+  
+  width: calc(15vw - 25px);
+  padding:10px ;
+ 
+}
+::ng-deep .highlight-date-class.mat-calendar-body-cell{
+  background-color: rgb(139, 89, 172);
+  color: rgb(139, 89, 172);
+  border-radius: 50px;
+  
+}
+::ng-deep .mat-calendar-body-cell:focus{
+
+  background-color: rgb(172, 153, 178);
+  border-radius: 50px;
+}
+::ng-deep .highlight-date-class.mat-calendar-body-cell{
+  background-color: rgb(139, 89, 172);
+  color: rgb(139, 89, 172);
+  border-radius: 50px;
+  
+}
+::ng-deep .mat-calendar-body{
+padding: 10px;
+width: calc(20vw - 25px);
+}

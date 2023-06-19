@@ -19,7 +19,7 @@ export class ChildService {
     });
   }
 
-  getArrivalsAndDepartures(id?: number, date?: string) {
-    return this.http.get(`${this.childrenURL}/${id}/evidence/${date}`);
+  getArrivalsAndDepartures(id?: number) {
+    return this.http.get(`${this.childrenURL}/${id}/evidence`);
   }
 }
