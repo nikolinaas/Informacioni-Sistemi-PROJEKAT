@@ -22,14 +22,12 @@ export class EducatorsService {
 
   createEducator(educator: any) {
     return this.http.post(`${this.educatorsURL}`, educator, {
-      observe: 'response',
+      observe: 'response',headers: this.headers
     });
   }
 
   deleteEducator(id?: number) {
-    return this.http.delete(`${this.educatorsURL}/${id}`, {
-      observe: 'response',
-    });
+    return this.http.delete(`${this.educatorsURL}/${id}`, { observe: 'response', headers: this.headers });
   }
 
   getEducator(id?: number) {
@@ -45,7 +43,9 @@ export class EducatorsService {
   updateMedicalFile(medicalClearance: any, id?: number) {
     return this.http.put(
       `${this.educatorsURL}/${id}/medicalClearance`,
-      medicalClearance
+      medicalClearance, {
+        responseType: 'arraybuffer', headers: this.headers
+      }
     );
   }
   getHygieneFile(id?: number) {
@@ -55,10 +55,14 @@ export class EducatorsService {
   }
 
   updateHygieneFile(hygieneTest: any, id?: number) {
-    return this.http.put(`${this.educatorsURL}/${id}/hygieneTest`, hygieneTest);
+    return this.http.put(`${this.educatorsURL}/${id}/hygieneTest`, hygieneTest, {
+      responseType: 'arraybuffer', headers: this.headers
+    });
   }
 
   updateEducator(educator: any, id: number) {
-    return this.http.put(`${this.educatorsURL}/${id}`, educator);
+    return this.http.put(`${this.educatorsURL}/${id}`, educator, {
+      responseType: 'arraybuffer', headers: this.headers
+    });
   }
 }
