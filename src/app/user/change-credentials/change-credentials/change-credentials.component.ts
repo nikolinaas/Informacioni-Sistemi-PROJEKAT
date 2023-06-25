@@ -51,13 +51,12 @@ export class ChangeCredentialsComponent {
   }
 
   changeData() {
-    console.log(this._dateToFind);
     const formData = this.form.value;
     const data = {
       name: formData.name,
       surname: formData.surname,
       uid: formData.uid,
-      dateOfBirth: this._dateToFind,
+      dateOfBirth: this._dateToFind? this._dateToFind: formData.dateOfBirth,
       city: formData.city,
       street: formData.street,
       number: formData.number,
