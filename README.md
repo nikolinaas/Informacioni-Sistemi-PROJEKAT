@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Application layout
+![Screenshot (12)](https://github.com/nikolinaas/Informacioni-Sistemi-PROJEKAT/assets/77556327/09db983d-6a25-4ea8-a586-ba5b7a17e973)
+
+![Screenshot (14)](https://github.com/nikolinaas/Informacioni-Sistemi-PROJEKAT/assets/77556327/6b4faf84-4eb3-4be7-a96a-71656982347f)
+![Screenshot (13)](https://github.com/nikolinaas/Informacioni-Sistemi-PROJEKAT/assets/77556327/9153fb6d-b809-4b08-a978-5b67d04a7800)
+![Screenshot (22)](https://github.com/nikolinaas/Informacioni-Sistemi-PROJEKAT/assets/77556327/462a2f9d-cfb5-4718-b0d9-61495de2a1b8)
+
+![Screenshot (32)](https://github.com/nikolinaas/Informacioni-Sistemi-PROJEKAT/assets/77556327/2069f44f-4204-47c9-8231-1cb0a20a9a0b)
+![Screenshot (23)](https://github.com/nikolinaas/Informacioni-Sistemi-PROJEKAT/assets/77556327/507459fc-ad8d-4093-81cd-bb17dab81273)
+![Screenshot (25)](https://github.com/nikolinaas/Informacioni-Sistemi-PROJEKAT/assets/77556327/3aa81a38-fa8c-4617-bd26-db77c02497c2)
